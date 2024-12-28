@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Banking Features</title>
+  <link rel="stylesheet" href="homepage.css">
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    header {
+      background-color: #3b015b;
+      color: white;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .nav-links a:hover {
+      text-decoration: underline;
+    }
+
+    .btn-login {
+      background-color: white;
+      color: #3b015b;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 14px;
+      text-decoration: none;
+    }
+
+    .hero-section {
+      height: 100vh;
+      background-image: url('truist.jpeg');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      padding: 20px;
+      position: relative;
+      margin-top: 60px;
+    }
+
+    .hero-section::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: 0;
+    }
+
+    .hero-content {
+      z-index: 1;
+    }
+
+    .hero-content h1 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    .hero-content .cta-buttons {
+      display: flex;
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .cta-buttons a {
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 16px;
+      font-weight: bold;
+      display: inline-block;
+    }
+
+    .cta-buttons .btn-primary {
+      background-color: #3b015b;
+      color: white;
+    }
+
+    .cta-buttons .btn-secondary {
+      background-color: white;
+      color: #3b015b;
+      border: 2px solid #3b015b;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Logo</div>
+    <nav class="nav-links">
+      <a href="feautures.html">Features</a>
+      <a href="#">Products</a>
+      <a href="#">Locations</a>
+      <a href="#">Contact us</a>
+    </nav>
+    <a href="#" class="btn-login">Log in</a>
+  </header>
+
+  <section class="hero-section">
+    <div class="hero-content">
+      <h1>No overdraft fees.<br>Practical perks.<br>Automatic upgrades.</h1>
+      <div class="cta-buttons">
+        <a href="#" class="btn-primary">Open account</a>
+        <a href="#" class="btn-secondary">Learn more</a>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+
+  
+  <div class="layout-wrapper">
+    <!-- Top Section -->
+    <div class="cashback-section">
+      <div class="cashback-text">
+        <h4 class="cashback-subtitle">Enjoy cash rewards</h4>
+        <h1 class="cashback-title">Fill up. Stock up. Charge up. All with cash back.</h1>
+        <p class="cashback-description">Turn grocery runs and fuel stops into extra rewards with the Truist Enjoy Cash credit card.</p>
+        <div class="button-group">
+          <button class="cta-primary">3-2-1% Cash back</button>
+          <button class="cta-secondary">1.5% Cash back</button>
+        </div>
+      </div>
+      <div class="cashback-image">
+        <img src="6.jpeg" alt="Family Shopping">
+      </div>
+    </div>
+
+    <!-- Bottom Section -->
+    <div class="cards-section">
+      <!-- Card 1 -->
+      <div class="info-card">
+        <h4 class="info-card-category">Loans</h4>
+        <h2 class="info-card-title">We have loans to help make your spirit bright.</h2>
+        <p class="info-card-description">Our fast decision-making process for Truist personal loans can make holiday wishes come true in minutes.</p>
+        <button class="cta-learn-more">Learn more</button>
+      </div>
+      <!-- Card 2 -->
+      <div class="info-card">
+        <h4 class="info-card-category">Truist One Checking</h4>
+        <h2 class="info-card-title">Stuff your stocking with a Truist One Checking account</h2>
+        <p class="info-card-description">Enjoy a checking account with automatic upgrades and no overdraft fees this holiday season.</p>
+        <button class="cta-learn-more">Learn more</button>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="card-container">
+    <!-- Card 1 -->
+    <div class="card">
+      <h4>Credit card offers</h4>
+      <h2>A great credit card may be waiting for you.</h2>
+      <p>Enjoy a checking account with automatic upgrades and no overdraft fees this holiday season.</p>
+      <button>Check offers</button>
+    </div>
+    <!-- Card 2 -->
+    <div class="card">
+      <h4>Zelle</h4>
+      <h2>Give and go with Zelle®</h2>
+      <p>Use Zelle® to send money to the people you celebrate right from your phone.</p>
+      <button>Check offers</button>
+    </div>
+    <!-- Card 3 -->
+    <div class="card">
+      <h4>Money market account</h4>
+      <h2>Sleigh your end-of-year savings goals.</h2>
+      <p>Cozy up to the Truist One Money Account today.</p>
+      <button>Check offers</button>
+    </div>
+    <!-- Card 4 -->
+    <div class="card">
+      <h4>Home mortgage</h4>
+      <h2>Refinancing now might save you money.</h2>
+      <p>Falling rates have opened the door to potentially lowering your mortgage.</p>
+      <button>Check offers</button>
+    </div>
+  </div>
+  <div class="container">
+    <div class="image-section">
+      <img src="3.jpeg" alt="Person using a mobile phone">
+    </div>
+    <div class="content-section">
+      <h1>Crystal clear—created with care. Stock up. Charge up. All with cash back.</h1>
+      <p>Meet the Truist app.</p>
+      <p>Get super-fast access to your accounts and bright insights into your spending with our mobile app.</p>
+      <div class="qr-section">
+        <img src="your-qr-code.png" alt="QR Code">
+        <span>Scan this code with your phone’s camera to download Truist Mobile.</span>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <div class="footbar">
+      <ul>
+        <li>
+          <h3>Banking Products</h3>
+          <p>Wealth</p>
+          <p>Investing</p>
+          <p>Mortgage</p>
+          <p>Small business</p>
+          <p>Loan</p>
+          <p>Savings</p>
+          <p>Insurance</p>
+          <p>Credit cards</p>
+        </li>
+      </ul>
+      <ul>
+        <li>
+          <h3>About Truistee</h3>
+          <p>About us</p>
+          <p>Care</p>
+          <p>Community</p>
+          <p>Purpose</p>
+          <p>Truitee foundation</p>
+        </li>
+      </ul>
+      <ul>
+        <li>
+          <h3>Resources</h3>
+          <p>Careers</p>
+          <p>community Reinvestment act</p>
+          <p>Belonging</p>
+          <p>Corporate Responsibility & Sustainability</p>
+          <p>Facts about banking</p>
+          <p>Investor relations</p>
+          <p>Money and Mindset</p>
+          <p>Credit cards</p>
+        </li>
+      </ul>
+      <ul>
+        <li>
+          <h3>Support</h3>
+          <p>Accessibility</p>
+          <p>Client emergency resources</p>
+          <p>Consumer payment relief hub</p>
+          <p>Find a banker or advisor</p>
+          <p>Find a branch or ATM</p>
+        </li>
+      </ul>
+    </div>
+    <div class="social-media">
+      <div class="follow-social"><p>Follow Us</p></div>
+      <div class="social-icons">
+        <img src="Facebook.svg" alt="facebook" />
+      </div>
+      <div class="social-icons">
+        <img src="linkedin.svg" alt="" />
+      </div>
+      <div class="social-icons"><img src="twitter.svg" alt="" /></div>
+      <div class="social-icons">
+        <img src="image/Facebook.svg" alt="" />
+      </div>
+      <div class="social-icons">
+        <img src="instagram (6).svg" alt="" />
+      </div>
+    </div>
+    <div class="copyright">
+      <img src="image/logo main.png" alt="" width="8%" />
+
+      <a href="">Terms Of Service</a><a href="">Privacy Policy</a
+      ><a href="">CA Notice Of Collection</a><a href="">Accessibility</a>
+    </div>
+  </footer>
+</body>
+</html>
