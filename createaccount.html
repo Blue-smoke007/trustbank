@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Truist</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+    <!-- Header -->
+    <header class="bg-purple-900 text-white py-4">
+        <div class="container mx-auto flex justify-between items-center px-4">
+            <div class="text-2xl font-bold">TRUIST</div>
+            <nav class="space-x-6">
+                <a href="#" class="hover:underline">Home</a>
+                <a href="#" class="hover:underline">Products</a>
+                <a href="#" class="hover:underline">Rewards</a>
+                <a href="#" class="hover:underline">Contact us</a>
+                <a href="#" class="hover:underline">Dashboard</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto my-8 px-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <!-- Image Section -->
+            <div>
+                <img src="truist1.jpeg" alt="Modern building" class="w-full h-auto rounded-lg shadow-md">
+            </div>
+
+            <!-- Form Section -->
+            <div class="bg-white p-8 rounded-lg shadow-md">
+                <h1 class="text-2xl font-bold text-purple-950 mb-4">Welcome to Truist!</h1>
+                <p class="text-gray-700 mb-6">Create your account</p>
+                <form action="#" method="POST" class="space-y-4">
+                    <div>
+                        <input type="text" placeholder="First name" id="first_name" name="first_name" class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-purple-500 focus:border-purple-500 bg-gray-300 placeholder-black">
+                    </div>
+                    <div>
+                        <input type="text" placeholder="last name" id="last_name" name="last_name" class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-purple-500 focus:border-purple-500 placeholder-black bg-gray-300">
+                    </div>
+                    <div>
+                        <input type="date" placeholder="Date of Birth" id="dob" name="dob" class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-purple-500 focus:border-purple-500 bg-gray-300">
+                    </div>
+                    <div>
+                        <input type="text" placeholder="Email" id="citizenship" name="citizenship" class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-purple-500 focus:border-purple-500 bg-gray-300 placeholder-black">
+                    </div>
+                    <div>
+                        <input type="text" placeholder="Phone number" id="citizenship" name="citizenship" class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-purple-500 focus:border-purple-500 bg-gray-300 placeholder-black">
+                    </div>
+                    <div>
+                        <input type="text" placeholder="Password" id="citizenship" name="citizenship" class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-purple-500 focus:border-purple-500 bg-gray-300 placeholder-black">
+                    </div>
+                    <div>
+                        <input type="text" placeholder="Re-type password" id="citizenship" name="citizenship" class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-purple-500 focus:border-purple-500 bg-gray-300 placeholder-black">
+                    </div>
+                    <button type="submit" class="w-full bg-purple-950 text-white py-2 px-4 rounded-md hover:bg-purple-700">Sign-up</button>
+                </form>
+                <div class="flex items-center my-4">
+                    <hr class="flex-grow border-gray-300">
+                    <span class="px-4 text-gray-500">Or</span>
+                    <hr class="flex-grow border-gray-300">
+                </div>
+                <button class="w-full border bg-purple-950 border-purple-900 text-white py-2 px-4 rounded-md hover:bg-purple-700">Sign into your account</button>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-purple-900 text-white py-4 mt-8">
+        <div class="container mx-auto text-center space-y-2">
+            <div class="space-x-6">
+                <a href="#" class="hover:underline">Privacy</a>
+                <a href="#" class="hover:underline">Terms and Conditions</a>
+                <a href="#" class="hover:underline">Fraud & Security</a>
+                <a href="#" class="hover:underline">Disclosures</a>
+            </div>
+            <p>© 2024, Truist. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
