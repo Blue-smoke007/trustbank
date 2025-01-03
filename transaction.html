@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transactions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+    <!-- Header -->
+    <header class="bg-purple-900 text-white py-4">
+        <div class="container mx-auto flex justify-between items-center px-4">
+            <div class="flex items-center space-x-4">
+                <div class="text-2xl font-bold">TRUIST</div>
+            </div>
+            <nav class="space-x-6">
+                <a href="#" class="hover:underline">Home</a>
+                <a href="#" class="hover:underline">Products</a>
+                <a href="#" class="hover:underline">Rewards</a>
+                <a href="#" class="hover:underline">Contact us</a>
+                <a href="#" class="hover:underline">Dashboard</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container mx-auto mt-8 flex">
+        <!-- Sidebar -->
+        <aside class="w-1/4 bg-white rounded-lg shadow-md p-6 space-y-4">
+            <div class="text-center font-bold text-lg">TRUIST</div>
+            <nav class="space-y-4">
+                <a href="#" class="block hover:text-purple-600">Dashboard</a>
+                <a href="#" class="block text-purple-900 font-bold">Transactions</a>
+                <a href="#" class="block hover:text-purple-600">Manage cards</a>
+                <a href="#" class="block hover:text-purple-600">Notifications</a>
+                <a href="#" class="block hover:text-purple-600">Help center</a>
+                <a href="#" class="block hover:text-purple-600">Settings</a>
+                <a href="#" class="block hover:text-purple-600">Sign out</a>
+            </nav>
+        </aside>
+
+
+        <main class="w-3/4 pl-8">
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h1 class="text-2xl font-bold mb-4">Welcome Username</h1>
+                <p class="text-gray-700 text-lg mb-6">Your balance</p>
+                <p class="text-purple-900 text-4xl font-bold">$250,489.34</p>
+
+
+                <div class="mt-8">
+                    <h2 class="text-xl font-bold mb-4">Recent Transactions</h2>
+                    <table class="w-full text-left text-gray-700">
+                        <thead class="border-b">
+                            <tr>
+                                <th class="py-2">Description</th>
+                                <th class="py-2">Amount</th>
+                                <th class="py-2">Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-t">
+                                <td class="py-2 flex items-center">
+                                    <span class="inline-block w-4 h-4 bg-red-500 rounded-full mr-2"></span>
+                                    Electricity bill
+                                </td>
+                                <td class="py-2">$200.00</td>
+                                <td class="py-2">12/10/2025</td>
+                            </tr>
+                            <tr class="border-t">
+                                <td class="py-2 flex items-center">
+                                    <span class="inline-block w-4 h-4 bg-green-500 rounded-full mr-2"></span>
+                                    Renumeration
+                                </td>
+                                <td class="py-2">$22,000.00</td>
+                                <td class="py-2">12/12/2024</td>
+                            </tr>
+                            <tr class="border-t">
+                                <td class="py-2 flex items-center">
+                                    <span class="inline-block w-4 h-4 bg-red-500 rounded-full mr-2"></span>
+                                    Rent
+                                </td>
+                                <td class="py-2">$500.00</td>
+                                <td class="py-2">13/06/2024</td>
+                            </tr>
+                            <tr class="border-t">
+                                <td class="py-2 flex items-center">
+                                    <span class="inline-block w-4 h-4 bg-green-500 rounded-full mr-2"></span>
+                                    House Provisions
+                                </td>
+                                <td class="py-2">$320.00</td>
+                                <td class="py-2">01/06/2024</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+
+                    <div class="flex justify-end space-x-4 mt-6">
+                        <button class="bg-gray-300 text-gray-700 py-2 px-4 rounded-lg hover:bg-gray-400">Previous</button>
+                        <button class="bg-purple-900 text-white py-2 px-4 rounded-lg hover:bg-purple-700">Next</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+
+    <footer class="bg-purple-900 text-white py-4 mt-8">
+        <div class="container mx-auto text-center space-y-2">
+            <div class="space-x-6">
+                <a href="#" class="hover:underline">Privacy</a>
+                <a href="#" class="hover:underline">Terms and Conditions</a>
+                <a href="#" class="hover:underline">Fraud & Security</a>
+                <a href="#" class="hover:underline">Disclosures</a>
+            </div>
+            <p>© 2024, Truist. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
