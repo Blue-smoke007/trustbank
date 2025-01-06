@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Banking Features</title>
-    <link rel="stylesheet" href="homepage.css" />
+    <!-- <link rel="stylesheet" href="homepage.css" /> -->
     <link rel="stylesheet" href="styles/index.css" />
     <style>
       body {
@@ -141,54 +141,61 @@
       </div>
     </section>
 
-    <!-- Top Section -->
-    <div class="cashback-section">
-      <div class="cashback-text">
-        <h4 class="cashback-subtitle">Enjoy cash rewards</h4>
-        <h1 class="cashback-title">
-          Fill up. Stock up. Charge up. All with cash back.
-        </h1>
-        <p class="cashback-description">
-          Turn grocery runs and fuel stops into extra rewards with the Truist
-          Enjoy Cash credit card.
-        </p>
-        <div class="button-group">
-          <button class="cta-primary">3-2-1% Cash back</button>
-          <button class="cta-secondary">1.5% Cash back</button>
+    <section class="px-8 py-20 space-y-12">
+      <!-- Top Section -->
+      <div class="cashback-section flex gap-4 justify-between">
+        <div class="cashback-text basis-1/2">
+          <h4 class="cashback-subtitle text-3xl">Enjoy cash rewards</h4>
+          <h1 class="cashback-title text-3xl font-bold my-6 text-primary">
+            Fill up. Stock up. Charge up. All with cash back.
+          </h1>
+          <p class="cashback-description font-bold">
+            Turn grocery runs and fuel stops into extra rewards with the Truist
+            Enjoy Cash credit card.
+            <a href="#" class="underline">See rates, fees and rewards</a>
+          </p>
+          <a href="#" class="inline-block underline my-8"> Learn more </a>
+          <div class="button-group flex gap-4">
+            <button class="primary cta-primary">3-2-1% Cash back</button>
+            <button class="button-outline cta-secondary">1.5% Cash back</button>
+          </div>
+        </div>
+        <div class="cashback-image basis-1/2 rounded-xl overflow-hidden">
+          <img src="/assets/6.jpeg" alt="Family Shopping" />
         </div>
       </div>
-      <div class="cashback-image">
-        <img src="6.jpeg" alt="Family Shopping" />
+      <!-- Bottom Section -->
+      <div class="cards-section flex gap-6">
+        <!-- Card 1 -->
+        <div
+          class="info-card bg-neutral-200 rounded-2xl p-4 flex flex-col gap-8"
+        >
+          <h4 class="info-card-category">Loans</h4>
+          <h2 class="info-card-title text-xl">
+            We have loans to help make your spirit bright.
+          </h2>
+          <p class="info-card-description">
+            Our fast decision-making process for Truist personal loans can make
+            holiday wishes come true in minutes.
+          </p>
+          <button class="button-outline self-start">Learn more</button>
+        </div>
+        <!-- Card 2 -->
+        <div
+          class="info-card bg-neutral-200 rounded-2xl p-4 flex flex-col gap-8"
+        >
+          <h4 class="info-card-category">Truist One Checking</h4>
+          <h2 class="info-card-title text-xl">
+            Stuff your stocking with a Truist One Checking account
+          </h2>
+          <p class="info-card-description">
+            Enjoy a checking account with automatic upgrades and no overdraft
+            fees this holiday season.
+          </p>
+          <button class="button-outline self-start">Learn more</button>
+        </div>
       </div>
-    </div>
-
-    <!-- Bottom Section -->
-    <div class="cards-section">
-      <!-- Card 1 -->
-      <div class="info-card">
-        <h4 class="info-card-category">Loans</h4>
-        <h2 class="info-card-title">
-          We have loans to help make your spirit bright.
-        </h2>
-        <p class="info-card-description">
-          Our fast decision-making process for Truist personal loans can make
-          holiday wishes come true in minutes.
-        </p>
-        <button class="cta-learn-more">Learn more</button>
-      </div>
-      <!-- Card 2 -->
-      <div class="info-card">
-        <h4 class="info-card-category">Truist One Checking</h4>
-        <h2 class="info-card-title">
-          Stuff your stocking with a Truist One Checking account
-        </h2>
-        <p class="info-card-description">
-          Enjoy a checking account with automatic upgrades and no overdraft fees
-          this holiday season.
-        </p>
-        <button class="cta-learn-more">Learn more</button>
-      </div>
-    </div>
+    </section>
 
     <footer>
       <div class="footbar">
