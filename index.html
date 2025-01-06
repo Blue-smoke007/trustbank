@@ -10,14 +10,14 @@
       body {
         margin: 0;
         font-family: Arial, sans-serif;
-        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-          url("background.jpg") no-repeat center center / cover;
-        color: white;
+        /* background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+          url("background.jpg") no-repeat center center / cover; */
       }
     </style>
+    <script src="/libs/jquery-3.7.1.min.js"></script>
   </head>
   <body>
-    <section class="hero-section relative">
+    <section class="hero-section relative text-white">
       <div
         class="hero-bg-wrapper absolute inset-0 before:absolute before:inset-0 before:bg-black/70 -z-10"
       >
@@ -117,119 +117,79 @@
       </div>
     </section>
 
-    <div class="layout-wrapper">
-      <!-- Top Section -->
-      <div class="cashback-section">
-        <div class="cashback-text">
-          <h4 class="cashback-subtitle">Enjoy cash rewards</h4>
-          <h1 class="cashback-title">
-            Fill up. Stock up. Charge up. All with cash back.
-          </h1>
-          <p class="cashback-description">
-            Turn grocery runs and fuel stops into extra rewards with the Truist
-            Enjoy Cash credit card.
+    <section class="our-product-section bg-neutral-100 px-8 py-20">
+      <h2 class="text-3xl mb-8">Our Products</h2>
+
+      <div class="products flex gap-8 overflow-auto py-6">
+        <!-- Sample product...Rest will be inserted via javascript -->
+        <div
+          class="product-card relative shrink-0 rounded-xl overflow-hidden bg-neutral-600 text-white flex flex-col justify-end p-4 w-[350px] h-[500px] z-10"
+        >
+          <img
+            src="/assets/products/product-1.png"
+            alt="Product 1 Image"
+            class="product__image absolute top-0 left-0 w-full h-full object-cover -z-10"
+          />
+          <div class="product-overlay absolute inset-0 bg-black/50 -z-10"></div>
+          <h3 class="text-2xl mb-1 product__title">Investing</h3>
+          <p class="text-justify product__description">
+            Unlock your financial potential with our diverse investment options.
+            From stocks to ETFs, we cater to all experience levels. Start
+            investing today and watch your wealth grow!
           </p>
-          <div class="button-group">
-            <button class="cta-primary">3-2-1% Cash back</button>
-            <button class="cta-secondary">1.5% Cash back</button>
-          </div>
-        </div>
-        <div class="cashback-image">
-          <img src="6.jpeg" alt="Family Shopping" />
         </div>
       </div>
+    </section>
 
-      <!-- Bottom Section -->
-      <div class="cards-section">
-        <!-- Card 1 -->
-        <div class="info-card">
-          <h4 class="info-card-category">Loans</h4>
-          <h2 class="info-card-title">
-            We have loans to help make your spirit bright.
-          </h2>
-          <p class="info-card-description">
-            Our fast decision-making process for Truist personal loans can make
-            holiday wishes come true in minutes.
-          </p>
-          <button class="cta-learn-more">Learn more</button>
+    <!-- Top Section -->
+    <div class="cashback-section">
+      <div class="cashback-text">
+        <h4 class="cashback-subtitle">Enjoy cash rewards</h4>
+        <h1 class="cashback-title">
+          Fill up. Stock up. Charge up. All with cash back.
+        </h1>
+        <p class="cashback-description">
+          Turn grocery runs and fuel stops into extra rewards with the Truist
+          Enjoy Cash credit card.
+        </p>
+        <div class="button-group">
+          <button class="cta-primary">3-2-1% Cash back</button>
+          <button class="cta-secondary">1.5% Cash back</button>
         </div>
-        <!-- Card 2 -->
-        <div class="info-card">
-          <h4 class="info-card-category">Truist One Checking</h4>
-          <h2 class="info-card-title">
-            Stuff your stocking with a Truist One Checking account
-          </h2>
-          <p class="info-card-description">
-            Enjoy a checking account with automatic upgrades and no overdraft
-            fees this holiday season.
-          </p>
-          <button class="cta-learn-more">Learn more</button>
-        </div>
+      </div>
+      <div class="cashback-image">
+        <img src="6.jpeg" alt="Family Shopping" />
       </div>
     </div>
 
-    <div class="card-container">
+    <!-- Bottom Section -->
+    <div class="cards-section">
       <!-- Card 1 -->
-      <div class="card">
-        <h4>Credit card offers</h4>
-        <h2>A great credit card may be waiting for you.</h2>
-        <p>
+      <div class="info-card">
+        <h4 class="info-card-category">Loans</h4>
+        <h2 class="info-card-title">
+          We have loans to help make your spirit bright.
+        </h2>
+        <p class="info-card-description">
+          Our fast decision-making process for Truist personal loans can make
+          holiday wishes come true in minutes.
+        </p>
+        <button class="cta-learn-more">Learn more</button>
+      </div>
+      <!-- Card 2 -->
+      <div class="info-card">
+        <h4 class="info-card-category">Truist One Checking</h4>
+        <h2 class="info-card-title">
+          Stuff your stocking with a Truist One Checking account
+        </h2>
+        <p class="info-card-description">
           Enjoy a checking account with automatic upgrades and no overdraft fees
           this holiday season.
         </p>
-        <button>Check offers</button>
-      </div>
-      <!-- Card 2 -->
-      <div class="card">
-        <h4>Zelle</h4>
-        <h2>Give and go with Zelle®</h2>
-        <p>
-          Use Zelle® to send money to the people you celebrate right from your
-          phone.
-        </p>
-        <button>Check offers</button>
-      </div>
-      <!-- Card 3 -->
-      <div class="card">
-        <h4>Money market account</h4>
-        <h2>Sleigh your end-of-year savings goals.</h2>
-        <p>Cozy up to the Truist One Money Account today.</p>
-        <button>Check offers</button>
-      </div>
-      <!-- Card 4 -->
-      <div class="card">
-        <h4>Home mortgage</h4>
-        <h2>Refinancing now might save you money.</h2>
-        <p>
-          Falling rates have opened the door to potentially lowering your
-          mortgage.
-        </p>
-        <button>Check offers</button>
+        <button class="cta-learn-more">Learn more</button>
       </div>
     </div>
-    <div class="container">
-      <div class="image-section">
-        <img src="3.jpeg" alt="Person using a mobile phone" />
-      </div>
-      <div class="content-section">
-        <h1>
-          Crystal clear—created with care. Stock up. Charge up. All with cash
-          back.
-        </h1>
-        <p>Meet the Truist app.</p>
-        <p>
-          Get super-fast access to your accounts and bright insights into your
-          spending with our mobile app.
-        </p>
-        <div class="qr-section">
-          <img src="your-qr-code.png" alt="QR Code" />
-          <span
-            >Scan this code with your phone’s camera to download Truist
-            Mobile.</span
-          >
-        </div>
-      </div>
-    </div>
+
     <footer>
       <div class="footbar">
         <ul>
@@ -302,5 +262,47 @@
         ><a href="">CA Notice Of Collection</a><a href="">Accessibility</a>
       </div>
     </footer>
+
+    <script>
+      const products = [
+        {
+          title: "Investing",
+          description:
+            "Unlock your financial potential with our diverse investment options. From stocks to ETFs, we cater to all experience levels. Start investing today and watch your wealth grow!",
+          image: "/assets/products/product-1.png",
+        },
+        {
+          title: "Savings",
+          description:
+            "Build your financial safety net with our high-interest savings accounts. Enjoy no monthly fees and easy access to your funds. Start saving today and watch your money grow!",
+          image: "/assets/products/product-2.jpeg",
+        },
+        {
+          title: "Mortgage",
+          description:
+            "Make homeownership a reality with our mortgage solutions. Choose from various products and enjoy expert guidance. Start your journey today!",
+          image: "/assets/products/product-3.jpeg",
+        },
+        {
+          title: "Insurance",
+          description:
+            "Safeguard your assets and loved ones with our tailored insurance solutions. From life to auto coverage, we help you find the right protection.",
+          image: "/assets/products/product-4.jpeg",
+        },
+      ];
+
+      const sampleProduct = $(".product-card");
+
+      for (let product of products) {
+        const clonedProduct = sampleProduct.clone();
+        clonedProduct.find(".product__image").attr("src", product.image);
+        clonedProduct.find(".product__title").text(product.title);
+        clonedProduct.find(".product__description").text(product.description);
+
+        $(".products").append(clonedProduct);
+      }
+
+      sampleProduct.remove();
+    </script>
   </body>
 </html>
