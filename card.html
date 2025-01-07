@@ -7,34 +7,57 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-100 font-sans">
-    <!-- Header -->
-    <header class="bg-purple-900 text-white py-4">
-        <div class="container mx-auto flex justify-between items-center px-4">
-            <div class="flex items-center space-x-4">
-                <div class="text-2xl font-bold">TRUIST</div>
-            </div>
-            <nav class="space-x-6">
-                <a href="#" class="hover:underline">Home</a>
-                <a href="#" class="hover:underline">Products</a>
-                <a href="#" class="hover:underline">Rewards</a>
-                <a href="#" class="hover:underline">Contact us</a>
-                <a href="#" class="hover:underline">Dashboard</a>
-            </nav>
+
+    <header class="header bg-[#1F0034] p-4">
+        <div class="container mx-auto flex justify-between items-center">
+          <div class="flex items-center space-x-3">
+            <img src="Logo.png" alt="Logo" class="h-10"> 
+          </div>
+    
+          <nav class="nav-links">
+            <ul class="flex gap-4">
+              <li>
+                <a class="text-white border-b-2 px-4 py-1" href="homepage.html">Home</a>
+              </li>
+              <li>
+                <a class="text-white hover:border-b-2 px-4 py-1" href="#"
+                  >Products</a
+                >
+              </li>
+              <li>
+                <a class="text-white hover:border-b-2 px-4 py-1" href="#"
+                  >Rewards</a
+                >
+              </li>
+              <li>
+                <a class="text-white hover:border-b-2 px-4 py-1" href="#"
+                  >Contact us</a
+                >
+              </li>
+              <li>
+                <a class="text-white hover:border-b-2 px-4 py-1" href="#"
+                  >Dashboard</a
+                >
+              </li>
+            </ul>
+          </nav>
         </div>
-    </header>
+      </header>
 
     <!-- Main Content -->
     <div class="container mx-auto mt-8 flex">
         <!-- Sidebar -->
         <aside class="w-1/4 bg-white rounded-lg shadow-md p-6 space-y-4">
-            <div class="text-center font-bold text-lg">TRUIST</div>
-            <nav class="space-y-4">
-                <a href="account.html" class="block hover:text-purple-600">Dashboard</a>
+            <div class="text-center font-bold text-lg"><img src="logo2.png"></div>
+            <hr>
+            <nav class="space-y-12">
+                <a href="account.html" class="block hover:text-purple-600 mt-9">Dashboard</a>
                 <a href="transaction.html" class="block hover:text-purple-600">Transactions</a>
                 <a href="#" class="block text-purple-900 font-bold">Manage cards</a>
                 <a href="#" class="block hover:text-purple-600">Notifications</a>
                 <a href="#" class="block hover:text-purple-600">Help center</a>
                 <a href="#" class="block hover:text-purple-600">Settings</a>
+                <hr>
                 <a href="#" class="block hover:text-purple-600">Sign out</a>
             </nav>
         </aside>
