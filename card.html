@@ -3,92 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manage Cards</title>
+    <title>Dashboard - Truist</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
+
 <body class="bg-gray-100 font-sans">
 
-    <header class="header bg-[#1F0034] p-4">
-        <div class="container mx-auto flex justify-between items-center">
-          <div class="flex items-center space-x-3">
-            <img src="Logo.png" alt="Logo" class="h-10"> 
-          </div>
-    
-          <nav class="nav-links">
-            <ul class="flex gap-4">
-              <li>
-                <a class="text-white border-b-2 px-4 py-1" href="homepage.html">Home</a>
-              </li>
-              <li>
-                <a class="text-white hover:border-b-2 px-4 py-1" href="#"
-                  >Products</a
-                >
-              </li>
-              <li>
-                <a class="text-white hover:border-b-2 px-4 py-1" href="#"
-                  >Rewards</a
-                >
-              </li>
-              <li>
-                <a class="text-white hover:border-b-2 px-4 py-1" href="#"
-                  >Contact us</a
-                >
-              </li>
-              <li>
-                <a class="text-white hover:border-b-2 px-4 py-1" href="#"
-                  >Dashboard</a
-                >
-              </li>
-            </ul>
-          </nav>
+  <header class="header bg-[#1F0034] p-4">
+      <div class="container mx-auto flex justify-between items-center">
+        <div class="flex items-center space-x-3">
+          <img src="Logo.png" alt="Logo" class="h-10"> 
         </div>
-      </header>
+  
+        <nav class="nav-links">
+          <ul class="flex gap-4">
+            <li>
+              <a class="text-white border-b-2 px-4 py-1" href="homepage.html">Home</a>
+            </li>
+            <li>
+              <a class="text-white hover:border-b-2 px-4 py-1" href="#"
+                >Products</a
+              >
+            </li>
+            <li>
+              <a class="text-white hover:border-b-2 px-4 py-1" href="#"
+                >Rewards</a
+              >
+            </li>
+            <li>
+              <a class="text-white hover:border-b-2 px-4 py-1" href="#"
+                >Contact us</a
+              >
+            </li>
+            <li>
+              <a class="text-white hover:border-b-2 px-4 py-1" href="#"
+                >Dashboard</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
 
-    <!-- Main Content -->
+
+
     <div class="container mx-auto mt-8 flex">
-        <!-- Sidebar -->
-        <aside class="w-1/4 bg-white rounded-lg shadow-md p-6 space-y-4">
-            <div class="text-center font-bold text-lg"><img src="logo2.png"></div>
-            <hr>
-            <nav class="space-y-12">
-                <a href="account.html" class="block hover:text-purple-600 mt-9">Dashboard</a>
-                <a href="transaction.html" class="block hover:text-purple-600">Transactions</a>
-                <a href="#" class="block text-purple-900 font-bold">Manage cards</a>
-                <a href="#" class="block hover:text-purple-600">Notifications</a>
-                <a href="#" class="block hover:text-purple-600">Help center</a>
-                <a href="#" class="block hover:text-purple-600">Settings</a>
-                <hr>
-                <a href="#" class="block hover:text-purple-600">Sign out</a>
-            </nav>
-        </aside>
 
-        <!-- Manage Cards Content -->
-        <main class="w-3/4 pl-8">
-            <div class="bg-white rounded-lg shadow-md p-6">
-                <h1 class="text-2xl font-bold mb-4">Welcome Username</h1>
-                <p class="text-gray-700 text-lg mb-6">Your balance</p>
-                <p class="text-purple-900 text-4xl font-bold">$250,489.34</p>
 
-                <!-- Content Section Placeholder -->
-                <div class="mt-8 text-gray-600 text-center">
-                    <p class="text-lg">Manage your cards here.</p>
-                    <p class="text-sm mt-2">Feature coming soon.</p>
+      <aside class="w-1/4 h-1/2 bg-white rounded-lg shadow-md p-6 space-y-4">
+          <div class="text-center font-bold text-lg"><img src="logo2.png"></div>
+          <hr>
+          <nav class="space-y-12">
+              <a href="account.html" class="block hover:text-purple-600 mt-9">Dashboard</a>
+              <a href="transaction.html" class="block hover:text-purple-600">Transactions</a>
+              <a href="card.html" class="block text-purple-900 font-bold">Manage cards</a>
+              <a href="#" class="block hover:text-purple-600">Notifications</a>
+              <a href="#" class="block hover:text-purple-600">Help center</a>
+              <a href="#" class="block hover:text-purple-600">Settings</a>
+              <hr class="mb-40">
+              <a href="#" class="block hover:text-purple-600">Sign out</a>
+          </nav>
+      </aside>
+
+
+        <main class="flex-1 p-6">
+            <h1 class="text-2xl font-bold mb-4">Welcome Username</h1>
+            <p class="text-xl mb-6">Your balance</p>
+            <h2 class="text-4xl font-bold text-purple-950 mb-12">$250,489.34</h2>
+
+            <div class="bg-white rounded-lg p-8">
+                <div class="mb-8">
+                    <p class="text-center text-black">You haven't added any cards yet</p>
+                    <div class="border-dashed border-2 border-black w-full h-24 flex justify-center items-center rounded-lg mt-4">
+                        <p class="text-black">+</p>
+                    </div>
                 </div>
+
+                <form class="space-y-10">
+                    <h3 class="text-lg font-bold">Add new card</h3>
+                    <input type="text" placeholder="Cardholder Name" class="w-full p-3 bg-white border border-purple-700 rounded-lg text-black placeholder-black">
+                    <input type="text" placeholder="Card Number" class="w-full p-3 bg-white border border-purple-700 rounded-lg text-black placeholder-black">
+                    <div class="flex space-x-4">
+                        <input type="text" placeholder="MM/YY" class="w-1/2 p-3 bg-white border border-purple-700 rounded-lg text-white placeholder-black">
+                        <input type="text" placeholder="CVV" class="w-1/2 p-3 bg-white border border-purple-700 rounded-lg text-white placeholder-black">
+                    </div>
+                    <button type="submit" class="w-full bg-purple-950 text-black font-bold py-3 rounded-lg hover:bg-purple-700">Confirm</button>
+                </form>
             </div>
         </main>
     </div>
 
-    <!-- Footer -->
-    <footer class="bg-purple-900 text-white py-4 mt-8">
-        <div class="container mx-auto text-center space-y-2">
-            <div class="space-x-6">
-                <a href="#" class="hover:underline">Privacy</a>
-                <a href="#" class="hover:underline">Terms and Conditions</a>
-                <a href="#" class="hover:underline">Fraud & Security</a>
-                <a href="#" class="hover:underline">Disclosures</a>
-            </div>
-            <p>© 2024, Truist. All Rights Reserved.</p>
+
+    <footer class="bg-purple-900 p-4 text-center mt-10">
+        <div class="flex justify-center space-x-6 mb-4">
+            <a href="#" class="hover:underline">Privacy</a>
+            <a href="#" class="hover:underline">Terms and Conditions</a>
+            <a href="#" class="hover:underline">Fraud & Security</a>
+            <a href="#" class="hover:underline">Disclosures</a>
+            <a href="#" class="hover:underline">Help & Support</a>
         </div>
+        <div class="flex justify-center space-x-6 text-gray-400">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-x"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+        <p class="text-sm mt-4">&copy; 2024, Truist. All Rights Reserved.</p>
     </footer>
 </body>
 </html>

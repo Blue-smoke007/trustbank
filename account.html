@@ -8,68 +8,84 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-100 font-sans">
-    <!-- Header -->
-    <header class="bg-purple-900 text-white py-4">
-        <div class="container mx-auto flex justify-between items-center px-4">
-            <div class="flex items-center space-x-4">
-                <div class="text-2xl font-bold">TRUIST</div>
-            </div>
-            <nav class="space-x-6">
-                <a href="#" class="hover:underline">Home</a>
-                <a href="#" class="hover:underline">Products</a>
-                <a href="#" class="hover:underline">Rewards</a>
-                <a href="#" class="hover:underline">Contact us</a>
-                <a href="#" class="hover:underline">Dashboard</a>
-            </nav>
+
+    <header class="header bg-[#1F0034] p-4">
+        <div class="container mx-auto flex justify-between items-center">
+          <div class="flex items-center space-x-3">
+            <img src="Logo.png" alt="Logo" class="h-10"> 
+          </div>
+    
+          <nav class="nav-links">
+            <ul class="flex gap-4">
+              <li>
+                <a class="text-white border-b-2 px-4 py-1" href="homepage.html">Home</a>
+              </li>
+              <li>
+                <a class="text-white hover:border-b-2 px-4 py-1" href="#"
+                  >Products</a
+                >
+              </li>
+              <li>
+                <a class="text-white hover:border-b-2 px-4 py-1" href="#"
+                  >Rewards</a
+                >
+              </li>
+              <li>
+                <a class="text-white hover:border-b-2 px-4 py-1" href="#"
+                  >Contact us</a
+                >
+              </li>
+              <li>
+                <a class="text-white hover:border-b-2 px-4 py-1" href="#"
+                  >Dashboard</a
+                >
+              </li>
+            </ul>
+          </nav>
         </div>
-    </header>
+      </header>
 
 
-    <div class="container mx-auto mt-8 flex">
-        <!-- Sidebar -->
-        <aside class="w-1/4 bg-white rounded-lg shadow-md p-6 space-y-4">
-            <div class="text-center font-bold text-lg">TRUIST</div>
-            <nav class="space-y-4">
-                <a href="#" class="block text-purple-900 font-bold">Dashboard</a>
+      <div class="container mx-auto mt-8 flex">
+
+
+        <aside class="w-1/4 h-1/2 bg-white rounded-lg shadow-md p-6 space-y-4">
+            <div class="text-center font-bold text-lg"><img src="logo2.png"></div>
+            <hr>
+            <nav class="space-y-12">
+                <a href="account.html" class="block hover:text-purple-600 mt-9">Dashboard</a>
                 <a href="transaction.html" class="block hover:text-purple-600">Transactions</a>
-                <a href="#" class="block hover:text-purple-600">Manage cards</a>
+                <a href="card.html" class="block text-purple-900 font-bold">Manage cards</a>
                 <a href="#" class="block hover:text-purple-600">Notifications</a>
                 <a href="#" class="block hover:text-purple-600">Help center</a>
                 <a href="#" class="block hover:text-purple-600">Settings</a>
+                <hr>
                 <a href="#" class="block hover:text-purple-600">Sign out</a>
             </nav>
         </aside>
+
 
 
         <main class="w-3/4 pl-8">
             <div class="bg-white rounded-lg shadow-md p-6">
                 <h1 class="text-2xl font-bold mb-4">Welcome Username</h1>
                 <p class="text-gray-700 text-lg mb-6">Your balance</p>
-                <p class="text-purple-900 text-4xl font-bold">$250,489.34</p>
+                <p class="text-purple-900 text-4xl font-bold mb-10">$250,489.34</p>
 
 
-                <div class="mt-6 flex space-x-4">
-                    <div class="w-1/3 bg-gray-100 rounded-lg shadow p-4 text-center">
-                        <div class="text-lg font-semibold">VISA</div>
-                        <p class="text-sm text-gray-500">1234 5678 9101 1121</p>
-                        <p class="text-sm text-gray-500">Expires 06/23</p>
+                <section class="flex items-center space-x-6 mb-6">
+                    <div class="flex space-x-4">
+                      <img src="card.png" alt="Credit Card" class="w-96 rounded-lg shadow-md">
                     </div>
-                    <div class="w-1/3 bg-gray-100 rounded-lg shadow p-4 text-center">
-                        <div class="text-lg font-semibold">MasterCard</div>
-                        <p class="text-sm text-gray-500">9101 1121 5678 1234</p>
-                        <p class="text-sm text-gray-500">Expires 06/20</p>
-                    </div>
-                    <div class="w-1/3 bg-gray-100 rounded-lg shadow p-4 text-center">
-                        <div class="text-lg font-semibold">MasterCard</div>
-                        <p class="text-sm text-gray-500">5678 9101 1121 1234</p>
-                        <p class="text-sm text-gray-500">Expires 06/22</p>
-                    </div>
-                </div>
+                    <a href="card.html">
+                      <button class="bg-purple-950 text-white px-6 py-2 rounded-xl shadow-xl  hover:bg-purple-700">+ Add Card</button>
+                    </a>
+                  </section>
 
 
-                <div class="mt-8 flex space-x-4">
-                    <button class="w-1/2 bg-purple-900 text-white py-2 px-4 rounded-lg hover:bg-purple-700">Transfer</button>
-                    <button class="w-1/2 bg-gray-300 text-gray-700 py-2 px-4 rounded-lg hover:bg-gray-400">Deposit</button>
+                <div class="mt-20 flex space-x-4">
+                    <button class="w-1/2 bg-gray-300 text-black py-2 px-4 rounded-lg hover:bg-purple-950 hover:text-white">Transfer</button>
+                    <button class="w-1/2 bg-gray-300 text-gray-700 py-2 px-4 rounded-lg hover:bg-purple-950  hover:text-white">Deposit</button>
                 </div>
 
 
