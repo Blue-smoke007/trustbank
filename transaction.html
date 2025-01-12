@@ -6,13 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Transactions</title>
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+      function handleButtonClick(button) {
+    button.disabled = true;
+    button.innerHTML = '<svg class="animate-spin h-5 w-5 text-white mx-auto" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>';
+  }
+    </script>
 </head>
 <body class="bg-gray-100 font-sans">
 
     <header class="header bg-[#1F0034] p-4">
         <div class="container mx-auto flex justify-between items-center">
           <div class="flex items-center space-x-3">
-            <img src="Logo.png" alt="Logo" class="h-10"> 
+            <img src="images/Logo.png" alt="Logo" class="h-10"> 
           </div>
     
           <nav class="nav-links">
@@ -50,7 +57,7 @@
 
 
         <aside class="w-1/4 h-1/2 bg-white rounded-lg shadow-md p-6 space-y-4">
-            <div class="text-center font-bold text-lg"><img src="logo2.png"></div>
+            <div class="text-center font-bold text-lg"><img src="images/logo2.png"></div>
             <hr>
             <nav class="space-y-12">
                 <a href="account.html" class="block hover:text-purple-600 mt-9">Dashboard</a>
@@ -140,5 +147,6 @@
             <p>© 2024, Truist. All Rights Reserved.</p>
         </div>
     </footer>
+
 </body>
 </html>
