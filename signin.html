@@ -12,6 +12,11 @@
     button.disabled = true;
     button.innerHTML = '<svg class="animate-spin h-5 w-5 text-white mx-auto" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>';
   }
+
+  function resetButton(button, originalText) {
+    button.disabled = false;
+    button.innerHTML = originalText;
+  }
 </script>
 
 <body class="bg-white font-sans">
@@ -57,7 +62,6 @@
         <img src="images/spacious.jpeg" alt="City view" class="h-auto rounded-xl">
       </div>
 
-
       <div class="p-10 flex flex-col justify-center">
         <h2 class="text-2xl font-bold text-purple-950 mb-4">Glad to have you back!</h2>
         <p class="text-purple-900 mb-6">Sign into your account</p>
@@ -74,7 +78,7 @@
             </div>
           </div>
 
-          <button type="submit" class="w-full bg-purple-950 hover:bg-purple-700 text-white py-2 rounded-lg mb-4">Create account</button>
+          <button type="submit" class="w-full bg-purple-950 hover:bg-purple-700 text-white py-2 rounded-lg mb-4" onclick="handleButtonClick(this)">Create account</button>
           
           <div class="flex items-center justify-center text-gray-400 mb-4">
             <span class="bg-black h-px w-full"></span>
@@ -82,11 +86,10 @@
             <span class="bg-black h-px w-full"></span>
           </div>
 
-          <button type="button" class="w-full border bg-purple-950 text-white hover:bg-purple-700 hover:text-white py-2 rounded-lg">Sign into your account</button>
+          <button type="button" class="w-full border bg-purple-950 text-white hover:bg-purple-700 hover:text-white py-2 rounded-lg" onclick="handleButtonClick(this)">Sign into your account</button>
         </form>
       </div>
     </div>
   </main>
 </body>
 </html>
-
