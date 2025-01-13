@@ -6,25 +6,10 @@
     <title>Financial Journey</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/motion@latest/dist/motion.js"></script>
+    <script src="components.js" defer type="module"></script>
+    <link rel="stylesheet" href="index.css" />
   </head>
   <body class="bg-purple-950 text-white">
-    <!-- Navbar -->
-    <nav
-      class="flex justify-between items-center p-6 bg-gradient-to-b from-purple-950 to-transparent"
-    >
-      <div class="flex items-center space-x-3">
-        <img src="logo.png" alt="Logo" class="h-8" />
-        <span class="text-lg font-semibold">TRUIST</span>
-      </div>
-      <ul class="flex space-x-6">
-        <li><a href="#" class="hover:underline">Home</a></li>
-        <li><a href="#" class="hover:underline">Products</a></li>
-        <li><a href="#" class="hover:underline">Rewards</a></li>
-        <li><a href="#" class="hover:underline">Contact us</a></li>
-        <li><a href="signin.html" class="hover:underline">Dashboard</a></li>
-      </ul>
-    </nav>
-
     <div
       class="relative h-screen bg-cover bg-center"
       style="background-image: url('truist1.jpeg')"
@@ -106,7 +91,7 @@
       </div>
     </div>
 
-    <section class="bg-gray-100 text-gray-900 py-16">
+    <section id="products" class="bg-gray-100 text-gray-900 py-16">
       <div class="max-w-7xl mx-auto px-6 lg:px-16">
         <h2 class="text-3xl font-bold text-center text-purple-900 mb-12">
           Our Products
@@ -180,7 +165,7 @@
       </div>
     </section>
 
-    <section class="bg-white py-16">
+    <section id="rewards" class="bg-white py-16">
       <div class="max-w-7xl mx-auto px-6 lg:px-16">
         <h2 class="text-3xl text-purple-900 mb-8">Enjoy cash rewards</h2>
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
