@@ -3,7 +3,7 @@ import "./jquery-3.7.1.min.js";
 const header = `
 <header>
   <nav
-    class="flex justify-between items-center p-6 bg-gradient-to-b from-purple-950 to-transparent"
+    class="flex justify-between items-center p-6 bg-[#1F0034] text-white"
   >
     <div class="flex items-center space-x-3">
       <img src="logo.svg" alt="Logo" class="h-8" />
