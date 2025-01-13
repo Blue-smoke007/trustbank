@@ -6,6 +6,7 @@
   <title>Financial Journey</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="components.js" defer type="module"></script>
+  <script src="https://cdn.jsdelivr.net/npm/motion@latest/dist/motion.js"></script>
   
   <script>
     function handleButtonClick(button) {
@@ -22,13 +23,13 @@
     <div class="relative h-screen bg-cover bg-center" style="background-image: url('images/truist1.jpeg');"> 
       <div class="absolute inset-0 bg-black bg-opacity-50"></div>
       <div class="relative max-w-7xl mx-auto px-6 lg:px-16 flex flex-col lg:flex-row items-center justify-between h-full">
-        <div class="text-left max-w-2xl">
+        <div class="hero-text text-left max-w-2xl opacity-0">
           <h1 class="text-4xl lg:text-5xl font-bold mb-6">Empowering Your Financial Journey</h1>
           <p class="text-lg mb-8">Experience seamless banking with Truist – where innovation meets trust. Manage your finances effortlessly, anytime, anywhere.</p>
         </div>
 
         <div class="bg-purple-950 bg-opacity-25 p-8 rounded-lg shadow-lg max-w-md w-full">
-          <form>
+          <form class="hero-form">
             <div class="mb-6">
               <label for="email" class="block text-sm font-medium mb-2 focus-within:bg-purple-950">Email address</label>
               <input type="email" id="email" class="w-full p-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500">
@@ -231,6 +232,25 @@
         </div>
       </div>
     </section>
+
+    <script>
+      // Animation from motion.dev
+      const { animate, stagger } = Motion;
+
+      animate([
+        [".hero-text", { opacity: 1 }, { duration: 1 }],
+        [
+          ".hero-form > *",
+          {
+            opacity: [0, 1],
+            x: [100, 0],
+          },
+          {
+            delay: stagger(0.1),
+          },
+        ],
+      ]);
+    </script>
   </body>
   </html>
   
