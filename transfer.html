@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Transfer Money</title>
+
+  <!-- Link to Flag Icon CSS library -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.6.0/css/flag-icon.min.css">
+
+  <script>
+    // Handle the button click event
+    function handleButtonClick(button) {
+      button.disabled = true;
+      button.innerHTML = '<svg class="animate-spin h-5 w-5 text-white mx-auto" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>';
+      
+      // Show the password modal
+      showPasswordModal(button);
+    }
+
+    // Show the password modal
+    function showPasswordModal(button) {
+      const modal = document.getElementById("passwordModal");
+      modal.classList.remove("hidden");
+
+      // Handle the password submission
+      document.getElementById("passwordSubmit").onclick = function() {
+        const password = document.getElementById("passwordInput").value;
+        if (password) {
+          // Hide the password modal and show success modal
+          modal.classList.add("hidden");
+          showSuccessModal();
+        } else {
+          alert("Password is required to complete the transfer.");
+          button.disabled = false;
+          button.innerHTML = 'Continue';
+        }
+      };
+    }
+
+    // Show the success modal
+    function showSuccessModal() {
+      const successModal = document.getElementById("successModal");
+      successModal.classList.remove("hidden");
+
+      // Close the success modal after a few seconds
+      setTimeout(function() {
+        successModal.classList.add("hidden");
+      }, 3000); // Increased time for the success message
+    }
+  </script>
+</head>
+<body class="bg-gray-100">
+
+  <!-- Header -->
+  <header class="bg-purple-950 text-white py-4">
+    <div class="container mx-auto flex justify-between items-center px-4">
+      <h1 class="text-2xl font-bold">TRUIST</h1>
+      <nav class="flex space-x-6">
+        <a href="#" class="hover:underline">Home</a>
+        <a href="#" class="hover:underline">Products</a>
+        <a href="#" class="hover:underline">Rewards</a>
+        <a href="#" class="hover:underline">Contact us</a>
+        <a href="#" class="hover:underline font-semibold">Dashboard</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="flex items-center justify-center min-h-screen bg-gray-50">
+    <div class="bg-white shadow-lg rounded-lg w-full max-w-4xl">
+      <div class="p-8 border-b">
+        <h2 class="text-2xl font-semibold text-gray-800">Transfer Funds</h2>
+      </div>
+      <div class="p-8">
+        <form class="space-y-6" onsubmit="event.preventDefault(); handleButtonClick(event.target.querySelector('button[type=submit]'))">
+          
+          <div>
+            <label class="block text-black mb-2">Recipient details</label>
+            <div class="grid grid-cols-1 gap-9">
+              <input type="text" placeholder="Name of recipient's bank" class="p-3 bg-white border border-purple-950 rounded-lg text-black placeholder-black">
+              <input type="text" placeholder="Recipient's account number" class="p-3 bg-white border border-purple-950 rounded-lg text-black placeholder-black">
+              <input type="text" placeholder="Recipient's Email" class="p-3 bg-white border border-purple-950 rounded-lg text-black placeholder-black">
+              <input type="text" placeholder="IBAN number" class="p-3 bg-white border border-purple-950 rounded-lg text-black placeholder-black">
+              <input type="text" placeholder="Routing number" class="p-3 bg-white border border-purple-950 rounded-lg text-black placeholder-black">
+             <textarea id="message" placeholder="Description" rows="4" cols="30" class="p-3 bg-white border border-purple-950 rounded-lg text-black placeholder-black"></textarea>
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-gray-700 mb-2">Enter amount</label>
+            <div class="flex items-center space-x-2">
+              <input type="text" value="$133,767.00" class="p-3 bg-white border border-purple-700 rounded-lg text-black placeholder-black">
+              
+              <!-- Custom Dropdown with Flags -->
+              <div class="relative">
+                <button type="button" id="currencyDropdown" class="p-3 bg-white border border-purple-700 rounded-lg text-black flex items-center justify-between w-full">
+                  <span id="selectedCurrency" class="flex items-center">
+                    <span class="flag-icon flag-icon-us mr-2"></span> USD
+                  </span>
+                  <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div id="currencyList" class="absolute left-0 right-0 bg-white border border-purple-700 rounded-lg shadow-lg hidden">
+                  <ul>
+                    <li class="currency-option p-3 flex items-center cursor-pointer hover:bg-gray-200">
+                      <span class="flag-icon flag-icon-us mr-2"></span> USD
+                    </li>
+                    <li class="currency-option p-3 flex items-center cursor-pointer hover:bg-gray-200">
+                      <span class="flag-icon flag-icon-gb mr-2"></span> GBP
+                    </li>
+                    <li class="currency-option p-3 flex items-center cursor-pointer hover:bg-gray-200">
+                      <span class="flag-icon flag-icon-au mr-2"></span> AUD
+                    </li>
+                    <li class="currency-option p-3 flex items-center cursor-pointer hover:bg-gray-200">
+                      <span class="flag-icon flag-icon-eu mr-2"></span> EUR
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="text-gray-700 space-y-2">
+            <div class="flex justify-between">
+              <span>Transfer fee</span>
+              <span>$1.50</span>
+            </div>
+            <div class="flex justify-between font-semibold">
+              <span>Total amount to be sent</span>
+              <span>$133,768.50</span>
+            </div>
+          </div>
+
+          <button type="submit" class="w-full bg-purple-900 text-white py-2 rounded-lg hover:bg-purple-700 flex justify-center items-center">Continue</button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <!-- Password Modal -->
+  <div id="passwordModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden">
+    <div class="bg-white p-8 rounded-lg shadow-lg w-96">
+      <h3 class="text-2xl font-semibold mb-4">Enter Password</h3>
+      <input type="password" id="passwordInput" class="p-3 bg-white border border-purple-950 rounded-lg text-black placeholder-black mb-4" placeholder="Password">
+      <div class="flex justify-between">
+        <button type="button" id="passwordSubmit" class="w-32 bg-purple-950 hover:bg-purple-700 text-white py-2 rounded-lg">Submit</button>
+        <button type="button" onclick="document.getElementById('passwordModal').classList.add('hidden')" class="w-32 bg-purple-950 hover:bg-purple-700 text-white py-2 rounded-lg">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Success Modal -->
+  <div id="successModal" class="fixed inset-0 bg-opacity-50 flex items-center justify-center hidden">
+    <div class="bg-white p-8 rounded-lg shadow-lg w-96 text-center">
+      <div class="mb-4">
+        <svg class="w-20 h-20 text-green-500 mx-auto" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+        </svg>
+      </div>
+      <h3 class="text-2xl font-semibold text-green-500 mb-4">Transfer Successful!</h3>
+      <button type="button" onclick="document.getElementById('successModal').classList.add('hidden')" class="w-full bg-purple-700 text-white py-2 rounded-lg">Close</button>
+    </div>
+  </div>
+
+  <footer class="bg-purple-900 text-white py-4 mt-12">
+    <div class="container mx-auto flex justify-between items-center px-4">
+      <div class="flex space-x-6">
+        <a href="#" class="hover:underline">Privacy</a>
+        <a href="#" class="hover:underline">Terms and Conditions</a>
+        <a href="#" class="hover:underline">Fraud & Security</a>
+        <a href="#" class="hover:underline">Disclosures</a>
+        <a href="#" class="hover:underline">Help & Support</a>
+      </div>
+      <span>&copy; 2024, Truist. All Rights Reserved.</span>
+    </div>
+  </footer>
+
+  <!-- JS to handle dropdown toggle -->
+  <script>
+    const currencyButton = document.getElementById('currencyDropdown');
+    const currencyList = document.getElementById('currencyList');
+    const selectedCurrency = document.getElementById('selectedCurrency');
+
+    currencyButton.addEventListener('click', () => {
+      currencyList.classList.toggle('hidden');
+    });
+
+    const currencyOptions = document.querySelectorAll('.currency-option');
+    currencyOptions.forEach(option => {
+      option.addEventListener('click', (event) => {
+        selectedCurrency.innerHTML = event.target.innerHTML;
+        currencyList.classList.add('hidden');
+      });
+    });
+  </script>
+
+</body>
+</html>

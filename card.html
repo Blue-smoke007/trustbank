@@ -3,43 +3,99 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Manage Cards</title>
+    <title>Dashboard - Truist</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="components.js" defer type="module"></script>
+
+    <script>
+      function handleButtonClick(button) {
+        button.disabled = true;
+        button.innerHTML =
+          '<svg class="animate-spin h-5 w-5 text-white mx-auto" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>';
+        setTimeout(() => {
+          button.disabled = false;
+          button.textContent = "Confirm";
+        }, 3000); //
+      }
+    </script>
   </head>
+
   <body class="bg-gray-100 font-sans">
-    <!-- Main Content -->
     <div class="container mx-auto mt-8 flex">
-      <!-- Sidebar -->
-      <aside class="w-1/4 bg-white rounded-lg shadow-md p-6 space-y-4">
-        <div class="text-center font-bold text-lg">TRUIST</div>
-        <nav class="space-y-4">
-          <a href="account.html" class="block hover:text-purple-600"
+      <aside class="w-1/4 h-1/2 bg-white rounded-lg shadow-md p-6 space-y-4">
+        <div class="text-center font-bold text-lg">
+          <img src="images/logo2.png" />
+        </div>
+        <hr />
+        <nav class="space-y-12">
+          <a href="account.html" class="block hover:text-purple-600 mt-9"
             >Dashboard</a
           >
           <a href="transaction.html" class="block hover:text-purple-600"
             >Transactions</a
           >
-          <a href="#" class="block text-purple-900 font-bold">Manage cards</a>
+          <a href="card.html" class="block text-purple-900 font-bold"
+            >Manage cards</a
+          >
           <a href="#" class="block hover:text-purple-600">Notifications</a>
           <a href="#" class="block hover:text-purple-600">Help center</a>
           <a href="#" class="block hover:text-purple-600">Settings</a>
+          <hr class="mb-40" />
           <a href="#" class="block hover:text-purple-600">Sign out</a>
         </nav>
       </aside>
 
-      <!-- Manage Cards Content -->
-      <main class="w-3/4 pl-8">
-        <div class="bg-white rounded-lg shadow-md p-6">
-          <h1 class="text-2xl font-bold mb-4">Welcome Username</h1>
-          <p class="text-gray-700 text-lg mb-6">Your balance</p>
-          <p class="text-purple-900 text-4xl font-bold">$250,489.34</p>
+      <main class="flex-1 p-6">
+        <h1 class="text-2xl font-bold mb-4">Welcome Username</h1>
+        <p class="text-xl mb-6">Your balance</p>
+        <h2 class="text-4xl font-bold text-purple-950 mb-12">$250,489.34</h2>
 
-          <!-- Content Section Placeholder -->
-          <div class="mt-8 text-gray-600 text-center">
-            <p class="text-lg">Manage your cards here.</p>
-            <p class="text-sm mt-2">Feature coming soon.</p>
+        <div class="bg-white rounded-lg p-8">
+          <div class="mb-8">
+            <p class="text-center text-black">
+              You haven't added any cards yet
+            </p>
+            <div
+              class="border-dashed border-2 border-black w-full h-24 flex justify-center items-center rounded-lg mt-4"
+            >
+              <p class="text-black">+</p>
+            </div>
           </div>
+
+          <form class="space-y-10" onsubmit="event.preventDefault();">
+            <h3 class="text-lg font-bold">Add new card</h3>
+            <input
+              type="text"
+              placeholder="Cardholder Name"
+              class="w-full p-3 bg-white border border-purple-700 rounded-lg text-black placeholder-black"
+            />
+            <input
+              type="text"
+              placeholder="Card Number"
+              class="w-full p-3 bg-white border border-purple-700 rounded-lg text-black placeholder-black"
+            />
+            <div class="flex space-x-4">
+              <input
+                type="date"
+                placeholder="Date of Birth"
+                id="dob"
+                name="dob"
+                class="w-full p-3 border bg-white rounded-lg text-black placeholder-black border-purple-700"
+              />
+              <input
+                type="text"
+                placeholder="CVV"
+                class="w-1/2 p-3 bg-white border border-purple-700 rounded-lg text-white placeholder-black"
+              />
+            </div>
+            <button
+              type="button"
+              onclick="handleButtonClick(this)"
+              class="w-full bg-purple-950 text-white font-bold py-3 rounded-lg hover:bg-purple-700"
+            >
+              Confirm
+            </button>
+          </form>
         </div>
       </main>
     </div>

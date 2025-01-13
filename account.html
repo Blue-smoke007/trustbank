@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,69 +6,98 @@
     <title>Dashboard</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
+
+<script>
+  function handleButtonClick(button) {
+    button.disabled = true;
+    button.innerHTML = '<svg class="animate-spin h-5 w-5 text-white mx-auto" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>';
+  }
+</script>
+
 <body class="bg-gray-100 font-sans">
-    <!-- Header -->
-    <header class="bg-purple-900 text-white py-4">
-        <div class="container mx-auto flex justify-between items-center px-4">
-            <div class="flex items-center space-x-4">
-                <div class="text-2xl font-bold">TRUIST</div>
-            </div>
-            <nav class="space-x-6">
-                <a href="#" class="hover:underline">Home</a>
-                <a href="#" class="hover:underline">Products</a>
-                <a href="#" class="hover:underline">Rewards</a>
-                <a href="#" class="hover:underline">Contact us</a>
-                <a href="#" class="hover:underline">Dashboard</a>
-            </nav>
+
+    <header class="header bg-[#1F0034] p-4">
+        <div class="container mx-auto flex justify-between items-center">
+          <div class="flex items-center space-x-3">
+            <img src="images/Logo.png" alt="Logo" class="h-10"> 
+          </div>
+    
+          <nav class="nav-links">
+            <ul class="flex gap-4">
+              <li>
+                <a class="text-white border-b-2 px-4 py-1" href="homepage.html">Home</a>
+              </li>
+              <li>
+                <a class="text-white hover:border-b-2 px-4 py-1" href="#"
+                  >Products</a
+                >
+              </li>
+              <li>
+                <a class="text-white hover:border-b-2 px-4 py-1" href="#"
+                  >Rewards</a
+                >
+              </li>
+              <li>
+                <a class="text-white hover:border-b-2 px-4 py-1" href="#"
+                  >Contact us</a
+                >
+              </li>
+              <li>
+                <a class="text-white hover:border-b-2 px-4 py-1" href="#"
+                  >Dashboard</a
+                >
+              </li>
+            </ul>
+          </nav>
         </div>
-    </header>
+      </header>
 
 
-    <div class="container mx-auto mt-8 flex">
-        <!-- Sidebar -->
-        <aside class="w-1/4 bg-white rounded-lg shadow-md p-6 space-y-4">
-            <div class="text-center font-bold text-lg">TRUIST</div>
-            <nav class="space-y-4">
-                <a href="#" class="block text-purple-900 font-bold">Dashboard</a>
-                <a href="transaction.html" class="block hover:text-purple-600">Transactions</a>
-                <a href="#" class="block hover:text-purple-600">Manage cards</a>
-                <a href="#" class="block hover:text-purple-600">Notifications</a>
-                <a href="#" class="block hover:text-purple-600">Help center</a>
-                <a href="#" class="block hover:text-purple-600">Settings</a>
-                <a href="#" class="block hover:text-purple-600">Sign out</a>
-            </nav>
+      <div class="container mx-auto mt-8 flex">
+
+
+        <aside class="w-1/4 h-1/2 bg-white rounded-lg shadow-xl p-6 space-y-4">
+            <div class="text-center font-[Montserrat] text-lg w-full"><img src="images/logo2.png">
+              <hr>
+              <nav class="space-y-16">
+                <ul class="mr-10 leading-[78px] space-x-4">
+                 <li><a href="account.html" class="block hover:text-purple-600 mt-9">Dashboard</a></li> 
+                  <li><a href="transaction.html" class="block hover:text-purple-600">Transactions</a></li>
+                  <li><a href="card.html" class="block text-purple-900 font-bold">Manage cards</a></li>
+                  <Li><a href="#" class="block hover:text-purple-600">Notifications</a></Li>
+                  <Li><a href="#" class="block hover:text-purple-600">Help center</a></Li>
+                  <li><a href="#" class="block hover:text-purple-600">Settings</a></li>
+                  <hr>
+                  <li><a href="#" class="block hover:text-purple-600">Sign out</a></li>
+                </ul>
+
+              </nav>
+            </div>
+
         </aside>
+
 
 
         <main class="w-3/4 pl-8">
             <div class="bg-white rounded-lg shadow-md p-6">
                 <h1 class="text-2xl font-bold mb-4">Welcome Username</h1>
                 <p class="text-gray-700 text-lg mb-6">Your balance</p>
-                <p class="text-purple-900 text-4xl font-bold">$250,489.34</p>
+                <p class="text-purple-900 text-4xl font-bold mb-10">$250,489.34</p>
 
 
-                <div class="mt-6 flex space-x-4">
-                    <div class="w-1/3 bg-gray-100 rounded-lg shadow p-4 text-center">
-                        <div class="text-lg font-semibold">VISA</div>
-                        <p class="text-sm text-gray-500">1234 5678 9101 1121</p>
-                        <p class="text-sm text-gray-500">Expires 06/23</p>
+                <section class="flex items-center space-x-6 mb-6">
+                    <div class="flex space-x-4">
+                      <img src="images/card.png" alt="Credit Card" class="w-96 rounded-lg shadow-md">
                     </div>
-                    <div class="w-1/3 bg-gray-100 rounded-lg shadow p-4 text-center">
-                        <div class="text-lg font-semibold">MasterCard</div>
-                        <p class="text-sm text-gray-500">9101 1121 5678 1234</p>
-                        <p class="text-sm text-gray-500">Expires 06/20</p>
-                    </div>
-                    <div class="w-1/3 bg-gray-100 rounded-lg shadow p-4 text-center">
-                        <div class="text-lg font-semibold">MasterCard</div>
-                        <p class="text-sm text-gray-500">5678 9101 1121 1234</p>
-                        <p class="text-sm text-gray-500">Expires 06/22</p>
-                    </div>
-                </div>
+                    <a href="card.html">
+                      <button class="bg-purple-950 text-white px-6 py-2 rounded-xl shadow-xl  hover:bg-purple-700">+ Add Card</button>
+                    </a>
+                  </section>
 
 
-                <div class="mt-8 flex space-x-4">
-                    <button class="w-1/2 bg-purple-900 text-white py-2 px-4 rounded-lg hover:bg-purple-700">Transfer</button>
-                    <button class="w-1/2 bg-gray-300 text-gray-700 py-2 px-4 rounded-lg hover:bg-gray-400">Deposit</button>
+                <div class="mt-20 flex space-x-4">
+                    <button onclick="handleButtonClick(this)" class="w-1/2 bg-gray-300 text-black py-2 px-4 rounded-lg hover:bg-purple-950 hover:text-white">Transfer</button>
+                    <button onclick="handleButtonClick(this)" class="w-1/2 bg-gray-300 text-gray-700 py-2 px-4 rounded-lg hover:bg-purple-950 hover:text-white">Deposit</button>
                 </div>
 
 
@@ -125,139 +153,3 @@
     </footer>
 </body>
 </html>
-=======
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-gray-100 font-sans">
-    <!-- Header -->
-    <header class="bg-purple-950 text-white py-4">
-        <div class="container mx-auto flex justify-between items-center px-4">
-            <div class="flex items-center space-x-4">
-                <div class="text-2xl font-bold">TRUIST</div>
-            </div>
-            <nav class="space-x-6">
-                <a href="#" class="hover:underline">Home</a>
-                <a href="#" class="hover:underline">Products</a>
-                <a href="#" class="hover:underline">Rewards</a>
-                <a href="#" class="hover:underline">Contact us</a>
-                <a href="#" class="hover:underline">Dashboard</a>
-            </nav>
-        </div>
-    </header>
-
-    <div class="container mx-auto mt-8 flex">
-        <!-- Sidebar -->
-        <aside class="w-1/4 bg-white rounded-lg shadow-md p-6 space-y-4">
-            <div class="text-center font-bold text-lg">TRUIST</div>
-            <nav class="space-y-4">
-                <a href="account.html" class="block text-purple-900 font-bold">Dashboard</a>
-                <a href="transaction.html" class="block hover:text-purple-600">Transactions</a>
-                <a href="card.html" class="block hover:text-purple-600">Manage cards</a>
-                <a href="#" class="block hover:text-purple-600">Notifications</a>
-                <a href="#" class="block hover:text-purple-600">Help center</a>
-                <a href="#" class="block hover:text-purple-600">Settings</a>
-                <a href="#" class="block hover:text-purple-600">Sign out</a>
-            </nav>
-        </aside>
-
-        <main class="w-3/4 pl-8">
-            <div class="bg-white rounded-lg shadow-md p-6">
-                <!-- Dynamic Welcome Message -->
-                <h1 id="welcome-message" class="text-2xl font-bold mb-4">Welcome</h1>
-                <p class="text-gray-700 text-lg mb-6">Your balance</p>
-                <p class="text-purple-900 text-4xl font-bold">$250,489.34</p>
-
-                <!-- Example Cards Section -->
-                <div class="mt-6 flex space-x-4">
-                    <div class="w-1/3 bg-gray-100 rounded-lg shadow p-4 text-center">
-                        <div class="text-lg font-semibold">VISA</div>
-                        <p class="text-sm text-gray-500">1234 5678 9101 1121</p>
-                        <p class="text-sm text-gray-500">Expires 06/23</p>
-                    </div>
-                    <div class="w-1/3 bg-gray-100 rounded-lg shadow p-4 text-center">
-                        <div class="text-lg font-semibold">MasterCard</div>
-                        <p class="text-sm text-gray-500">9101 1121 5678 1234</p>
-                        <p class="text-sm text-gray-500">Expires 06/20</p>
-                    </div>
-                    <div class="w-1/3 bg-gray-100 rounded-lg shadow p-4 text-center">
-                        <div class="text-lg font-semibold">MasterCard</div>
-                        <p class="text-sm text-gray-500">5678 9101 1121 1234</p>
-                        <p class="text-sm text-gray-500">Expires 06/22</p>
-                    </div>
-                    <a href="card.html"><button>+ Add Card</button></a>
-                </div>
-
-                <div class="mt-8 flex space-x-4">
-                    <button class="w-1/2 bg-purple-950 text-white py-2 px-4 rounded-lg hover:bg-purple-700">Transfer</button>
-                    <button class="w-1/2 bg-purple-950 text-white py-2 px-4 rounded-lg hover:bg-purple-700">Deposit</button>
-                </div>
-
-                <div class="mt-8">
-                    <h2 class="text-xl font-bold mb-4">Recent Transactions</h2>
-                    <table class="w-full text-left text-gray-700">
-                        <thead>
-                            <tr>
-                                <th class="pb-2">Description</th>
-                                <th class="pb-2">Amount</th>
-                                <th class="pb-2">Date</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="border-t">
-                                <td class="py-2">Electricity bill</td>
-                                <td class="py-2">$200.00</td>
-                                <td class="py-2">12/10/2025</td>
-                            </tr>
-                            <tr class="border-t">
-                                <td class="py-2">Renumeration</td>
-                                <td class="py-2">$22,000.00</td>
-                                <td class="py-2">12/12/2024</td>
-                            </tr>
-                            <tr class="border-t">
-                                <td class="py-2">Rent</td>
-                                <td class="py-2">$500.00</td>
-                                <td class="py-2">13/06/2024</td>
-                            </tr>
-                            <tr class="border-t">
-                                <td class="py-2">House Provisions</td>
-                                <td class="py-2">$320.00</td>
-                                <td class="py-2">01/06/2024</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </main>
-    </div>
-
-    <footer class="bg-purple-900 text-white py-4 mt-8">
-        <div class="container mx-auto text-center space-y-2">
-            <div class="space-x-6">
-                <a href="#" class="hover:underline">Privacy</a>
-                <a href="#" class="hover:underline">Terms and Conditions</a>
-                <a href="#" class="hover:underline">Fraud & Security</a>
-                <a href="#" class="hover:underline">Disclosures</a>
-            </div>
-            <p>© 2024, Truist. All Rights Reserved.</p>
-        </div>
-    </footer>
-
-    <script>
-        // Simulate user registration name stored in localStorage
-        localStorage.setItem('username', 'Victor');
-
-        // Retrieve and display the username
-        document.addEventListener('DOMContentLoaded', () => {
-            const username = localStorage.getItem('username') || 'Guest';
-            document.getElementById('welcome-message').textContent = `Welcome ${username}`;
-        });
-    </script>
-</body>
-</html>
->>>>>>> 4a3b7f7 (initial commit)
