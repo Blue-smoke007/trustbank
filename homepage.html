@@ -1,214 +1,390 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Financial Journey</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-purple-950 text-white">
-  <!-- Navbar -->
-  <nav class="flex justify-between items-center p-6 bg-gradient-to-b from-purple-950 to-transparent">
-    <div class="flex items-center space-x-3">
-      <img src="logo.png" alt="Logo" class="h-8"> 
-      <span class="text-lg font-semibold">TRUIST</span>
-    </div>
-    <ul class="flex space-x-6">
-      <li><a href="#" class="hover:underline">Home</a></li>
-      <li><a href="#" class="hover:underline">Products</a></li>
-      <li><a href="#" class="hover:underline">Rewards</a></li>
-      <li><a href="#" class="hover:underline">Contact us</a></li>
-      <li><a href="signin.html" class="hover:underline">Dashboard</a></li>
-    </ul>
-  </nav>
-
-
-  <div class="relative h-screen bg-cover bg-center" style="background-image: url('truist1.jpeg');"> 
-    <div class="absolute inset-0 bg-black bg-opacity-50"></div>
-    <div class="relative max-w-7xl mx-auto px-6 lg:px-16 flex flex-col lg:flex-row items-center justify-between h-full">
-      <!-- Text Content -->
-      <div class="text-left max-w-2xl">
-        <h1 class="text-4xl lg:text-5xl font-bold mb-6">Empowering Your Financial Journey</h1>
-        <p class="text-lg mb-8">Experience seamless banking with Truist – where innovation meets trust. Manage your finances effortlessly, anytime, anywhere.</p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Financial Journey</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/motion@latest/dist/motion.js"></script>
+  </head>
+  <body class="bg-purple-950 text-white">
+    <!-- Navbar -->
+    <nav
+      class="flex justify-between items-center p-6 bg-gradient-to-b from-purple-950 to-transparent"
+    >
+      <div class="flex items-center space-x-3">
+        <img src="logo.png" alt="Logo" class="h-8" />
+        <span class="text-lg font-semibold">TRUIST</span>
       </div>
+      <ul class="flex space-x-6">
+        <li><a href="#" class="hover:underline">Home</a></li>
+        <li><a href="#" class="hover:underline">Products</a></li>
+        <li><a href="#" class="hover:underline">Rewards</a></li>
+        <li><a href="#" class="hover:underline">Contact us</a></li>
+        <li><a href="signin.html" class="hover:underline">Dashboard</a></li>
+      </ul>
+    </nav>
 
-      
-      <div class="bg-purple-950 bg-opacity-25 p-8 rounded-lg shadow-lg max-w-md w-full">
-        <form>
-          <div class="mb-6">
-            <label for="email" class="block text-sm font-medium mb-2">Email address</label>
-            <input type="email" id="email" class="w-full p-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500">
-          </div>
-          <div class="mb-6">
-            <label for="password" class="block text-sm font-medium mb-2">Password</label>
-            <div class="relative">
-              <input type="password" id="password" class="w-full p-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500">
-              <button type="button" class="absolute inset-y-0 right-3 flex items-center text-gray-400">👁️</button>
+    <div
+      class="relative h-screen bg-cover bg-center"
+      style="background-image: url('truist1.jpeg')"
+    >
+      <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+      <div
+        class="relative max-w-7xl mx-auto px-6 lg:px-16 flex flex-col lg:flex-row items-center justify-between h-full"
+      >
+        <!-- Text Content -->
+        <div class="hero-text opacity-0 text-left max-w-2xl">
+          <h1 class="text-4xl lg:text-5xl font-bold mb-6">
+            Empowering Your Financial Journey
+          </h1>
+          <p class="text-lg mb-8">
+            Experience seamless banking with Truist – where innovation meets
+            trust. Manage your finances effortlessly, anytime, anywhere.
+          </p>
+        </div>
+
+        <div
+          class="bg-purple-950 bg-opacity-25 p-8 rounded-lg shadow-lg max-w-md w-full"
+        >
+          <form class="hero-form">
+            <div class="mb-6">
+              <label for="email" class="block text-sm font-medium mb-2"
+                >Email address</label
+              >
+              <input
+                type="email"
+                id="email"
+                class="w-full p-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+              />
+            </div>
+            <div class="mb-6">
+              <label for="password" class="block text-sm font-medium mb-2"
+                >Password</label
+              >
+              <div class="relative">
+                <input
+                  type="password"
+                  id="password"
+                  class="w-full p-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+                />
+                <button
+                  type="button"
+                  class="absolute inset-y-0 right-3 flex items-center text-gray-400"
+                >
+                  👁️
+                </button>
+              </div>
+            </div>
+            <div class="flex justify-between items-center mb-6">
+              <a href="#" class="text-sm text-purple-400 hover:underline"
+                >Forgot password?</a
+              >
+            </div>
+            <a href="signin.html"
+              ><button
+                type="submit"
+                class="w-full bg-purple-700 hover:bg-purple-600 text-white font-medium py-3 rounded-lg mb-4"
+              >
+                Sign in
+              </button></a
+            >
+            <div class="text-center text-sm text-gray-400 mb-4">
+              Sign in to another account →
+            </div>
+            <hr class="border-gray-700 mb-4" />
+            <a href="createaccount.html"
+              ><button
+                type="button"
+                class="w-full border border-gray-600 text-white font-medium py-3 rounded-lg"
+              >
+                Create new account
+              </button></a
+            >
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <section class="bg-gray-100 text-gray-900 py-16">
+      <div class="max-w-7xl mx-auto px-6 lg:px-16">
+        <h2 class="text-3xl font-bold text-center text-purple-900 mb-12">
+          Our Products
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- Card 1 -->
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+            <img
+              src="image1.jpeg"
+              alt="Investing"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-lg font-semibold mb-2">Investing</h3>
+              <p class="text-sm text-gray-700">
+                Unlock your financial potential with our diverse investment
+                options. From stocks to ETFs, we cater to all experience levels.
+                Start investing today and watch your wealth grow!
+              </p>
             </div>
           </div>
-          <div class="flex justify-between items-center mb-6">
-            <a href="#" class="text-sm text-purple-400 hover:underline">Forgot password?</a>
+
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+            <img
+              src="im2.jpeg"
+              alt="Savings"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-lg font-semibold mb-2">Savings</h3>
+              <p class="text-sm text-gray-700">
+                Build your financial safety net with our high-interest savings
+                accounts. Enjoy no monthly fees and easy access to your funds.
+                Start saving today and watch your money grow!
+              </p>
+            </div>
           </div>
-          <a href="signin.html"><button type="submit" class="w-full bg-purple-700 hover:bg-purple-600 text-white font-medium py-3 rounded-lg mb-4">Sign in</button></a>
-          <div class="text-center text-sm text-gray-400 mb-4">Sign in to another account →</div>
-          <hr class="border-gray-700 mb-4">
-          <a href="createaccount.html"><button type="button" class="w-full border border-gray-600 text-white font-medium py-3 rounded-lg">Create new account</button></a>
-        
-        </form>
-      </div>
-    </div>
-  </div>
 
-  
-  <section class="bg-gray-100 text-gray-900 py-16">
-    <div class="max-w-7xl mx-auto px-6 lg:px-16">
-      <h2 class="text-3xl font-bold text-center text-purple-900 mb-12">Our Products</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        <!-- Card 1 -->
-        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-          <img src="image1.jpeg" alt="Investing" class="w-full h-48 object-cover"> 
-          <div class="p-6">
-            <h3 class="text-lg font-semibold mb-2">Investing</h3>
-            <p class="text-sm text-gray-700">Unlock your financial potential with our diverse investment options. From stocks to ETFs, we cater to all experience levels. Start investing today and watch your wealth grow!</p>
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+            <img
+              src="im3.jpeg"
+              alt="Mortgage"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-lg font-semibold mb-2">Mortgage</h3>
+              <p class="text-sm text-gray-700">
+                Make homeownership a reality with our mortgage solutions. Choose
+                from various products and enjoy expert guidance. Start your
+                journey today!
+              </p>
+            </div>
           </div>
-        </div>
 
-        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-          <img src="im2.jpeg" alt="Savings" class="w-full h-48 object-cover">
-          <div class="p-6">
-            <h3 class="text-lg font-semibold mb-2">Savings</h3>
-            <p class="text-sm text-gray-700">Build your financial safety net with our high-interest savings accounts. Enjoy no monthly fees and easy access to your funds. Start saving today and watch your money grow!</p>
-          </div>
-        </div>
-
-        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-          <img src="im3.jpeg" alt="Mortgage" class="w-full h-48 object-cover">
-          <div class="p-6">
-            <h3 class="text-lg font-semibold mb-2">Mortgage</h3>
-            <p class="text-sm text-gray-700">Make homeownership a reality with our mortgage solutions. Choose from various products and enjoy expert guidance. Start your journey today!</p>
-          </div>
-        </div>
-
-        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-          <img src="im4.jpeg" alt="Insurance" class="w-full h-48 object-cover">
-          <div class="p-6">
-            <h3 class="text-lg font-semibold mb-2">Insurance</h3>
-            <p class="text-sm text-gray-700">Safeguard your assets with our tailored insurance plans. From life to auto coverage, we’ve got you covered for peace of mind and protection.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <section class="bg-white py-16">
-    <div class="max-w-7xl mx-auto px-6 lg:px-16">
-      <h2 class="text-3xl text-purple-900 mb-8">Enjoy cash rewards</h2>
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-
-        <div>
-          <h3 class="text-2xl font-bold mb-4 text-purple-950">Fill up. Stock up. Charge up. All with cash back.</h3>
-          <p class="text-gray-700 mb-6">Turn grocery runs and fuel stops into extra rewards with the Truist Enjoy Cash credit card. <a href="#" class="text-purple-500 underline">See rates, fees and rewards</a></p>
-          <a href="#" class="inline-block text-purple-950 px-6 py-2 rounded-lg shadow-lg hover:underline">Learn more</a>
-          <div class="mt-6 flex space-x-4">
-            <button class="px-4 py-2 border border-purple-950 text-purple-950 rounded-lg hover:bg-purple-950 hover:text-white">3-2-1% Cash back</button>
-            <button class="px-4 py-2 border border-purple-950 text-purple-950 rounded-lg hover:bg-purple-950 hover:text-white">1.5% Cash back</button>
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+            <img
+              src="im4.jpeg"
+              alt="Insurance"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-lg font-semibold mb-2">Insurance</h3>
+              <p class="text-sm text-gray-700">
+                Safeguard your assets with our tailored insurance plans. From
+                life to auto coverage, we’ve got you covered for peace of mind
+                and protection.
+              </p>
+            </div>
           </div>
         </div>
+      </div>
+    </section>
 
-        <div>
-          <img src="6.jpeg" alt="Family Shopping" class="rounded-lg shadow-lg">
+    <section class="bg-white py-16">
+      <div class="max-w-7xl mx-auto px-6 lg:px-16">
+        <h2 class="text-3xl text-purple-900 mb-8">Enjoy cash rewards</h2>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <h3 class="text-2xl font-bold mb-4 text-purple-950">
+              Fill up. Stock up. Charge up. All with cash back.
+            </h3>
+            <p class="text-gray-700 mb-6">
+              Turn grocery runs and fuel stops into extra rewards with the
+              Truist Enjoy Cash credit card.
+              <a href="#" class="text-purple-500 underline"
+                >See rates, fees and rewards</a
+              >
+            </p>
+            <a
+              href="#"
+              class="inline-block text-purple-950 px-6 py-2 rounded-lg shadow-lg hover:underline"
+              >Learn more</a
+            >
+            <div class="mt-6 flex space-x-4">
+              <button
+                class="px-4 py-2 border border-purple-950 text-purple-950 rounded-lg hover:bg-purple-950 hover:text-white"
+              >
+                3-2-1% Cash back
+              </button>
+              <button
+                class="px-4 py-2 border border-purple-950 text-purple-950 rounded-lg hover:bg-purple-950 hover:text-white"
+              >
+                1.5% Cash back
+              </button>
+            </div>
+          </div>
+
+          <div>
+            <img
+              src="6.jpeg"
+              alt="Family Shopping"
+              class="rounded-lg shadow-lg"
+            />
+          </div>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-12">
+          <div class="bg-gray-100 p-6 rounded-lg shadow-md">
+            <h4 class="text-lg font-semibold mb-2">Loans</h4>
+            <p class="text-gray-700">
+              Our fast decision-making process for Truist personal loans can
+              make holiday wishes come true in minutes.
+            </p>
+            <a href="#" class="text-purple-500 underline mt-4 inline-block"
+              >Learn more</a
+            >
+          </div>
+
+          <div class="bg-gray-100 p-6 rounded-lg shadow-md">
+            <h4 class="text-lg font-semibold mb-2">Truist One Checking</h4>
+            <p class="text-gray-700">
+              Enjoy a checking account with automatic upgrades and no overdraft
+              fees this holiday season.
+            </p>
+            <a href="#" class="text-purple-500 underline mt-4 inline-block"
+              >Learn more</a
+            >
+          </div>
         </div>
       </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-12">
+    </section>
 
-        <div class="bg-gray-100 p-6 rounded-lg shadow-md">
-          <h4 class="text-lg font-semibold mb-2">Loans</h4>
-          <p class="text-gray-700">Our fast decision-making process for Truist personal loans can make holiday wishes come true in minutes.</p>
-          <a href="#" class="text-purple-500 underline mt-4 inline-block">Learn more</a>
+    <section
+      class="grid grid-cols-1 md:grid-cols-4 gap-10 p-8 bg-cover bg-center"
+      style="background-image: url('ui.jpeg')"
+    >
+      <div class="bg-purple-950 p-6 rounded-md">
+        <h3 class="font-bold text-lg">Credit card offers</h3>
+        <p class="mt-2 text-sm">
+          A great credit card may be waiting for you. Enjoy a checking account
+          with automatic upgrades and no overdraft fees this holiday season.
+        </p>
+        <button
+          class="mt-4 border border-white bg-purple-950 text-white py-0 px-10 rounded-2xl"
+        >
+          Check offers
+        </button>
+      </div>
+      <div class="bg-purple-950 p-6 rounded-md">
+        <h3 class="font-bold text-lg">PayPal</h3>
+        <p class="mt-2 text-sm">
+          Give and go with PayPal®. Use PayPal® to send money to the people you
+          celebrate right from your phone.
+        </p>
+        <button
+          class="mt-4 border border-white bg-purple-950 text-white py-0 px-10 rounded-2xl"
+        >
+          Check offers
+        </button>
+      </div>
+      <div class="bg-purple-950 p-6 rounded-md">
+        <h3 class="font-bold text-lg">Money market account</h3>
+        <p class="mt-2 text-sm">
+          Sleigh your end-of-year savings goals. Cozy up to the Truist One Money
+          Account today.
+        </p>
+        <button
+          class="mt-10 border border-white bg-purple-950 text-white py-0 px-10 rounded-2xl"
+        >
+          Check offers
+        </button>
+      </div>
+      <div class="bg-purple-950 p-6 rounded-md">
+        <h3 class="font-bold text-lg">Home mortgage</h3>
+        <p class="mt-2 text-sm">
+          Refinancing now might save you money. Falling rates have opened the
+          door to potentially lowering your mortgage.
+        </p>
+        <button
+          class="mt-4 border border-white bg-purple-950 text-white py-0 px-10 rounded-2xl"
+        >
+          Check offers
+        </button>
+      </div>
+    </section>
+
+    <section
+      class="p-10 flex flex-col md:flex-row items-center bg-gray-100 text-black"
+    >
+      <div class="md:w-72 ml-24">
+        <img src="3.jpeg" alt="Person smiling at phone" class="rounded-lg" />
+      </div>
+
+      <div class="md:w-1/2 md:ml-24 mt-6 md:mt-0">
+        <h1 class="text-3xl font-bold">Crystal clear—created with care.</h1>
+        <h2 class="text-3xl font-bold">
+          Stock up. Charge up. All with cash back.
+        </h2>
+        <p class="mt-4 text-lg">
+          Meet the Truist app. Get super-fast access to your accounts and bright
+          insights into your spending with our mobile app.
+        </p>
+        <div class="mt-6">
+          <img
+            src="https://via.placeholder.com/150"
+            alt="QR code"
+            class="inline-block"
+          />
+          <p class="mt-2 text-sm">
+            Scan this code with your phone’s camera to download Truist Mobile.
+          </p>
         </div>
+      </div>
+    </section>
 
-        <div class="bg-gray-100 p-6 rounded-lg shadow-md">
-          <h4 class="text-lg font-semibold mb-2">Truist One Checking</h4>
-          <p class="text-gray-700">Enjoy a checking account with automatic upgrades and no overdraft fees this holiday season.</p>
-          <a href="#" class="text-purple-500 underline mt-4 inline-block">Learn more</a>
+    <footer class="bg-purple-900 text-white py-6">
+      <div
+        class="container mx-auto flex flex-col md:flex-row justify-between items-center"
+      >
+        <div class="text-center md:text-left">
+          <p>&copy; 2024, Truist. All Rights Reserved.</p>
+        </div>
+        <div class="mt-4 md:mt-0 flex space-x-4">
+          <a href="#" class="text-sm hover:underline">Privacy</a>
+          <a href="#" class="text-sm hover:underline">Terms and Conditions</a>
+          <a href="#" class="text-sm hover:underline">Fraud & Security</a>
+          <a href="#" class="text-sm hover:underline">Disclosures</a>
         </div>
       </div>
-    </div>
-  </section>
 
+      <div
+        class="social-media container mx-auto flex flex-row gap-4 items-center"
+      >
+        <div class="social-icons">
+          <img src="Facebook.svg" alt="facebook" />
+        </div>
+        <div class="social-icons">
+          <img src="linkedin.svg" alt="" />
+        </div>
+        <div class="social-icons"><img src="twitter.svg" alt="" /></div>
+        <div class="social-icons">
+          <img src="image/Facebook.svg" alt="" />
+        </div>
+        <div class="social-icons">
+          <img src="instagram (6).svg" alt="" />
+        </div>
+      </div>
+      <div class="copyright">
+        <img src="image/logo main.png" alt="" width="8%" />
+      </div>
+    </footer>
 
-  <section class="grid grid-cols-1 md:grid-cols-4 gap-10 p-8  bg-cover bg-center" style="background-image: url('ui.jpeg')">
+    <script>
+      // Animation from motion.dev
+      const { animate, stagger } = Motion;
 
-    <div class="bg-purple-950 p-6 rounded-md">
-      <h3 class="font-bold text-lg">Credit card offers</h3>
-      <p class="mt-2 text-sm">A great credit card may be waiting for you. Enjoy a checking account with automatic upgrades and no overdraft fees this holiday season.</p>
-      <button class="mt-4 border border-white bg-purple-950 text-white py-0 px-10 rounded-2xl">Check offers</button>
-    </div>
-    <div class="bg-purple-950 p-6 rounded-md">
-      <h3 class="font-bold text-lg">PayPal</h3>
-      <p class="mt-2 text-sm">Give and go with PayPal®. Use PayPal® to send money to the people you celebrate right from your phone.</p>
-      <button class="mt-4 border border-white bg-purple-950 text-white py-0 px-10 rounded-2xl">Check offers</button>
-    </div>
-    <div class="  bg-purple-950 p-6 rounded-md">
-      <h3 class="font-bold text-lg">Money market account</h3>
-      <p class="mt-2 text-sm">Sleigh your end-of-year savings goals. Cozy up to the Truist One Money Account today.</p>
-      <button class=" mt-10 border border-white bg-purple-950 text-white py-0 px-10 rounded-2xl">Check offers</button>
-    </div>
-    <div class="bg-purple-950 p-6 rounded-md">
-      <h3 class="font-bold text-lg">Home mortgage</h3>
-      <p class="mt-2 text-sm">Refinancing now might save you money. Falling rates have opened the door to potentially lowering your mortgage.</p>
-      <button class="mt-4 border border-white bg-purple-950 text-white py-0 px-10 rounded-2xl">Check offers</button>
-    </div>
-  </section>
-
-  <section class="p-10 flex flex-col md:flex-row items-center bg-gray-100 text-black">
-
-    <div class="md:w-72 ml-24">
-      <img src="3.jpeg" alt="Person smiling at phone" class="rounded-lg">
-    </div>
-
-    <div class="md:w-1/2 md:ml-24 mt-6 md:mt-0">
-      <h1 class="text-3xl font-bold">Crystal clear—created with care.</h1>
-      <h2 class="text-3xl font-bold">Stock up. Charge up. All with cash back.</h2>
-      <p class="mt-4 text-lg">Meet the Truist app. Get super-fast access to your accounts and bright insights into your spending with our mobile app.</p>
-      <div class="mt-6">
-        <img src="https://via.placeholder.com/150" alt="QR code" class="inline-block">
-        <p class="mt-2 text-sm">Scan this code with your phone’s camera to download Truist Mobile.</p>
-      </div>
-    </div>
-  </section>
-
-  <footer class="bg-purple-900 text-white py-6">
-    <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
-      <div class="text-center md:text-left">
-        <p>&copy; 2024, Truist. All Rights Reserved.</p>
-      </div>
-      <div class="mt-4 md:mt-0 flex space-x-4">
-        <a href="#" class="text-sm hover:underline">Privacy</a>
-        <a href="#" class="text-sm hover:underline">Terms and Conditions</a>
-        <a href="#" class="text-sm hover:underline">Fraud & Security</a>
-        <a href="#" class="text-sm hover:underline">Disclosures</a>
-      </div>
-    </div>
-    
-    <div class="social-media container mx-auto flex flex-row gap-4 items-center">
-      <div class="social-icons">
-        <img src="Facebook.svg" alt="facebook" />
-      </div>
-      <div class="social-icons">
-        <img src="linkedin.svg" alt="" />
-      </div>
-      <div class="social-icons "><img src="twitter.svg" alt="" /></div>
-      <div class="social-icons">
-        <img src="image/Facebook.svg" alt="" />
-      </div>
-      <div class="social-icons">
-        <img src="instagram (6).svg" alt="" />
-      </div>
-    </div>
-    <div class="copyright">
-      <img src="image/logo main.png" alt="" width="8%" />
-  </footer>
-</body>
+      animate([
+        [".hero-text", { opacity: 1 }, { duration: 1 }],
+        [
+          ".hero-form > *",
+          {
+            opacity: [0, 1],
+            x: [100, 0],
+          },
+          {
+            delay: stagger(0.1),
+          },
+        ],
+      ]);
+    </script>
+  </body>
 </html>
