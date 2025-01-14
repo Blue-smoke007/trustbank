@@ -10,25 +10,25 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.6.0/css/flag-icon.min.css">
 
   <script>
-    // Handle the button click event
+    
     function handleButtonClick(button) {
       button.disabled = true;
       button.innerHTML = '<svg class="animate-spin h-5 w-5 text-white mx-auto" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>';
       
-      // Show the password modal
+      
       showPasswordModal(button);
     }
 
-    // Show the password modal
+    
     function showPasswordModal(button) {
       const modal = document.getElementById("passwordModal");
       modal.classList.remove("hidden");
 
-      // Handle the password submission
+      
       document.getElementById("passwordSubmit").onclick = function() {
         const password = document.getElementById("passwordInput").value;
         if (password) {
-          // Hide the password modal and show success modal
+          
           modal.classList.add("hidden");
           showSuccessModal();
         } else {
@@ -140,7 +140,7 @@
     </div>
   </main>
 
-  <!-- Password Modal -->
+
   <div id="passwordModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden">
     <div class="bg-white p-8 rounded-lg shadow-lg w-96">
       <h3 class="text-2xl font-semibold mb-4">Enter Password</h3>
@@ -152,7 +152,7 @@
     </div>
   </div>
 
-  <!-- Success Modal -->
+
   <div id="successModal" class="fixed inset-0 bg-opacity-50 flex items-center justify-center hidden">
     <div class="bg-white p-8 rounded-lg shadow-lg w-96 text-center">
       <div class="mb-4">
