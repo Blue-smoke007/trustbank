@@ -6,21 +6,21 @@
     <title>Dashboard</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Overlay styling */
+       
         .overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
+            background-color: rgba(0, 0, 0, 0.6);
             display: none;
             align-items: center;
             justify-content: center;
             z-index: 50;
         }
 
-        /* Alert box styling */
+        
         .alert-box {
             background: white;
             padding: 20px 30px;
@@ -31,7 +31,7 @@
             width: 300px;
         }
 
-        /* Button styling inside alert box */
+        
         .alert-box button {
             margin: 10px;
             padding: 8px 16px;
@@ -48,6 +48,42 @@
         .alert-box .cancel-btn {
             background-color: #f44336;
             color: white;
+        }
+
+        
+        .button-container {
+            position: relative;
+        }
+
+        .button-loader {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 20px;
+            height: 20px;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-top: 4px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            visibility: hidden;
+        }
+
+        @keyframes spin {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        .button-text {
+            visibility: visible;
+        }
+
+        .button-disabled .button-text {
+            visibility: hidden;
+        }
+
+        .button-disabled .button-loader {
+            visibility: visible;
         }
     </style>
 </head>
@@ -93,9 +129,75 @@
         </aside>
 
         <main class="w-3/4 pl-8">
-            <!-- Main content here -->
-        </main>
-    </div>
+          <div class="bg-white rounded-lg shadow-md p-6">
+            <h1 class="text-2xl font-bold mb-4">Welcome Username</h1>
+            <p class="text-gray-700 text-lg mb-6">Your balance</p>
+            <p class="text-purple-900 text-4xl font-bold mb-10">$250,489.34</p>
+
+
+            <section class="flex items-center space-x-6 mb-6">
+                <div class="flex space-x-4">
+                  <img src="images/card.png" alt="Credit Card" class="w-96 rounded-lg shadow-md">
+                </div>
+                <a href="card.html">
+                  <button  class="bg-purple-950 text-white px-6 py-2 rounded-xl shadow-xl  hover:bg-purple-700">+ Add Card</button>
+                </a>
+              </section>
+
+
+            <div class="mt-20 flex space-x-4">
+                <div class="button-container w-1/2">
+                    <button onclick="handleButtonClick(this)" class="w-full bg-gray-300 text-black py-2 px-4 rounded-lg hover:bg-purple-950 hover:text-white">
+                        <span class="button-text">Transfer</span>
+                        <div class="button-loader"></div>
+                    </button>
+                </div>
+                <div class="button-container w-1/2">
+                    <button onclick="handleButtonClick(this)" class="w-full bg-gray-300 text-gray-700 py-2 px-4 rounded-lg hover:bg-purple-950 hover:text-white">
+                        <span class="button-text">Deposit</span>
+                        <div class="button-loader"></div>
+                    </button>
+                </div>
+            </div>
+
+
+            <div class="mt-8">
+                <h2 class="text-xl font-bold mb-4">Recent Transactions</h2>
+                <table class="w-full text-left text-gray-700">
+                    <thead>
+                        <tr>
+                            <th class="pb-2">Description</th>
+                            <th class="pb-2">Amount</th>
+                            <th class="pb-2">Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-t">
+                            <td class="py-2">Electricity bill</td>
+                            <td class="py-2">$200.00</td>
+                            <td class="py-2">12/10/2025</td>
+                        </tr>
+                        <tr class="border-t">
+                            <td class="py-2">Renumeration</td>
+                            <td class="py-2">$22,000.00</td>
+                            <td class="py-2">12/12/2024</td>
+                        </tr>
+                        <tr class="border-t">
+                            <td class="py-2">Rent</td>
+                            <td class="py-2">$500.00</td>
+                            <td class="py-2">13/06/2024</td>
+                        </tr>
+                        <tr class="border-t">
+                            <td class="py-2">House Provisions</td>
+                            <td class="py-2">$320.00</td>
+                            <td class="py-2">01/06/2024</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+</div>
 
     <footer class="bg-purple-900 text-white py-4 mt-8">
         <div class="container mx-auto text-center space-y-2">
@@ -109,13 +211,15 @@
         </div>
     </footer>
 
-    <!-- Alert Box -->
+
     <div class="overlay" id="signOutOverlay">
-        <div class="alert-box">
+        <div class="bg-white rounded-lg p-6 w-96 text-center shadow-lg">
             <h2 class="text-lg font-bold mb-4">Confirm Sign Out</h2>
-            <p class="mb-4">Are you sure you want to sign out?</p>
-            <button class="confirm-btn" onclick="confirmSignOut()">Confirm</button>
-            <button class="cancel-btn" onclick="hideAlert()">Cancel</button>
+            <p class="text-gray-700 mb-6">Are you sure you want to sign out?</p>
+            <div class="flex justify-around">
+                <button onclick="confirmSignOut()" class="bg-purple-950 text-white py-2 px-4 rounded-lg hover:bg-purple-700">Confirm</button>
+                <button onclick="hideAlert()" class="bg-purple-950 text-white py-2 px-4 rounded-lg hover:bg-purple-700">Cancel</button>
+            </div>
         </div>
     </div>
 
@@ -132,9 +236,21 @@
             overlay.style.display = 'none';
         }
 
-        // Confirm the sign-out and redirect to homepage
+   
         function confirmSignOut() {
             window.location.href = "homepage.html";
+        }
+
+        // Circular Loader Button Handler
+        function handleButtonClick(button) {
+            // Disable button and show loader
+            button.classList.add("button-disabled");
+            
+            // Simulate loading process for 3 seconds
+            setTimeout(() => {
+                // Hide loader and re-enable button
+                button.classList.remove("button-disabled");
+            }, 3000); // Change the timeout duration as needed
         }
     </script>
 </body>
