@@ -1,0 +1,76 @@
+{% extends "header.html" %}
+{% block title %} UN - Job Connect {% endblock %}
+{% block usactive %}active{% endblock usactive %}
+
+{% block style %}
+<style type="text/css">
+
+</style>
+{% endblock style %}
+
+{% block main %}
+<div class="px-4 py-5 my-5 text-center">
+    <h4 class="display-9 fw-bold text-body-emphasis">Admin Profile</h4>
+</div>
+<div class="p-5 mb-4 bg-body-tertiary rounded-3">
+    <div class="container">
+        <form method="post">
+            <div class="my-4 d-flex row">
+                <div class="col-3">
+                    <label for="firstName" class="form-label">Company Name</label>
+                </div>
+                <div class="col-9">
+                    <input type="text" class="form-control" id="firstName" placeholder="Binance Company">
+                </div>
+            </div>
+            <div class="my-4 d-flex row">
+                <div class="col-3">
+                    <label for="email" class="form-label">Email</label>
+                </div>
+                <div class="col-9">
+                    <input type="email" class="form-control" id="email" placeholder="Johnwisdom@gmail.com">
+                </div>
+            </div>
+            <div>
+                <p><b>About</b>:
+                    Recuritment accessment staff at Binance </p>
+            </div>
+            <div>
+                <div class="my-4 d-flex row">
+                    <div class="col-3">
+                        <label for="exampleFormControlInput1" class="form-label">Phone Number</label>
+                    </div>
+                    <div class="col-9">
+                        <input type="number" class="form-control" id="exampleFormControlInput1"
+                            placeholder="+5432222111111">
+                    </div>
+                </div>
+                <div class="my-4 d-flex row">
+                    <div class="col-3">
+                        <label for="exampleFormControlInput1" class="form-label">Date of Birth</label>
+                    </div>
+                    <div class="col-9">
+                        <input type="date" class="form-control" id="exampleFormControlInput1" placeholder="12/01/2001">
+                    </div>
+                </div>
+                <div class="my-4 d-flex row">
+                    <div class="col-3">
+                        <label for="exampleFormControlInput1" class="form-label">Country</label>
+                    </div>
+                    <div class="col-9">
+                        <input type="text" class="form-control" id="exampleFormControlInput1"
+                            placeholder="United Kingdom">
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex justify-content-center">
+                <button type="submit" class="btn btn-outline-primary">Edit Profile</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock main %}
+
+{% block footer %}
+{% include "footer.html" %}
+{% endblock footer %}

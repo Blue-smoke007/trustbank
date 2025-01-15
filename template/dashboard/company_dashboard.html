@@ -1,0 +1,163 @@
+{% extends "header.html" %}
+{% block title %} Company Dashboard {% endblock %}
+{% block recuritactive %} active {% endblock %}
+
+{% block style %}
+<style>
+    .dashboard-header {
+        background-color: #343a40;
+        color: white;
+        padding: 20px;
+        border-radius: 5px;
+        margin-bottom: 30px;
+    }
+
+    .dashboard-header h1 {
+        margin-bottom: 10px;
+    }
+
+    .summary-cards {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 30px;
+    }
+
+    .summary-card {
+        background-color: #007bff;
+        color: white;
+        border-radius: 5px;
+        padding: 20px;
+        flex: 1;
+        margin-right: 20px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .summary-card:last-child {
+        margin-right: 0;
+    }
+
+    .summary-card h4 {
+        margin-bottom: 10px;
+    }
+
+    .summary-card p {
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    .job-card {
+        margin-bottom: 20px;
+    }
+
+    .job-title {
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .analytics-overview {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 30px;
+    }
+
+    .analytics-card {
+        background-color: #28a745;
+        color: white;
+        padding: 20px;
+        border-radius: 5px;
+        flex: 1;
+        margin-right: 20px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .analytics-card:last-child {
+        margin-right: 0;
+    }
+
+    .analytics-card h4 {
+        margin-bottom: 10px;
+    }
+
+    .analytics-card p {
+        font-size: 24px;
+        font-weight: bold;
+    }
+</style>
+{% endblock style %}
+
+{% block main %}
+<div class="content">
+    <div class="container">
+        <!-- Dashboard Header -->
+        <div class="dashboard-header">
+            <h1>Welcome, {{ full_name }}  to {{company_name}} Dashboard</h1>
+            <p>Your job listings and activity overview are displayed below.</p>
+        </div>
+
+        <!-- Summary Cards (Active Jobs, Recent Applications, Total Applicants) -->
+        <div class="summary-cards">
+            <!-- Active Jobs Card -->
+            <div class="summary-card">
+                <h4>Active Jobs</h4>
+                <p>{{ total_jobs }}</p>
+            </div>
+            <div class="summary-card">
+                <h4>Recent Applications</h4>
+                <p>{{ recent_applications_count }}</p>
+                <a href="{% url 'jobapplications' %}" class="btn btn-primary">View Application</a>
+            </div>
+            <div class="summary-card">
+                <h4>Total Applicants</h4>
+                <p>{{ total_applicants_count }}</p>
+            </div>
+        </div>
+        <h3>Active Job Listings</h3>
+        {% if jobs %}
+        <div class="row">
+            {% for job in jobs %}
+            <div class="col-md-4">
+                <div class="card job-card">
+                    <div class="card-body">
+                        <h5 class="job-title">{{ job.title }}</h5>
+                        <p><strong>Status:</strong> {{ job.status }}</p>
+                        <p><strong>Location:</strong> {{ job.place }}</p>
+                        <p><strong>Company:</strong> {{ job.company_name }}</p>
+                        <p><strong>Posted on:</strong> {{ job.application_starting_date }}</p>
+                        <a href="{% url 'singlejob' job.pk %}" class="btn btn-primary">View Job</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            <p><a href="{% url 'adminsignup' %}">Login to Post a new Job</a></p>
+        </div>
+        {% else %}
+        <p>No active job listings. <a href="{% url 'adminsignup' %}">Post a new job</a></p>
+        {% endif %}
+        <p>
+            <p><a href="{% url 'postjob' %}">Already Logged as an Admin? Continue with Job Posting</a></p>
+        <div class="analytics-overview">
+            <!-- Views Card -->
+            <div class="analytics-card">
+                <h4>Total Views</h4>
+                <p>{{ total_views }}</p>
+            </div>
+
+            <!-- Clicks Card -->
+            <div class="analytics-card">
+                <h4>Total Clicks</h4>
+                <p>{{ total_clicks }}</p>
+            </div>
+
+            <!-- Application Rate Card -->
+            <div class="analytics-card">
+                <h4>Application Rate</h4>
+                <p>{{ application_rate }}%</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock main %}
+
+{% block footer %}
+{% include "footer.html" %}
+{% endblock footer %}

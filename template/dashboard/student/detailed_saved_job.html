@@ -1,0 +1,116 @@
+{% extends "header.html" %}
+{% block title %} UN - Job Connect: Detailed Job {% endblock %}
+{% block listedactive %}active{% endblock %}
+
+{% block style %}
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+
+    .content {
+        padding: 20px;
+    }
+
+    .job-header {
+        background-color: #343a40;
+        color: white;
+        padding: 20px;
+        border-radius: 5px;
+    }
+
+    .job-header h1 {
+        font-size: 28px;
+        margin-bottom: 10px;
+    }
+
+    .job-header p {
+        margin: 0;
+        font-size: 16px;
+    }
+
+    .job-details-card {
+        margin-top: 20px;
+        border: none;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+    }
+
+    .job-details-card .card-body {
+        padding: 20px;
+    }
+
+    .job-details-card ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .job-details-card ul li {
+        margin-bottom: 10px;
+    }
+
+    .apply-section {
+        margin-top: 30px;
+        text-align: center;
+    }
+
+    .apply-btn {
+        background-color: #28a745;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 16px;
+    }
+
+    .apply-btn:hover {
+        background-color: #218838;
+    }
+</style>
+{% endblock style %}
+
+{% block main %}
+<div class="content">
+    <div class="container">
+        <!-- Job Header -->
+        <div class="job-header">
+            <h1>{{ job.title }}</h1>
+            <p><strong>Company:</strong> {{ job.company_name }}</p>
+            <p><strong>Location:</strong> {{ job.place }}</p>
+            <p><strong>Posted:</strong> {{ job.application_starting_date }}</p>
+        </div>
+
+        <!-- Job Details -->
+        <div class="card job-details-card">
+            <div class="card-body">
+                <h4>Job Description</h4>
+                <p>{{ job.description }}</p>
+
+                <!-- <h4>Requirements</h4> -->
+                <ul>
+                    <!-- {% for requirement in job.requirements %}
+                    <li>- {{ requirement }}</li>
+                    {% endfor %} -->
+                </ul>
+
+                <h4>Additional Information</h4>
+                <p>{{ job.additional_info }}</p>
+            </div>
+        </div>
+
+        <!-- Apply Section -->
+        <div class="apply-section">
+            <form action="{% url 'apply-job' job.pk %}" method="post">
+                {% csrf_token %}
+                <!-- <a href="{% url 'apply-job' job.pk %}" class="apply-btn">Apply Now</a>
+                 -->
+                 <input type="text" value="{{job.title}}" name="title" hidden>
+                 <!-- <input type="text" value="{{job.description}}" name="title"> -->
+
+                 <button type="submit">Apply Now</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock main %}

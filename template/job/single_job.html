@@ -1,0 +1,56 @@
+{% extends "header.html" %}
+{% load static %}
+{% block title %} UN - Job Connect {% endblock %}
+{% block listedactive %}active{% endblock listedactive %}
+
+{% block main %}
+<div class="px-4 py-1 my-1 text-center">
+    <h5 class="display-9 fw-bold text-body-emphasis">Details of Job</h5>
+</div>
+<div class="p-5 mb-4 bg-body-tertiary rounded-3">
+    <div class="container-fluid py-1">
+        <table class="table table-dark table-hover table-bordered">
+
+            <tbody>
+                <tr>
+                    <th scope="row" colspan="0.1">Job Title</th>
+                    <td>{{single.title}}</td>
+                </tr>
+                <tr>
+                    <th scope="row" class="col-2">Company Name</th>
+                    <td class="col-6">{{single.company_name}}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Monthly Salary</th>
+                    <td>{{single.salary}}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Job Description</th>
+                    <td>{{single.description}}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Job Location</th>
+                    <td>{{single.location}}</td>
+                </tr>
+                <tr>
+                    <th scope="row">No of Opening</th>
+                    <td>{{single.no_of_opening}}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Application Date</th>
+                    <td>{{single.application_starting_date}}</td>
+                </tr>
+                <tr></tr>
+                <th scope="row">Last Date</th>
+                <td>{{single.last_date}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <button type="button" class="btn btn-danger">Submit Application</button>
+    </div>
+</div>
+{% endblock main %}
+
+{% block footer %}
+{% include "footer.html" %}
+{% endblock footer %}

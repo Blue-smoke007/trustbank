@@ -1,0 +1,17 @@
+{
+  "user": {
+    "id": "8fd354acae80425db147021537b75a01",
+    "email": "user@example.com",
+    "gender": "Male",
+    "full_name": "Eze Kc",
+    "password": "pbkdf2_sha256$600000$OkFHzcR0NhzqANQBePh4pb$RI4TgTN3LnWbOyA3kUEHpLXbnYveEPc9htIV6zuuCbk=",
+    "phone_number": "0808219999",
+    "student_id": "2019/24355555"
+  },
+  "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTczMjEzMzUxMywiaWF0IjoxNzMyMDQ3MTEzLCJqdGkiOiI5NmVjZWM3OWMwNzQ0NGNlYTBkZDdlZWUzMzViOTc4YSIsInVzZXJfaWQiOjF9.1imn5ix1FFnADeK9orTDax6B0VE23hgFcVaZ-dj8RDo",
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzMyMDQ3NDEzLCJpYXQiOjE3MzIwNDcxMTMsImp0aSI6ImZlZjliYzgzNmZiNjQ0ZTI4MDU2NTM4MmZmNzlkYzNiIiwidXNlcl9pZCI6MX0.gs3JcBjLEBLyT3wKTsP_T8b0K79xt9nauLLCeSgO-3Q",
+  "user_email": "user@example.com",
+  "is_active": true,
+  "status": true,
+  "success_msg": "Account creation successful, check email to verify your account"
+}

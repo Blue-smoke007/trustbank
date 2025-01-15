@@ -1,0 +1,79 @@
+{% extends "header.html" %}
+{% load static %}
+{% block title %} UN - Job Connect {% endblock %}
+{% block recuritactive %}active{% endblock %}
+
+{% block style %}
+<style>
+    @media (min-width: 1200px) {
+        img.image-fluid.landing {
+            height: 320px;
+            width: 428px;
+        }
+    }
+</style>
+{% endblock style %}
+
+{% block main %}
+<div class="row align-items-md-stretch">
+    <div class="col-md-6">
+        <div class="h-100 p-5 text-bg-dark rounded-3">
+            <img src="{% static 'admin_login.jpeg' %}" alt="" srcset="" class="image-fluid w-0 h-auto">
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="h-100 p-5 bg-body-tertiary border rounded-3">
+            <h2>Welcome Back</h2>
+            <p>Hello, Welcome back to the admin login view</p>
+            <form id="main-form" method="post" action="#" class="">
+                {% csrf_token %}
+                <div class="input-group mb-3">
+
+                    <span class="input-group-text" id="basic-addon1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-envelope" viewBox="0 0 16 16">
+                            <path
+                                d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z" />
+                        </svg>
+                    </span>
+                    <input type="email" class="form-control" placeholder="Enter your Email here"
+                        aria-label="Input with image" aria-describedby="basic-addon1" name="email">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-lock-fill" viewBox="0 0 16 16">
+                            <path
+                                d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2m3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2" />
+                        </svg>
+                    </span>
+                    <input type="password" class="form-control" placeholder="Enter your Password"
+                        aria-label="Input with image" aria-describedby="basic-addon1" name="password">
+                </div>
+                <div class="input-group mb-3 d-flex justify-content-center">
+                    <button class="btn btn-outline-primary justify-content-end px-5" type="Submit">Validate Admin User
+                    </button>
+                </div>
+            </form>
+
+
+            <div class="container d-flex row">
+                <p class="my-2 col-11 ">
+                    <a>You forgotten your password?</a>
+                </p>
+                <p class="my-2 justify-content-end col-1">
+                    <a href="{% url 'adminsignup' %}">SignUp?</a>
+                </p>
+                </p>
+            </div>
+            <div class="container d-flex row">
+                <a href="{% url 'index' %}" class="text-decoration-none"><b>Back To Home</b></a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock main %}
+
+{% block footer %}
+{% include "footer.html" %}
+{% endblock footer %}

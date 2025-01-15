@@ -1,0 +1,172 @@
+{% extends "header.html" %}
+{% load static %}
+{% block title %} Job Applications Management {% endblock %}
+
+{% block recuritactive %}active{% endblock recuritactive %}
+
+{% block style %}
+<style>
+    .container {
+        margin-top: 30px;
+    }
+
+    .card {
+        margin-bottom: 20px;
+        border-radius: 8px;
+    }
+
+    .card-header {
+        background-color: #007bff;
+        color: white;
+    }
+
+    .filter-container {
+        margin-bottom: 30px;
+    }
+
+    .filter-container select {
+        width: auto;
+        margin-right: 10px;
+    }
+
+    .status-btn {
+        padding: 5px 15px;
+        border-radius: 5px;
+        font-size: 14px;
+        margin: 5px;
+    }
+
+    .status-btn.reviewed {
+        background-color: #28a745;
+        color: white;
+    }
+
+    .status-btn.shortlisted {
+        background-color: #ffc107;
+        color: black;
+    }
+
+    .status-btn.rejected {
+        background-color: #dc3545;
+        color: white;
+    }
+
+    .status-btn.interviewing {
+        background-color: #007bff;
+        color: white;
+    }
+
+    .applicant-profile {
+        display: none;
+        padding: 20px;
+        background-color: #f8f9fa;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .applicant-profile h4 {
+        margin-bottom: 20px;
+    }
+
+    .applicant-profile p {
+        font-size: 16px;
+    }
+
+    .export-btn {
+        background-color: #17a2b8;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+    }
+
+    .export-btn:hover {
+        background-color: #138496;
+    }
+</style>
+
+{% endblock style %}
+
+{% block main %}
+<div class="filter-container">
+    <h3>Manage Job Applications</h3>
+    <form class="form-inline row">
+        <select class="form-control col-4" id="job-title-filter">
+            <option value="">Select Job Title</option>
+            <!-- Dynamic list of job titles -->
+            <option value="Job1">Job 1</option>
+            <option value="Job2">Job 2</option>
+        </select>
+        <select class="form-control col-4" id="application-status-filter">
+            <option value="">All Statuses</option>
+            <option value="Reviewed">Reviewed</option>
+            <option value="Shortlisted">Shortlisted</option>
+            <option value="Rejected">Rejected</option>
+            <option value="Interviewing">Interviewing</option>
+        </select>
+        <input type="date" class="col-4" id="date-filter">
+        <button type="submit" class="btn btn-primary mx-3 col-4">Apply Filters</button>
+    </form>
+</div>
+
+<!-- Application List -->
+<div class="card">
+    <div class="card-header">
+        <h5>Applications for Job 1</h5>
+    </div>
+
+    {% for applicant in applicants %}
+    <div class="card-body">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Applicant Name</th>
+                    <th>Email</th>
+                    <th>Application Date</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{applicant.full_name}}</td>
+                    <td>{{applicant.email}}</td>
+                <td>{{applicant.application_date}}</td>
+                    <td><button class="status-btn reviewed">{{applicant.job_status}}</button></td>
+                    <td>
+                        <td>
+                            <a href="{{ applicant.resume.url }}" class="btn btn-primary status-btn reviewed">Download CV</a>
+                        </td>
+</td>
+                    <td><button class="btn btn-info btn-sm"
+                            onclick="viewApplicantProfile('John Doe', 'johndoe@example.com', 'Resume Link')">View
+                            Profile</button></td>
+                </tr>
+               
+            </tbody>
+        </table>
+    </div>
+    {% endfor %}
+</div>
+
+<!-- Applicant Profile Section -->
+<div class="applicant-profile" id="applicant-profile">
+    <h4>Applicant Profile: <span id="applicant-name"></span></h4>
+    <p><strong>Email:</strong> <span id="applicant-email"></span></p>
+    <p><strong>Resume:</strong> <span id="applicant-resume"></span></p>
+    <button class="btn btn-secondary" onclick="closeProfile()">Close Profile</button>
+</div>
+
+<!-- Export Data Button -->
+<div class="text-center">
+    <button class="export-btn" onclick="exportApplicantData()">Export Applicant Data</button>
+</div>
+</div>
+{% endblock main %}
+{% block script %}
+<script type="module" src="{% static 'js/job_application.js' %}"></script>
+{% endblock %}
+
+{% block footer %}
+{% include "footer.html" %}
+{% endblock footer %}

@@ -1,0 +1,92 @@
+{% extends "header.html" %}
+{% block title %} UN - Job Connect {% endblock %}
+{% block usactive %}active{% endblock usactive %}
+
+{% block style %}
+<style type="text/css">
+
+</style>
+{% endblock style %}
+
+{% block main %}
+<div class="px-4 py-5 my-5 text-center">
+    <img src="student_image.jpg" class="img-fluid rounded-circle mb-3" alt="Company profile picture">
+    <h4 class="display-9 fw-bold text-body-emphasis">Company Profile</h4>
+</div>
+<div class="p-5 mb-4 bg-body-tertiary rounded-3">
+    <div class="container">
+        <form method="post">
+            <div>
+                <div class="my-4 d-flex row">
+                    <div class="col-3">
+                        <label for="exampleFormControlInput1" class="form-label">Administrator</label>
+                    </div>
+                    <div class="col-9">
+                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="John Wisdom">
+                    </div>
+                </div>
+                <div class="my-4 d-flex row">
+                    <div class="col-3">
+                        <label for="exampleFormControlInput1" class="form-label">Company Url</label>
+                    </div>
+                    <div class="col-9">
+                        <input type="url" class="form-control" id="exampleFormControlInput1"
+                            placeholder="https://binance.com">
+                    </div>
+                </div>
+                <div class="my-4 d-flex row">
+                    <div class="col-3">
+                        <label for="exampleFormControlInput1" class="form-label">Company Address</label>
+                    </div>
+                    <div class="col-9">
+                        <input type="text" class="form-control" id="exampleFormControlInput1"
+                            placeholder="New Castle - UK">
+                    </div>
+                </div>
+                <div class="my-4 d-flex row">
+                    <div class="col-3">
+                        <label for="exampleFormControlInput1" class="form-label">Company Email</label>
+                    </div>
+                    <div class="col-9">
+                        <input type="email" class="form-control" id="exampleFormControlInput1"
+                            placeholder="support@binance.com">
+                    </div>
+                </div>
+                <div class="my-4 d-flex row">
+                    <div class="col-3">
+                        <label for="exampleFormControlInput1" class="form-label">Phone Number</label>
+                    </div>
+                    <div class="col-9">
+                        <input type="number" class="form-control" id="exampleFormControlInput1"
+                            placeholder="+5432222111111">
+                    </div>
+                </div>
+                <div class="my-4 d-flex row">
+                    <div class="col-3">
+                        <label for="exampleFormControlInput1" class="form-label">Started Since</label>
+                    </div>
+                    <div class="col-9">
+                        <input type="date" class="form-control" id="exampleFormControlInput1" placeholder="12/01/2001">
+                    </div>
+                </div>
+                <div class="my-4 d-flex row">
+                    <div class="col-3">
+                        <label for="exampleFormControlInput1" class="form-label">Country</label>
+                    </div>
+                    <div class="col-9">
+                        <input type="text" class="form-control" id="exampleFormControlInput1"
+                            placeholder="United Kingdom">
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex justify-content-center">
+                <button type="submit" class="btn btn-outline-primary">Edit Company Profile</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock main %}
+
+{% block footer %}
+{% include "footer.html" %}
+{% endblock footer %}

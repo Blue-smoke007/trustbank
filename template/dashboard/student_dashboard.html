@@ -1,0 +1,166 @@
+{% extends "header.html" %}
+{% load static %}
+{% block title %} UN - Job Connect: Student Dashboard {% endblock %}
+{% block studentactive %}active{% endblock %}
+
+{% block style %}
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+
+    .content {
+        padding: 20px;
+    }
+
+    .job-list-container,
+    .recommended-job-container,
+    .saved-job-container {
+        display: flex;
+        overflow-x: auto;
+        white-space: nowrap;
+        gap: 15px;
+        padding: 10px;
+    }
+
+    .job-list-container::-webkit-scrollbar,
+    .recommended-job-container::-webkit-scrollbar,
+    .saved-job-container::-webkit-scrollbar {
+        height: 1px;
+        display: none;
+    }
+
+    .job-list-container::-webkit-scrollbar-thumb,
+    .recommended-job-container::-webkit-scrollbar-thumb,
+    .saved-job-container::-webkit-scrollbar-thumb {
+        background-color: #6c757d;
+        border-radius: 2px;
+        display: none;
+    }
+
+    .job-list-container::-webkit-scrollbar-track,
+    .recommended-job-container::-webkit-scrollbar-track,
+    .saved-job-container::-webkit-scrollbar-track {
+        background-color: #e9ecef;
+        display: none;
+    }
+
+    .job-card,
+    .saved-card {
+        flex: 0 0 auto;
+        /* Prevent shrinking or growing */
+        width: 300px;
+        border: none;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        background-color: white;
+        border-radius: 5px;
+    }
+
+    .job-card img {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+    }
+
+    .card-body {
+        padding: 15px;
+    }
+</style>
+{% endblock style %}
+
+{% block main %}
+<div class="content">
+    <div class="container-fluid">
+        <!-- Welcome Banner -->
+        <div class="row">
+            <div class="col-12 my-5">
+                <h3>Welcome, {{name}}</h3>
+                <p>Here are your latest updates and opportunities.</p>
+            </div>
+        </div>
+
+        <!-- Dashboard Sections -->
+        <!-- Saved Jobs -->
+        <div class="mb-4">
+            <div class=" mb-4">
+                <div class="container content">
+                    <h1 class="mb-4">Saved Jobs </h1>
+                    <p>You have saved 4 Jobs.</p>
+                    <div id="saved-job" class="saved-job-container"></div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Job Applications -->
+        <div class=" mb-4">
+            <div class="container content">
+                <h1 class="mb-4">Job Applications </h1>
+                <p>You have 2 active applications.</p>
+                <div id="job-list" class="job-list-container"></div>
+            </div>
+        </div>
+
+        <!-- Recommended Jobs -->
+        <div class=" mb-4">
+            <div class=" mb-4">
+                <div class="container content">
+                    <h1 class="mb-4">Applied  Jobs</h1>
+                    <p>Jobs that match your profile.</p>
+
+                    
+<!-- # Create your models here.
+class ApplicationForm(models.Model):
+    user=models.ForeignKey(User,on_delete=models.CASCADE,null=True,blank=True)
+    full_name=models.TextField(null=True,blank=True)
+    email=models.EmailField(null=True,blank=True)
+    phone_number=models.CharField(max_length=15,null=True,blank=True)
+    cover_letter=models.TextField(null=True,blank=True)
+    resume=models.FileField(upload_to='photos',null=True,blank=True)
+    job=models.ForeignKey(Job,on_delete=models.CASCADE,null=True,blank=True)
+    application_date=models.DateField(auto_now_add=True,null=True,blank=True)
+    job_status=models.TextField(null=True,blank=True,default="under_review")
+
+    
+    def __str__(self):
+        return f"{self.user.full_name} applied for {self.job.title} job"
+    
+# class RecruiterDashboard(models.Model): -->
+
+
+<div class="container">
+    {% for applicant in applied_jobs %}
+    <div class="card">
+        <h2>{{ applicant.full_name }}</h2>
+        <p class="email"><strong>Email:</strong> {{ applicant.email }}</p>
+        <p class="phone"><strong>Phone:</strong> {{ applicant.phone_number }}</p>
+        <p><strong>Cover Letter:</strong> {{ applicant.cover_letter }}</p>
+        <p><strong>Job Status:</strong> {{ applicant.job_status }}</p>
+
+
+    </div>
+    {% endfor %}
+</div>
+                    <div id="recommended-job" class="recommended-job-container"></div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+{% endblock main %}
+
+{% block script %}
+<!-- <script>
+    let applied_jobs = '{{applied_jobs}}';
+    let recommended_job = "{{recommended_jobs}}";
+    let saved_job = "{{ saved_job }}"
+</script> -->
+<script type="module" src="{% static 'js/student_dashboard.js' %}" ></script>
+{% endblock script %}
+
+{% block footer %}
+{% include "footer.html" %}
+{% endblock footer %}

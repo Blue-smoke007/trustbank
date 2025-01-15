@@ -1,0 +1,59 @@
+{% extends "header.html" %}
+{% block title %} UN - Job Connect: Application Submitted {% endblock %}
+{% block listedactive %}active{% endblock %}
+
+{% block style %}
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+
+    .content {
+        padding: 20px;
+    }
+
+    .confirmation-card {
+        border: none;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        padding: 20px;
+    }
+
+    .confirmation-card h1 {
+        font-size: 28px;
+        color: #28a745;
+    }
+
+    .confirmation-card p {
+        font-size: 18px;
+        margin-top: 10px;
+    }
+
+    .confirmation-card .btn {
+        margin-top: 20px;
+    }
+</style>
+{% endblock style %}
+
+{% block main %}
+<div class="content">
+    <div class="container">
+        <!-- Confirmation Card -->
+        <div class="card confirmation-card">
+            <div class="card-body text-center">
+                <h1>Application Submitted Successfully!</h1>
+                <p>Thank you for applying to the <strong>{{ job.title }}</strong> position at <strong>{{ job.company }}</strong>.</p>
+                <p>Your application has been successfully submitted, and our team will review it soon.</p>
+                <p><strong>Application Summary:</strong></p>
+                <ul>
+                    <strong>Full Name:</strong>{{full_name}}<br>
+                    <strong>Email:</strong>{{email}}<br>
+                    <strong>Phone:</strong>{{phone_number}}<br>
+                    <strong>Cover Letter:</strong> {{cover_letter|truncatewords:20 }}<br>
+                </ul>
+                <a href="{% url 'studentdashboard' %}" class="btn btn-success">Return to Dashboard</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock main %}

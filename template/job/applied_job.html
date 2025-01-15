@@ -1,0 +1,141 @@
+{% extends "header.html" %}
+{% block title %} UN - Job Connect: Apply to Job {% endblock %}
+{% block listedactive %}active{% endblock %}
+
+{% block style %}
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+
+    .content {
+        padding: 20px;
+    }
+
+    .job-header {
+        color: white;
+        padding: 20px;
+        border-radius: 5px;
+    }
+
+    .job-header h1 {
+        font-size: 28px;
+        margin-bottom: 10px;
+    }
+
+    .job-header p {
+        margin: 0;
+        font-size: 16px;
+    }
+
+    .application-form-card {
+        margin-top: 20px;
+        border: none;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+    }
+
+    .application-form-card .card-body {
+        padding: 20px;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .form-group label {
+        font-weight: bold;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ced4da;
+        border-radius: 5px;
+    }
+
+    .form-group textarea {
+        resize: vertical;
+        height: 150px;
+    }
+
+    .submit-btn {
+        background-color: #007bff;
+        color: white;
+        padding: 12px 25px;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    .submit-btn:hover {
+        background-color: #0056b3;
+    }
+</style>
+{% endblock style %}
+
+{% block main %}
+<div class="content">
+    <div class="container">
+        <!-- Job Header -->
+        <div class="job-header">
+            <h1>Apply for {{ job.title }}</h1>
+            <p><strong>Company:</strong> {{ job.company }}</p>
+            <p><strong>Location:</strong> {{ job.location }}</p>
+        </div>
+
+        <!-- Job Application Form -->
+        <div class="card application-form-card">
+            <div class="card-body">
+                <h4>Application Form</h4>
+                <p>Please fill out the form below to apply for this job:</p>
+
+                <!-- <form method="POST" action="{% url 'submit-application' '1221' %}"> -->
+                <form method="POST" action="{% url 'submit-application' '1221' %}" enctype="multipart/form-data">
+
+                    {% csrf_token %}
+                    
+                    <!-- Full Name -->
+                    <div class="form-group">
+                        <label for="full_name">Full Name</label>
+                        <input type="text" id="full_name" name="full_name" class="form-control" required>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" class="form-control" required>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="text" id="phone" name="phone_number" class="form-control" required>
+                    </div>
+
+                    <!-- Cover Letter -->
+                    <div class="form-group">
+                        <label for="cover_letter">Cover Letter</label>
+                        <textarea id="cover_letter" name="cover_letter" class="form-control" placeholder="Write a brief cover letter..." required></textarea>
+                    </div>
+
+                    <!-- Resume Upload -->
+                    <div class="form-group">
+                        <label for="resume">Upload Resume</label>
+                        <input type="file" id="resume" name="resume" class="form-control" accept=".pdf,.docx,.doc" required>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="form-group text-center">
+                        <button type="submit" class="submit-btn">Submit Application</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock main %}
+

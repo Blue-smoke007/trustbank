@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    {% load static %}
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/favicon" href="{% static './images/ai-logo.svg' %}">
+	<link rel="stylesheet" type="text/css" href="{% static './css/index.css' %}">
+	<script src="{% static './js/password.js' %}" defer></script>
+	<script src="{% static './js/header.js' %}" defer></script>
+	<title>Login</title>
+</head>
+<body>
+<!-- Header Section -->
+
+
+<!--Main body Contents goes here -->
+<div class="form-container">
+  <section class="auth-section">
+	<a href="./index.html" class="img-container">
+		<img src="{% static './images/ai-logo.svg' %}" alt="logo">
+	</a>
+	<div class="flex-container-2">
+		<div class="flex-item">
+			<div class="img-container">
+				<img src="{% static './images/auth-image.svg' %}" alt="library">
+			</div>
+		</div>
+		<div class="flex-item">
+			<form action="{% url 'security:login' %}" method="post">
+				{% csrf_token %}
+			 <h2>sign in 
+				<span><svg width="6" height="6" viewBox="0 0 6 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<circle cx="2.66667" cy="3.15855" r="2.66667" fill="#4468F2"/>
+				</svg>
+			   </span>
+			  </h2>
+               <div class="form-field">
+                <label for="email">email</label>
+                <input type="email" id="email" name="email">
+               </div>
+               <div class="form-field">
+                <label for="password">password</label>
+                <input type="password" id="password" placeholder="*******" name="password">
+				<div class="eye-icon-container">
+                    <img  class="eye-icon" src="{% static './icons/eye-icon.svg' %}" alt="eye-icon">
+                </div>	
+               </div>
+               <div class="flex-container-2">
+				<div class="terms">
+                <label for="remember">
+				<input type="checkbox" id="terms">Remember me
+				</label>
+               </div>
+			   <a href="#">forgotp password</a>
+			   
+			   <p style="color:red">{{error_messages}}</p>
+			   </div>
+			
+			   <div class="form-field">
+				<button class="cta-btn" type="submit">sign in</button>
+			   </div>
+			   <div class="flex-container-2 flex-2">
+				<p>Do not have an account &quest; </p>
+				<a href="{% url 'security:signup' %}">sign up</a>
+			   </div>
+			   <div class="flex-container-2 flex-2">
+				
+				<a href="{% url 'security:facial' %}">Login with Image Recognition Capture Ai Capture</a>
+			   </div>
+			
+			
+			<input type="hidden" name="next" value="{{ next }}">
+</form>
+
+
+</body>
+</html>

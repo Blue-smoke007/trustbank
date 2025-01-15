@@ -1,0 +1,111 @@
+{% extends "header.html" %}
+{% block title %} UN - Job Connect: Track Application {% endblock %}
+{% block listedactive %}active{% endblock %}
+
+{% block style %}
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+
+    .content {
+        padding: 20px;
+    }
+
+    .job-header {
+        background-color: #343a40;
+        color: white;
+        padding: 20px;
+        border-radius: 5px;
+    }
+
+    .job-header h1 {
+        font-size: 28px;
+        margin-bottom: 10px;
+    }
+
+    .job-details-card {
+        margin-top: 20px;
+        border: none;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+    }
+
+    .job-details-card .card-body {
+        padding: 20px;
+    }
+
+    .job-status {
+        margin-top: 20px;
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .status-pending {
+        color: orange;
+    }
+
+    .status-accepted {
+        color: green;
+    }
+
+    .status-rejected {
+        color: red;
+    }
+</style>
+{% endblock style %}
+
+{% block main %}
+<div class="content">
+    <div class="container">
+        <!-- Job Header -->
+        <div class="job-header">
+            <h1>{{ job.title }}</h1>
+            <p><strong>Company:</strong> {{ job.company_name }}</p>
+            <p><strong>Location:</strong> {{ job.place }}</p>
+            <p><strong>Posted:</strong> {{ job.app_date }}</p>
+        </div>
+
+        <!-- Job Details -->
+        <div class="card job-details-card">
+            <div class="card-body">
+                <h4>Job Description</h4>
+                <p>{{ job.details }}</p>
+
+                <h4>Requirements</h4>
+                <ul>
+                    {% for requirement in job.requirements %}
+                    <li>- {{ requirement }}</li>
+                    {% endfor %}
+                </ul>
+
+                <h4>Additional Information</h4>
+                <p>{{ job.additional_info }}</p>
+            </div>
+        </div>
+
+        <!-- Application Status -->
+        <div class="job-status">
+            <p><strong>Application Status:</strong>
+                {% if job.status == "pending" %}
+                    <span class="status-pending">Pending</span>
+                {% elif job.status == "accepted" %}
+                    <span class="status-accepted">Accepted</span>
+                {% elif job.status == "rejected" %}
+                    <span class="status-rejected">Rejected</span>
+                {% else %}
+                    <span>Unknown</span>
+                {% endif %}
+            </p>
+        </div>
+
+        {% if job.status == "pending" %}
+        <!-- Additional Actions for Pending Applications -->
+        <div class="action-section">
+            <p>You can still withdraw your application if you wish.</p>
+            <a type="submit" class="btn btn-danger" name="yes" href="{% url 'withdrawapplication' job.pk %}">Withdraw Application</a>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock main %}

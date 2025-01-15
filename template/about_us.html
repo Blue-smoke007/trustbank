@@ -1,0 +1,25 @@
+{% extends "header.html" %}
+{% block title %} NU - Job Connect {% endblock %}
+{% block usactive %}active{% endblock usactive %}
+
+{% block main %}
+<div class="px-4 py-5 my-5 text-center">
+    <h1 class="display-5 fw-bold text-body-emphasis">Get More Information About Us</h1>
+</div>
+<div class="p-5 mb-4 bg-body-tertiary rounded-3">
+    <div class="container-fluid py-5">
+        <h1 class="display-5 fw-bold">About Us</h1>
+        <p class="fs-4">The NU Job Connect is a job portal system which was developed to provide the students in
+            Northumbria university with jobs information, online applying for jobs and many other facilities partaining
+            to students with digital skill experience. The platform is organized based on job seekers, recuriters,
+            administrators's panel and helps for easy navigation through out the web application portal</p>
+        <a href="/" class="d-flex justify-content-end link-body-emphasis text-decoration-none">
+            <button class="btn btn-primary btn-lg align-items-right" type="button">Next</button>
+        </a>
+    </div>
+</div>
+{% endblock main %}
+
+{% block footer %}
+{% include "footer.html" %}
+{% endblock footer %}

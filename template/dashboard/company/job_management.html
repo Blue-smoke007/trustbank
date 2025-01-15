@@ -1,0 +1,201 @@
+{% extends "header.html" %}
+{% block title %} Company Dashboard {% endblock %}
+
+{% block recuritactive %}active{% endblock recuritactive %}
+
+{% block style %}
+<style>
+    .job-form-container {
+        max-width: 800px;
+        margin: auto;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .job-form-container h2 {
+        margin-bottom: 30px;
+        text-align: center;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .form-group label {
+        font-weight: bold;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+        width: 100%;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+
+    .form-group textarea {
+        height: 150px;
+    }
+
+    .btn-container {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .btn-preview,
+    .btn-submit {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    .btn-preview {
+        background-color: #007bff;
+        color: white;
+    }
+
+    .btn-preview:hover {
+        background-color: #0056b3;
+    }
+
+    .btn-submit {
+        background-color: #28a745;
+        color: white;
+    }
+
+    .btn-submit:hover {
+        background-color: #218838;
+    }
+
+    .job-preview-container {
+        margin-top: 30px;
+        padding: 20px;
+        border-radius: 8px;
+    }
+
+    .job-preview-container h3 {
+        margin-bottom: 20px;
+    }
+
+    .job-preview-container p {
+        margin: 10px 0;
+    }
+</style>
+{% endblock style %}
+
+{% block main %}
+<div class="job-form-container">
+    <h2>{{ form_title }}</h2>
+    <form id="job-form"  action="#" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="title">Job Title</label>
+            <input type="text" class="form-control" id="title" name="title" placeholder="Enter job title">
+        </div>
+
+        <!-- Job Description -->
+        <div class="form-group">
+            <label for="description">Job Description</label>
+            <textarea class="form-control" id="description" name="description"
+                placeholder="Enter job description"></textarea>
+        </div>
+
+        <!-- Job Salary -->
+        <div class="form-group">
+            <label for="salary">Salary</label>
+            <input type="text" class="form-control" id="salary" name="monthly_salary" placeholder="Enter salary">
+        </div>
+
+        <!-- Job Location -->
+        <div class="form-group">
+            <label for="location">Location</label>
+            <input type="text" class="form-control" id="location" name="location" placeholder="Enter job location">
+        </div>
+        <div class="form-group">
+            <label for="no_of_opening">Number of Opening</label>
+            <input type="number" class="form-control" id="location" name="no_of_opening" placeholder="Enter job location">
+        </div>
+        <!-- Job Requirements -->
+        <div class="form-group">
+            <label for="requirements">Requirements</label>
+            <textarea class="form-control" id="requirements" name="job_requirements"
+                placeholder="Enter job requirements"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="application_starting_date">Application Starting Date</label>
+            <input class="form-control" id="application_starting_date" name="application_starting_date"
+                placeholder="Application Startin Date">
+                <div class="form-group">
+                    <label for="requirements">Application Ending Date</label>
+                    <input class="form-control" id="requirements" name="application_ending_date"
+                        placeholder="Application ending date">
+                </div></div>
+
+        <!-- Job Status Dropdown -->
+        <div class="form-group">
+            <label for="job_thumbnail">Job Thumbnail</label>
+            <input type="file" class="form-control" id="requirements" name="job_thumbnail"
+                placeholder="Enter job requirements"></textarea>
+        </div>
+
+        <!-- Buttons: Preview and Submit -->
+        <div class="btn-container">
+            <!-- <button type="button" class="btn btn-primary btn-preview" data-bs-toggle="modal"
+                data-bs-target="#exampleModal" data-bs-whatever="@mdo" id="preview-btn">Preview Job</button> -->
+            <button type="submit" class="btn-submit">Post Job</button>
+        </div>
+    </form>
+</div>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Job Preview</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p><strong>Title:</strong> <span id="preview-title"></span></p>
+                <p><strong>Description:</strong> <span id="preview-description"></span></p>
+                <p><strong>Location:</strong> <span id="preview-location"></span></p>
+                <p><strong>Salary:</strong> <span id="preview-salary"></span></p>
+                <p><strong>Requirements:</strong> <span id="preview-requirements"></span></p>
+                <p><strong>Status:</strong> <span id="preview-status"></span></p>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock main %}
+{% block script %}
+
+<script>
+    document.getElementById('preview-btn').addEventListener('click', function () {
+        const title = document.getElementById('title').value;
+        const description = document.getElementById('description').value;
+        const location = document.getElementById('location').value;
+        const salary = document.getElementById('salary').value;
+        const requirements = document.getElementById('requirements').value;
+        const status = document.getElementById('status').value;
+        document.getElementById('preview-title').textContent = title;
+        document.getElementById('preview-description').textContent = description;
+        document.getElementById('preview-location').textContent = location;
+        document.getElementById('preview-salary').textContent = salary;
+        document.getElementById('preview-requirements').textContent = requirements;
+        document.getElementById('preview-status').textContent = status.charAt(0).toUpperCase() + status.slice(1);
+        document.getElementById('job-preview').style.display = 'block';
+    });
+
+    document.getElementById('job-form').addEventListener('submit', function (e) {
+        e.preventDefault();
+        alert("Job post saved successfully!");
+    });
+</script>
+{% endblock %}
+
+{% block footer %}
+{% include "footer.html" %}
+{% endblock footer %}
