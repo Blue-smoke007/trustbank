@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Bank Admin Panel</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+    .modal-content {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+      width: 90%;
+      max-width: 400px;
+    }
+    .modal button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      background-color: #4f46e5;
+      color: white;
+      cursor: pointer;
+    }
+    .modal button:hover {
+      background-color: #4338ca;
+    }
+  </style>
+  <script>
+    function showModal(message, callback) {
+      const modal = document.createElement('div');
+      modal.className = 'modal';
+
+      const modalContent = document.createElement('div');
+      modalContent.className = 'modal-content';
+
+      const messageElement = document.createElement('p');
+      messageElement.textContent = message;
+
+      const input = document.createElement('input');
+      input.type = 'text';
+      input.placeholder = 'Enter value';
+      input.className = 'border rounded px-3 py-2 w-full mt-4';
+
+      const button = document.createElement('button');
+      button.textContent = 'Submit';
+      button.onclick = () => {
+        if (callback) callback(input.value);
+        document.body.removeChild(modal);
+      };
+
+      modalContent.appendChild(messageElement);
+      modalContent.appendChild(input);
+      modalContent.appendChild(button);
+      modal.appendChild(modalContent);
+
+      document.body.appendChild(modal);
+    }
+
+    function depositFunds(clientName) {
+      showModal(`Enter the amount to deposit for ${clientName}:`, (amount) => {
+        if (amount && !isNaN(amount) && amount > 0) {
+          alert(`$${amount} has been successfully deposited to ${clientName}'s account.`);
+          console.log(`Deposited $${amount} to ${clientName}`);
+        } else {
+          alert("Invalid amount. Please try again.");
+        }
+      });
+    }
+
+    function addCard(clientName) {
+      showModal(`Enter a demo card number to add for ${clientName}:`, (cardNumber) => {
+        if (cardNumber && cardNumber.length === 16 && !isNaN(cardNumber)) {
+          alert(`Card ending in ${cardNumber.slice(-4)} has been successfully added to ${clientName}'s account.`);
+          console.log(`Added card ${cardNumber} to ${clientName}`);
+        } else {
+          alert("Invalid card number. Please enter a 16-digit number.");
+        }
+      });
+    }
+  </script>
+</head>
+
+
+<body class="bg-gray-100 font-sans">
+
+    <header class="header bg-[#1F0034] p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <img src="images/Logo.png" alt="Logo" class="h-10">
+            </div>
+    
+            <nav class="nav-links">
+                <ul class="flex gap-4">
+                    <li><a class="text-white border-b-2 px-4 py-1" href="homepage.html">Home</a></li>
+                    <li><a class="text-white hover:border-b-2 px-4 py-1" href="homepage.html">Products</a></li>
+                    <li><a class="text-white hover:border-b-2 px-4 py-1" href="homepage.html">Rewards</a></li>
+                    <li><a class="text-white hover:border-b-2 px-4 py-1" href="homepage.html">Contact us</a></li>
+                    <li><a class="text-white hover:border-b-2 px-4 py-1" href="">Dashboard</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+  <main class="container mx-auto px-6 py-8">
+    <h2 class="text-2xl font-bold mb-4">You're Logged in as Admin</h2>
+
+    <div class="bg-white shadow-md rounded-lg">
+      <table class="min-w-full table-auto text-left">
+        <thead class="bg-gray-200">
+          <tr>
+            <th class="px-6 py-3">Your Clients</th>
+            <th class="px-6 py-3">Status</th>
+            <th class="px-6 py-3">Last Seen</th>
+            <th class="px-6 py-3"></th>
+            <th class="px-6 py-3"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-t">
+            <td class="px-6 py-4">Sylvester Arnold</td>
+            <td class="px-6 py-4 text-green-600 font-semibold">Active</td>
+            <td class="px-6 py-4">2 hrs ago</td>
+            <td class="px-6 py-4"><button onclick="depositFunds('Sylvester Arnold')" class="bg-white border border-black text-black px-4 py-2 rounded-xl hover:bg-purple-950 hover:text-white">Deposit Funds</button></td>
+            <td class="px-6 py-4"><button onclick="addCard('Sylvester Arnold')" class="bg-white border border-black text-black px-4 py-2 rounded-xl hover:bg-purple-950 hover:text-white">Add Card</button></td>
+          </tr>
+          <tr class="border-t">
+            <td class="px-6 py-4">Mary Jane</td>
+            <td class="px-6 py-4 text-green-600 font-semibold">Active</td>
+            <td class="px-6 py-4">2 hrs ago</td>
+            <td class="px-6 py-4"><button onclick="depositFunds('Mary Jane')" class="bg-white border border-black text-black px-4 py-2 rounded-xl hover:bg-purple-950 hover:text-white">Deposit Funds</button></td>
+            <td class="px-6 py-4"><button onclick="addCard('Mary Jane')" class="bg-white border border-black text-black px-4 py-2 rounded-xl hover:bg-purple-950 hover:text-white">Add Card</button></td>
+          </tr>
+          <tr class="border-t">
+            <td class="px-6 py-4">Mark Princewill</td>
+            <td class="px-6 py-4 text-red-600 font-semibold">Inactive</td>
+            <td class="px-6 py-4">2 hrs ago</td>
+            <td class="px-6 py-4"><button onclick="depositFunds('Mark Princewill')" class="bg-white border border-black text-black px-4 py-2 rounded-xl hover:bg-purple-950 hover:text-white">Deposit Funds</button></td>
+            <td class="px-6 py-4"><button onclick="addCard('Mark Princewill')" class="bg-white border border-black text-black px-4 py-2 rounded-xl hover:bg-purple-950 hover:text-white">Add Card</button></td>
+          </tr>
+          <tr class="border-t">
+            <td class="px-6 py-4">Zankt Hurghberg</td>
+            <td class="px-6 py-4 text-green-600 font-semibold">Active</td>
+            <td class="px-6 py-4">2 hrs ago</td>
+            <td class="px-6 py-4"><button onclick="depositFunds('Zankt Hurghberg')" class="bg-white border border-black text-black px-4 py-2 rounded-xl hover:bg-purple-950 hover:text-white">Deposit Funds</button></td>
+            <td class="px-6 py-4"><button onclick="addCard('Zankt Hurghberg')" class="bg-white border border-black text-black px-4 py-2 rounded-xl hover:bg-purple-950 hover:text-white">Add Card</button></td>
+          </tr>
+          <tr class="border-t">
+            <td class="px-6 py-4">Emily Austin</td>
+            <td class="px-6 py-4 text-red-600 font-semibold">Inactive</td>
+            <td class="px-6 py-4">2 hrs ago</td>
+            <td class="px-6 py-4"><button onclick="depositFunds('Emily Austin')" class="bg-white border border-black text-black px-4 py-2 rounded-xl hover:bg-purple-950 hover:text-white">Deposit Funds</button></td>
+            <td class="px-6 py-4"><button onclick="addCard('Emily Austin')" class="bg-white border border-black text-black px-4 py-2 rounded-xl hover:bg-purple-950 hover:text-white">Add Card</button></td>
+          </tr>
+          <tr class="border-t">
+            <td class="px-6 py-4">Sarah Anne</td>
+            <td class="px-6 py-4 text-green-600 font-semibold">Active</td>
+            <td class="px-6 py-4">2 hrs ago</td>
+            <td class="px-6 py-4"><button onclick="depositFunds('Sarah Anne')" class="bg-white border border-black text-black px-4 py-2 rounded-xl hover:bg-purple-950 hover:text-white">Deposit Funds</button></td>
+            <td class="px-6 py-4"><button onclick="addCard('Sarah Anne')" class="bg-white border border-black text-black px-4 py-2 rounded-xl hover:bg-purple-950 hover:text-white">Add Card</button></td>
+          </tr>
+          <tr class="border-t">
+            <td class="px-6 py-4">Phillip Williams</td>
+            <td class="px-6 py-4 text-green-600 font-semibold">Active</td>
+            <td class="px-6 py-4">2 hrs ago</td>
+            <td class="px-6 py-4"><button onclick="depositFunds('Phillip Williams')" class="bg-white border border-black text-black px-4 py-2 rounded-xl hover:bg-purple-950 hover:text-white">Deposit Funds</button></td>
+            <td class="px-6 py-4"><button onclick="addCard('Phillip Williams')" class="bg-white border border-black text-black px-4 py-2 rounded-xl hover:bg-purple-950 hover:text-white">Add Card</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <footer class="bg-purple-900 text-white py-6 mt-8">
+    <div class="container mx-auto px-6 text-center space-y-4">
+      <nav class="space-x-4">
+        <a href="#" class="hover:underline">Privacy</a>
+        <a href="#" class="hover:underline">Terms and Conditions</a>
+        <a href="#" class="hover:underline">Fraud & Security</a>
+        <a href="#" class="hover:underline">Disclosures</a>
+        <a href="#" class="hover:underline">Help & Support</a>
+      </nav>
+      <div class="space-x-4">
+        <a href="#" class="hover:underline">&copy; 2024, Truist. All Rights Reserved.</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
