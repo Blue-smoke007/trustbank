@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title> Bank Admin Panel</title>
+  <title>Nexus Bank Admin Panel</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     .modal {
@@ -50,21 +50,23 @@
       const messageElement = document.createElement('p');
       messageElement.textContent = message;
 
-      const input = document.createElement('input');
-      input.type = 'text';
-      input.placeholder = 'Enter value';
-      input.className = 'border rounded px-3 py-2 w-full mt-4';
-
       const button = document.createElement('button');
-      button.textContent = 'Submit';
+      button.textContent = 'Confirm';
       button.onclick = () => {
-        if (callback) callback(input.value);
+        if (callback) callback();
+        document.body.removeChild(modal);
+      };
+
+      const cancelButton = document.createElement('button');
+      cancelButton.textContent = 'Cancel';
+      cancelButton.style.marginLeft = '10px';
+      cancelButton.onclick = () => {
         document.body.removeChild(modal);
       };
 
       modalContent.appendChild(messageElement);
-      modalContent.appendChild(input);
       modalContent.appendChild(button);
+      modalContent.appendChild(cancelButton);
       modal.appendChild(modalContent);
 
       document.body.appendChild(modal);
@@ -91,9 +93,15 @@
         }
       });
     }
+
+    function blockUser(clientName) {
+      showModal(`Are you sure you want to block ${clientName}?`, () => {
+        alert(`${clientName} has been successfully blocked.`);
+        console.log(`${clientName} has been blocked.`);
+      });
+    }
   </script>
 </head>
-
 
 <body class="bg-gray-100 font-sans">
 
@@ -127,6 +135,7 @@
             <th class="px-6 py-3">Last Seen</th>
             <th class="px-6 py-3"></th>
             <th class="px-6 py-3"></th>
+            <th class="px-6 py-3"></th>
           </tr>
         </thead>
         <tbody>
@@ -136,6 +145,7 @@
             <td class="px-6 py-4">2 hrs ago</td>
             <td class="px-6 py-4"><button onclick="depositFunds('Sylvester Arnold')" class="bg-white border border-black text-black px-4 py-2 rounded-xl hover:bg-purple-950 hover:text-white">Deposit Funds</button></td>
             <td class="px-6 py-4"><button onclick="addCard('Sylvester Arnold')" class="bg-white border border-black text-black px-4 py-2 rounded-xl hover:bg-purple-950 hover:text-white">Add Card</button></td>
+            <td class="px-6 py-4"><button onclick="blockUser('Sylvester Arnold')" class="bg-red-600 text-white px-4 py-2 rounded-xl hover:bg-red-800">Block User</button></td>
           </tr>
           <tr class="border-t">
             <td class="px-6 py-4">Mary Jane</td>
@@ -143,6 +153,7 @@
             <td class="px-6 py-4">2 hrs ago</td>
             <td class="px-6 py-4"><button onclick="depositFunds('Mary Jane')" class="bg-white border border-black text-black px-4 py-2 rounded-xl hover:bg-purple-950 hover:text-white">Deposit Funds</button></td>
             <td class="px-6 py-4"><button onclick="addCard('Mary Jane')" class="bg-white border border-black text-black px-4 py-2 rounded-xl hover:bg-purple-950 hover:text-white">Add Card</button></td>
+            <td class="px-6 py-4"><button onclick="blockUser('Mary Jane')" class="bg-red-600 text-white px-4 py-2 rounded-xl hover:bg-red-800">Block User</button></td>
           </tr>
           <tr class="border-t">
             <td class="px-6 py-4">Mark Princewill</td>
@@ -150,6 +161,7 @@
             <td class="px-6 py-4">2 hrs ago</td>
             <td class="px-6 py-4"><button onclick="depositFunds('Mark Princewill')" class="bg-white border border-black text-black px-4 py-2 rounded-xl hover:bg-purple-950 hover:text-white">Deposit Funds</button></td>
             <td class="px-6 py-4"><button onclick="addCard('Mark Princewill')" class="bg-white border border-black text-black px-4 py-2 rounded-xl hover:bg-purple-950 hover:text-white">Add Card</button></td>
+            <td class="px-6 py-4"><button onclick="blockUser('Mark Princewill')" class="bg-red-600 text-white px-4 py-2 rounded-xl hover:bg-red-800">Block User</button></td>
           </tr>
           <tr class="border-t">
             <td class="px-6 py-4">Zankt Hurghberg</td>
@@ -157,6 +169,7 @@
             <td class="px-6 py-4">2 hrs ago</td>
             <td class="px-6 py-4"><button onclick="depositFunds('Zankt Hurghberg')" class="bg-white border border-black text-black px-4 py-2 rounded-xl hover:bg-purple-950 hover:text-white">Deposit Funds</button></td>
             <td class="px-6 py-4"><button onclick="addCard('Zankt Hurghberg')" class="bg-white border border-black text-black px-4 py-2 rounded-xl hover:bg-purple-950 hover:text-white">Add Card</button></td>
+            <td class="px-6 py-4"><button onclick="blockUser('Zankt Hurghberg')" class="bg-red-600 text-white px-4 py-2 rounded-xl hover:bg-red-800">Block User</button></td>
           </tr>
           <tr class="border-t">
             <td class="px-6 py-4">Emily Austin</td>
@@ -164,6 +177,7 @@
             <td class="px-6 py-4">2 hrs ago</td>
             <td class="px-6 py-4"><button onclick="depositFunds('Emily Austin')" class="bg-white border border-black text-black px-4 py-2 rounded-xl hover:bg-purple-950 hover:text-white">Deposit Funds</button></td>
             <td class="px-6 py-4"><button onclick="addCard('Emily Austin')" class="bg-white border border-black text-black px-4 py-2 rounded-xl hover:bg-purple-950 hover:text-white">Add Card</button></td>
+            <td class="px-6 py-4"><button onclick="blockUser('Emily Austin')" class="bg-red-600 text-white px-4 py-2 rounded-xl hover:bg-red-800">Block User</button></td>
           </tr>
           <tr class="border-t">
             <td class="px-6 py-4">Sarah Anne</td>
@@ -171,6 +185,7 @@
             <td class="px-6 py-4">2 hrs ago</td>
             <td class="px-6 py-4"><button onclick="depositFunds('Sarah Anne')" class="bg-white border border-black text-black px-4 py-2 rounded-xl hover:bg-purple-950 hover:text-white">Deposit Funds</button></td>
             <td class="px-6 py-4"><button onclick="addCard('Sarah Anne')" class="bg-white border border-black text-black px-4 py-2 rounded-xl hover:bg-purple-950 hover:text-white">Add Card</button></td>
+            <td class="px-6 py-4"><button onclick="blockUser('Sarah Anne')" class="bg-red-600 text-white px-4 py-2 rounded-xl hover:bg-red-800">Block User</button></td>
           </tr>
           <tr class="border-t">
             <td class="px-6 py-4">Phillip Williams</td>
@@ -178,6 +193,7 @@
             <td class="px-6 py-4">2 hrs ago</td>
             <td class="px-6 py-4"><button onclick="depositFunds('Phillip Williams')" class="bg-white border border-black text-black px-4 py-2 rounded-xl hover:bg-purple-950 hover:text-white">Deposit Funds</button></td>
             <td class="px-6 py-4"><button onclick="addCard('Phillip Williams')" class="bg-white border border-black text-black px-4 py-2 rounded-xl hover:bg-purple-950 hover:text-white">Add Card</button></td>
+            <td class="px-6 py-4"><button onclick="blockUser('Phillip Williams')" class="bg-red-600 text-white px-4 py-2 rounded-xl hover:bg-red-800">Block User</button></td>
           </tr>
         </tbody>
       </table>
