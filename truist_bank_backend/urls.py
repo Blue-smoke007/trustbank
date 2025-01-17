@@ -47,12 +47,12 @@ from rest_framework import permissions
 from django.urls import path,re_path,include
 schema_view = get_schema_view(
    openapi.Info(
-      title="Truist Banc  Api Production mode",
+      title="Nexus Bank  Api Production mode",
       default_version='v1',
-      description="Truist Bank Documentation",
+      description="Nexus Bank Documentation",
       terms_of_service="https://www.google.com/policies/terms/",
       contact=openapi.Contact(email="abc@gmail.com"),
-      license=openapi.License(name="Truist bank licence"),
+      license=openapi.License(name="Nexus bank licence"),
    ),
    public=True,
    permission_classes=(permissions.AllowAny,),
