@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-n5lf4)z(96uga55e2cfqb(x@bcsom&-74=64y=&%q=ua-v)8hb
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 # DEBUG=False
-ALLOWED_HOSTS = ['untruist_bank_backend.onrender.com','*']
+ALLOWED_HOSTS = ['https://nexusbank-backend.onrender.com/','*']
 
 
 # Application definition
@@ -97,13 +97,23 @@ WSGI_APPLICATION = 'truist_bank_backend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        # 'ENGINE': 'django.contrib.gis.db.backends.postgis',
+        'NAME': 'nexusproject',
+        'USER': 'nexusprojectuser',
+        'PASSWORD': 'Nexus2024!',
+        'HOST': '198.7.121.174',
+        'PORT': '',
     }
 }
-
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
