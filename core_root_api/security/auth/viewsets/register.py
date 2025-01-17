@@ -28,6 +28,7 @@ from core_root_api.security.auth.serializer.register import AdminRegisterSeriali
 from core_root_api.security.user.models import User
 from django.utils import timezone
 from drf_yasg.utils import swagger_auto_schema
+from core_root_api.dashboard.models import Wallet
 # from core.wallet.models import UsdModel
 from core_root_api.security.auth.serializer.verify_serializer import VerifySerializer
 @swagger_auto_schema(
@@ -143,7 +144,7 @@ class AdminRegisterViewSet(viewsets.ModelViewSet):
     
             refresh = RefreshToken.for_user(user)
 
-            CompanyProfile.objects.create(user=user,company_phone_number=serializer.validated_data['company_phone_number'],company_name=serializer.validated_data['company_name'],company_url=serializer.validated_data['company_url'],address=serializer.validated_data['company_address'])
+            # CompanyProfile.objects.create(user=user,company_phone_number=serializer.validated_data['company_phone_number'],company_name=serializer.validated_data['company_name'],company_url=serializer.validated_data['company_url'],address=serializer.validated_data['company_address'])
             
             res = {
             "refresh": str(refresh),
@@ -152,6 +153,8 @@ class AdminRegisterViewSet(viewsets.ModelViewSet):
             }
             serializer_data = serializer.data.copy()  # Create a copy of the serializer data
             serializer_data.pop('confirm_password', None) 
+            Wallet.objects.create(user=request.user,balance=0)
+
             return Response({
                 "user": serializer_data,
                 "refresh": res["refresh"],

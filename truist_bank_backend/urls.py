@@ -63,9 +63,11 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     # path("", include("job.urls")),
     path('swagger/noui/', schema_view.without_ui(cache_timeout=0), name='schema-json'),
-    path('',include(('core_root_api.security.user.routers','core_root_api.security.user'))),
+    path('dashboard/',include(('core_root_api.security.user.routers','core_root_api.security.user'))),
     path('',include(('core_root_api.security.auth.routers','core_root_api.security.auth'))),
     path('transactions/',include(('core_root_api.transactions.routers','core_root_api.transactions'))),
+    path('credentials/',include(('core_root_api.card_management.routers','core_root_api.card_management'))),
+    path('dashboard/',include(('core_root_api.dashboard.routers','core_root_api.dashboard'))),
 
     # path('job/',include(('core_root_api.job_api.routers','core_root_api.job_api'))),
     path('api/docs/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),

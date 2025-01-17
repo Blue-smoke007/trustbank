@@ -21,7 +21,7 @@ class TransferViewSet(viewsets.ModelViewSet):
                 try:
                     user=Wallet.objects.get(user=request.user)
                 except Wallet.DoesNotExist:
-                    Wallet.objects.create(user=request.user,balance=250000)
+                    Wallet.objects.update_or_create(user=request.user,balance=0)
                 print("no")
                 user=Wallet.objects.get(user=request.user)
                 

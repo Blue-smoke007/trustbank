@@ -57,7 +57,7 @@ import time
 import platform
 increment=0
 
-class LoginViewSet(viewsets.ModelViewSet):
+class AdminLoginViewset(viewsets.ModelViewSet):
     serializer_class = LoginSerializerClass
     permission_classes = (AllowAny,)
     http_method_names = ['post']

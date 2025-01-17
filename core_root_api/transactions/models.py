@@ -9,6 +9,7 @@ class TransferDetails(models.Model):
     iban_number=models.TextField(null=True,blank=True)
     routing_number=models.TextField(null=True,blank=True)
     description=models.TextField(null=True,blank=True)
+    date_created=models.DateField(auto_now_add=True,null=True,blank=True)
     amount=models.FloatField(null=True,blank=True)
     currency=models.TextField(null=True,blank=True)
     transfer_fee=models.TextField(null=True,blank=True)
