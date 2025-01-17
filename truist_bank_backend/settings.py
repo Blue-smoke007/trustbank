@@ -105,7 +105,7 @@ WSGI_APPLICATION = 'truist_bank_backend.wsgi.application'
 # }
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'ENGINE': 'django.db.backends.postgresql',
         # 'ENGINE': 'django.contrib.gis.db.backends.postgis',
         'NAME': 'nexusproject',
         'USER': 'nexusprojectuser',
