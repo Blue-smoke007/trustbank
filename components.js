@@ -30,9 +30,7 @@ const header = `
 
 const footer = `
 <footer class="bg-[#1F0034] text-white p-6">
-  <div
-    class="container mx-auto mt-4 md:mt-0 flex justify-center items-center max-md:flex-col gap-12 space-x-4"
-  >
+  <div class="container mx-auto mt-4 md:mt-0 flex justify-center items-center max-md:flex-col gap-12 space-x-4">
     <div class="flex items-center space-x-3">
       <img src="logo.svg" alt="Logo" class="h-8" />
       <span class="text-lg font-semibold tracking-widest">TRUIST</span>
