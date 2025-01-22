@@ -190,44 +190,13 @@
       </div>
     </footer>
 
-    <div
-      class="modal hidden fixed inset-0 bg-black/90 justify-center items-center"
-    ></div>
-
     <script>
       const form = document.forms[0];
-
-      const loginModal = `
-      <div class="login-modal-content w-96 h-60 bg-white rounded-md flex justify-center items-center text-4xl">
-        Logining in...
-      </div>`;
-
-      const successModal = `
-      <div class="login-modal-content w-96 h-60 bg-white rounded-md flex justify-center items-center text-4xl text-green-500">
-        Success
-      </div>`;
-      const errorModal = `
-      <div class="login-modal-content w-96 h-60 bg-white rounded-md flex justify-center items-center text-4xl text-red-500">
-        Error. Please try again
-      </div>`;
-
-      function toggleModal(show, elementText) {
-        document.body.style.overflow = show ? "hidden" : "auto";
-        const modal = document.querySelector(".modal");
-        if (show) {
-          modal.classList.add("flex");
-          modal.classList.remove("hidden");
-          modal.innerHTML = elementText;
-        } else {
-          modal.classList.add("hidden");
-          modal.classList.remove("flex");
-        }
-      }
 
       form.addEventListener("submit", async function (e) {
         e.preventDefault();
         const formData = new FormData(this);
-        toggleModal(true, loginModal);
+        toggleModal(true, "loading", "Logining in...");
 
         try {
           const response = await axios.post(
@@ -236,10 +205,10 @@
           );
           localStorage.setItem("_auth", JSON.stringify(response.data));
           console.log(response);
-          toggleModal(true, successModal);
+          toggleModal(true, "success");
         } catch (error) {
           console.log(error.response.data);
-          toggleModal(true, errorModal);
+          toggleModal(true, "error");
         }
 
         setTimeout(() => {

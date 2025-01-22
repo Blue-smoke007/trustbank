@@ -106,8 +106,48 @@ const footer = `
 </footer>
 `;
 
+const modal = `
+<div
+  class="modal hidden fixed inset-0 bg-black/90 justify-center items-center"
+></div>`;
+
+const loadingModal = (text = "Loading...") => `
+  <div class="login-modal-content w-96 h-60 bg-white rounded-md flex justify-center items-center text-4xl">
+    ${text}
+  </div>`;
+
+const successModal = (text = "Success") => `
+  <div class="login-modal-content w-96 h-60 bg-white rounded-md flex justify-center items-center text-4xl text-green-500">
+    ${text}
+  </div>`;
+const errorModal = (text = "Error. Please try again") => `
+  <div class="login-modal-content w-96 h-60 bg-white rounded-md flex justify-center items-center text-4xl text-red-500">
+    ${text}
+  </div>`;
+
+const modalMapping = {
+  error: errorModal,
+  success: successModal,
+  loading: loadingModal,
+};
+window.toggleModal = function (show, modal = "loading", elementText) {
+  document.body.style.overflow = show ? "hidden" : "auto";
+  const modalElement = document.querySelector(".modal");
+
+  if (show) {
+    modalElement.classList.add("flex");
+    modalElement.classList.remove("hidden");
+    modalElement.innerHTML = modalMapping[modal](elementText);
+  } else {
+    modalElement.classList.add("hidden");
+    modalElement.classList.remove("flex");
+  }
+};
+
 const style = $("<link>").attr("href", "./index.css").attr("rel", "stylesheet");
+
 /** Controls **/
 $("head").append(style);
 $("body").prepend(header);
 $("body").append(footer);
+$("body").append(modal);
