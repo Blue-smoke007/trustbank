@@ -112,8 +112,9 @@ const modal = `
 ></div>`;
 
 const loadingModal = (text = "Loading...") => `
-  <div class="login-modal-content w-96 h-60 bg-white rounded-md flex justify-center items-center text-4xl">
+  <div class="login-modal-content w-96 h-60 bg-white rounded-md flex gap-2 justify-center items-center text-4xl">
     ${text}
+    <svg class="animate-spin size-8 " xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
   </div>`;
 
 const successModal = (text = "Success") => `
@@ -130,7 +131,8 @@ const modalMapping = {
   success: successModal,
   loading: loadingModal,
 };
-window.toggleModal = function (show, modal = "loading", elementText) {
+
+window.toggleModal = function (show = true, modal = "loading", elementText) {
   document.body.style.overflow = show ? "hidden" : "auto";
   const modalElement = document.querySelector(".modal");
 
@@ -147,7 +149,11 @@ window.toggleModal = function (show, modal = "loading", elementText) {
 const style = $("<link>").attr("href", "./index.css").attr("rel", "stylesheet");
 
 /** Controls **/
-$("head").append(style);
-$("body").prepend(header);
-$("body").append(footer);
-$("body").append(modal);
+document.addEventListener("DOMContentLoaded", () => {
+  $("head").append(style);
+  $("body").prepend(header);
+  $("body").append(footer);
+  $("body").append(modal);
+});
+
+window.onComponentLoad?.();

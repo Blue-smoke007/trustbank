@@ -196,7 +196,7 @@
       form.addEventListener("submit", async function (e) {
         e.preventDefault();
         const formData = new FormData(this);
-        toggleModal(true, "loading", "Logining in...");
+        toggleModal(true, "loading", "Sigining up");
 
         try {
           const response = await axios.post(
@@ -204,10 +204,9 @@
             formData
           );
           localStorage.setItem("_auth", JSON.stringify(response.data));
-          console.log(response);
           toggleModal(true, "success");
         } catch (error) {
-          console.log(error.response.data);
+          console.log(error);
           toggleModal(true, "error");
         }
 
