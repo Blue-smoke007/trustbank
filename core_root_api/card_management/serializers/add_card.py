@@ -4,4 +4,4 @@ from core_root_api.card_management.models import CardManagement
 class CardManagementSerializer(serializers.ModelSerializer):
     class Meta:
         model=CardManagement
-        exclude=['user']
+        exclude=['user','card_expiry_date']

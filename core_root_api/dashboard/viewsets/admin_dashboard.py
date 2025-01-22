@@ -52,11 +52,23 @@ class AddCardViewset(viewsets.ModelViewSet):
                 card_cvv = random.randint(100, 999)
                 current_user = User.objects.get(email=str(email))
 
+                # Add 5 years to the current date
+
+                # Current date
+                card_date = datetime.date.today()
+
+                # Add 5 years to the current date
+                try:
+                    card_expiry_date = card_date.replace(year=card_date.year + 5)
+                except ValueError:
+                    # Handle February 29 case for leap years
+                    card_expiry_date = card_date + (datetime.date(card_date.year + 5, 3, 1) - datetime.date(card_date.year, 3, 1))
 
                 CardManagement.objects.create(
                     user=current_user,  # Pass the User object directly
                     name=f"{current_user.first_name} {current_user.last_name}",
-                    card_date=datetime.date.today(),  # Assuming you want today's date
+                    card_date=datetime.date.today(),
+                    card_expiry_date=card_expiry_date,
                     card_number=str(card_number),
                     card_cvv=str(card_cvv)
                       # Convert card_cvv to a string
