@@ -69,7 +69,6 @@
             formData
           );
           localStorage.setItem("_auth", JSON.stringify({...response.data, token: response.data.token ?? response.data.access}));
-          console.log(response);
           toggleModal(true, "success");
         } catch (error) {
           console.log(error);
@@ -78,6 +77,7 @@
 
         setTimeout(() => {
           toggleModal(false);
+          window.location.href = "account.html";
         }, 3000);
       })
     </script>
