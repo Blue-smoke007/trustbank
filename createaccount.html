@@ -3,9 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sign up</title>
+    <title>Sign up truist</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="components.js" type="module"></script>
     <script>
       // function showLoader(button) {
       //   button.disabled = true;
@@ -34,43 +35,6 @@
     </script>
   </head>
   <body class="bg-white font-sans">
-    <header class="header bg-[#1F0034] p-4">
-      <div class="container mx-auto flex justify-between items-center">
-        <div class="flex items-center space-x-3">
-          <img src="images/Logo.png" alt="Logo" class="h-10" />
-        </div>
-        <nav class="nav-links">
-          <ul class="flex gap-8 justify-center">
-            <li>
-              <a class="text-white border-b-2 px-4 py-1" href="homepage.html"
-                >Home</a
-              >
-            </li>
-            <li>
-              <a class="text-white hover:border-b-2 px-4 py-1" href="#"
-                >Products</a
-              >
-            </li>
-            <li>
-              <a class="text-white hover:border-b-2 px-4 py-1" href="#"
-                >Rewards</a
-              >
-            </li>
-            <li>
-              <a class="text-white hover:border-b-2 px-4 py-1" href="#"
-                >Contact us</a
-              >
-            </li>
-            <li>
-              <a class="text-white hover:border-b-2 px-4 py-1" href="#"
-                >Dashboard</a
-              >
-            </li>
-          </ul>
-        </nav>
-      </div>
-    </header>
-
     <main class="container mx-auto my-8 px-4">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
         <div class="flex justify-center">
@@ -178,18 +142,6 @@
       </div>
     </main>
 
-    <footer class="bg-purple-900 text-white py-4 mt-8 font-bold">
-      <div class="container mx-auto text-center space-y-2">
-        <div class="space-x-6">
-          <a href="#" class="hover:underline">Privacy</a>
-          <a href="#" class="hover:underline">Terms and Conditions</a>
-          <a href="#" class="hover:underline">Fraud & Security</a>
-          <a href="#" class="hover:underline">Disclosures</a>
-        </div>
-        <p>© 2024, Truist. All Rights Reserved.</p>
-      </div>
-    </footer>
-
     <script>
       const form = document.forms[0];
 
@@ -198,6 +150,7 @@
         const formData = new FormData(this);
         toggleModal(true, "loading", "Sigining up");
 
+        // Register user
         try {
           const response = await axios.post(
             "https://nexusbank-backend.onrender.com/register/",

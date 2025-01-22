@@ -3,24 +3,98 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dashboard</title>
+    <title>User Dashboard truist</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.6);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 50;
+      }
+
+      .alert-box {
+        background: white;
+        padding: 20px 30px;
+        border-radius: 8px;
+        text-align: center;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        z-index: 100;
+        width: 300px;
+      }
+
+      .alert-box button {
+        margin: 10px;
+        padding: 8px 16px;
+        border-radius: 4px;
+        border: none;
+        cursor: pointer;
+      }
+
+      .alert-box .confirm-btn {
+        background-color: #4caf50;
+        color: white;
+      }
+
+      .alert-box .cancel-btn {
+        background-color: #f44336;
+        color: white;
+      }
+
+      .button-container {
+        position: relative;
+      }
+
+      .button-loader {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 20px;
+        height: 20px;
+        border: 4px solid rgba(255, 255, 255, 0.3);
+        border-top: 4px solid white;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        visibility: hidden;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: translate(-50%, -50%) rotate(0deg);
+        }
+        100% {
+          transform: translate(-50%, -50%) rotate(360deg);
+        }
+      }
+
+      .button-text {
+        visibility: visible;
+      }
+
+      .button-disabled .button-text {
+        visibility: hidden;
+      }
+
+      .button-disabled .button-loader {
+        visibility: visible;
+      }
+    </style>
+    <script>
+      // Check auth the bad way 🥲
+      const auth = JSON.parse(localStorage.getItem("_auth"));
+
+      if (!auth?.token) {
+        window.location.href = "signin.html";
+      }
+    </script>
   </head>
-
-  <script>
-    function handleButtonClick(button) {
-      button.disabled = true;
-      button.innerHTML =
-        '<svg class="animate-spin h-5 w-5 text-white mx-auto" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>';
-    }
-
-    // Check auth the bad way 🥲
-    const auth = JSON.parse(localStorage.getItem("_auth"));
-
-    if (!auth?.token) {
-      window.location.href = "signin.html";
-    }
-  </script>
 
   <body class="bg-gray-100 font-sans">
     <header class="header bg-[#1F0034] p-4">
@@ -37,22 +111,28 @@
               >
             </li>
             <li>
-              <a class="text-white hover:border-b-2 px-4 py-1" href="#"
+              <a
+                class="text-white hover:border-b-2 px-4 py-1"
+                href="homepage.html"
                 >Products</a
               >
             </li>
             <li>
-              <a class="text-white hover:border-b-2 px-4 py-1" href="#"
+              <a
+                class="text-white hover:border-b-2 px-4 py-1"
+                href="homepage.html"
                 >Rewards</a
               >
             </li>
             <li>
-              <a class="text-white hover:border-b-2 px-4 py-1" href="#"
+              <a
+                class="text-white hover:border-b-2 px-4 py-1"
+                href="homepage.html"
                 >Contact us</a
               >
             </li>
             <li>
-              <a class="text-white hover:border-b-2 px-4 py-1" href="#"
+              <a class="text-white hover:border-b-2 px-4 py-1" href=""
                 >Dashboard</a
               >
             </li>
@@ -96,7 +176,12 @@
               </li>
               <hr />
               <li>
-                <a href="#" class="block hover:text-purple-600">Sign out</a>
+                <a
+                  href="#"
+                  onclick="showAlert()"
+                  class="block hover:text-purple-600"
+                  >Sign out</a
+                >
               </li>
             </ul>
           </nav>
@@ -127,18 +212,24 @@
           </section>
 
           <div class="mt-20 flex space-x-4">
-            <button
-              onclick="handleButtonClick(this)"
-              class="w-1/2 bg-gray-300 text-black py-2 px-4 rounded-lg hover:bg-purple-950 hover:text-white"
-            >
-              Transfer
-            </button>
-            <button
-              onclick="handleButtonClick(this)"
-              class="w-1/2 bg-gray-300 text-gray-700 py-2 px-4 rounded-lg hover:bg-purple-950 hover:text-white"
-            >
-              Deposit
-            </button>
+            <div class="button-container w-1/2">
+              <button
+                onclick="handleButtonClick(this)"
+                class="w-full bg-gray-300 text-black py-2 px-4 rounded-lg hover:bg-purple-950 hover:text-white"
+              >
+                <span class="button-text">Transfer</span>
+                <div class="button-loader"></div>
+              </button>
+            </div>
+            <div class="button-container w-1/2">
+              <button
+                onclick="handleButtonClick(this)"
+                class="w-full bg-gray-300 text-gray-700 py-2 px-4 rounded-lg hover:bg-purple-950 hover:text-white"
+              >
+                <span class="button-text">Deposit</span>
+                <div class="button-loader"></div>
+              </button>
+            </div>
           </div>
 
           <div class="mt-8">
@@ -190,5 +281,203 @@
         <p>© 2024, Truist. All Rights Reserved.</p>
       </div>
     </footer>
+
+    <div class="overlay" id="signOutOverlay">
+      <div class="bg-white rounded-lg p-6 w-96 text-center shadow-lg">
+        <h2 class="text-lg font-bold mb-4">Confirm Sign Out</h2>
+        <p class="text-gray-700 mb-6">Are you sure you want to sign out?</p>
+        <div class="flex justify-around">
+          <button
+            onclick="confirmSignOut()"
+            class="bg-purple-950 text-white py-2 px-4 rounded-lg hover:bg-purple-700"
+          >
+            Confirm
+          </button>
+          <button
+            onclick="hideAlert()"
+            class="bg-purple-950 text-white py-2 px-4 rounded-lg hover:bg-purple-700"
+          >
+            Cancel
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Show the alert box
+      function showAlert() {
+        const overlay = document.getElementById("signOutOverlay");
+        overlay.style.display = "flex";
+      }
+
+      // Hide the alert box
+      function hideAlert() {
+        const overlay = document.getElementById("signOutOverlay");
+        overlay.style.display = "none";
+      }
+
+      function confirmSignOut() {
+        window.location.href = "homepage.html";
+      }
+
+      // Circular Loader Button Handler
+      function handleButtonClick(button) {
+        // Disable button and show loader
+        button.classList.add("button-disabled");
+
+        // Simulate loading process for 3 seconds
+        setTimeout(() => {
+          // Hide loader and re-enable button
+          button.classList.remove("button-disabled");
+        }, 3000); // Change the timeout duration as needed
+      }
+    </script>
+
+    <div class="fixed bottom-6 right-6 z-50" id="chat-support">
+      <button
+        onclick="toggleChat()"
+        class="bg-purple-950 hover:bg-purple-800 text-white rounded-full p-4 shadow-lg"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-6 w-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          id="chat-icon"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
+          />
+        </svg>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-6 w-6 hidden"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          id="close-icon"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M6 18L18 6M6 6l12 12"
+          />
+        </svg>
+      </button>
+
+      <div
+        class="hidden absolute bottom-20 right-0 w-96 bg-white rounded-lg shadow-xl"
+        id="chat-window"
+      >
+        <div class="bg-purple-950 text-white p-4 rounded-t-lg">
+          <h3 class="text-lg font-semibold">Customer Support</h3>
+          <p class="text-sm opacity-90">
+            We'll connect you with our support team
+          </p>
+        </div>
+
+        <div class="h-96 overflow-y-auto p-4 bg-gray-50" id="chat-messages">
+          <!-- Bot Message -->
+          <div class="mb-4 text-left">
+            <div
+              class="inline-block bg-gray-200 text-gray-800 p-3 rounded-lg max-w-[80%]"
+            >
+              Hello! How can we help you today?
+            </div>
+          </div>
+        </div>
+
+        <!-- Chat Input -->
+        <form onsubmit="sendMessage(event)" class="p-4 border-t">
+          <div class="flex gap-2">
+            <input
+              type="text"
+              id="message-input"
+              placeholder="Type your message..."
+              class="text-black flex-1 p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+            />
+            <button
+              type="submit"
+              class="bg-purple-950 text-white p-2 rounded-lg hover:bg-purple-800"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
+                />
+              </svg>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      function toggleChat() {
+        const chatWindow = document.getElementById("chat-window");
+        const chatIcon = document.getElementById("chat-icon");
+        const closeIcon = document.getElementById("close-icon");
+
+        if (chatWindow.classList.contains("hidden")) {
+          chatWindow.classList.remove("hidden");
+          chatIcon.classList.add("hidden");
+          closeIcon.classList.remove("hidden");
+        } else {
+          chatWindow.classList.add("hidden");
+          chatIcon.classList.remove("hidden");
+          closeIcon.classList.add("hidden");
+        }
+      }
+
+      function sendMessage(event) {
+        event.preventDefault();
+        const input = document.getElementById("message-input");
+        const messagesContainer = document.getElementById("chat-messages");
+
+        if (input.value.trim()) {
+          // Add user message
+          const userMessage = `
+          <div class="mb-4 text-right">
+            <div class="inline-block bg-purple-950 text-white p-3 rounded-lg max-w-[80%]">
+              ${input.value}
+            </div>
+          </div>
+        `;
+          messagesContainer.insertAdjacentHTML("beforeend", userMessage);
+
+          // Add bot response with email link
+          setTimeout(() => {
+            const botMessage = `
+            <div class="mb-4 text-left">
+              <div class="inline-block bg-gray-200 text-gray-800 p-3 rounded-lg max-w-[80%]">
+                Thank you for reaching out! For immediate assistance, please email our support team at 
+                <a href="mailto:s.unitybank@gmail.com" class="text-purple-950 hover:underline font-medium">support@truist.com</a>
+                <br><br>
+                Our team typically responds within 24 hours. Please include any relevant details about your inquiry.
+              </div>
+            </div>
+          `;
+            messagesContainer.insertAdjacentHTML("beforeend", botMessage);
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+          }, 1000);
+
+          input.value = "";
+          messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+      }
+    </script>
   </body>
 </html>
