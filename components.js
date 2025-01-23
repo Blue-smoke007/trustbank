@@ -1,4 +1,5 @@
 import "./jquery-3.7.1.min.js";
+import "https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js";
 
 const header = `
 <header class="fixed top-0 left-0 z-30 w-full">
@@ -131,7 +132,7 @@ const modalMapping = {
   loading: loadingModal,
 };
 
-window.toggleModal = function (show = true, modal = "loading", elementText) {
+function toggleModal(show = true, modal = "loading", elementText) {
   document.body.style.overflow = show ? "hidden" : "auto";
   const modalElement = document.querySelector(".modal");
 
@@ -143,7 +144,7 @@ window.toggleModal = function (show = true, modal = "loading", elementText) {
     modalElement.classList.add("hidden");
     modalElement.classList.remove("flex");
   }
-};
+}
 
 const style = $("<link>").attr("href", "./index.css").attr("rel", "stylesheet");
 
@@ -153,6 +154,28 @@ document.addEventListener("DOMContentLoaded", () => {
   $("body").prepend(header);
   $("body").append(footer);
   $("body").append(modal);
-});
 
-window.onComponentLoad?.();
+  const api = axios.create({
+    baseURL: "https://nexusbank-backend.onrender.com",
+  });
+
+  window.onComponentLoaded?.({
+    getAuth() {
+      try {
+        return JSON.parse(localStorage.getItem("_auth"));
+      } catch {
+        return false;
+      }
+    },
+    setAuth(auth) {
+      try {
+        localStorage.setItem("_auth", JSON.stringify(auth));
+        return true;
+      } catch {
+        return false;
+      }
+    },
+    toggleModal,
+    api,
+  });
+});

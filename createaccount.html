@@ -143,31 +143,30 @@
     </main>
 
     <script>
-      const form = document.forms[0];
+      window.onComponentLoaded = ({ api, toggleModal }) => {
+        const form = document.forms[0];
 
-      form.addEventListener("submit", async function (e) {
-        e.preventDefault();
-        const formData = new FormData(this);
-        toggleModal(true, "loading", "Sigining up");
+        form.addEventListener("submit", async function (e) {
+          e.preventDefault();
+          const formData = new FormData(this);
+          toggleModal(true, "loading", "Sigining up");
 
-        // Register user
-        try {
-          const response = await axios.post(
-            "https://nexusbank-backend.onrender.com/register/",
-            formData
-          );
-          localStorage.setItem("_auth", JSON.stringify(response.data));
-          toggleModal(true, "success");
-        } catch (error) {
-          console.log(error);
-          toggleModal(true, "error");
-        }
+          // Register user
+          try {
+            const response = await api.post("/register/", formData);
+            localStorage.setItem("_auth", JSON.stringify(response.data));
+            toggleModal(true, "success");
+          } catch (error) {
+            console.log(error);
+            toggleModal(true, "error");
+          }
 
-        setTimeout(() => {
-          toggleModal(false);
-          window.location.href = "account.html";
-        }, 3000);
-      });
+          setTimeout(() => {
+            toggleModal(false);
+            window.location.href = "account.html";
+          }, 3000);
+        });
+      };
     </script>
   </body>
 </html>

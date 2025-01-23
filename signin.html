@@ -157,14 +157,15 @@
 </script>
 
 <script>
-  document.forms[0].addEventListener('submit', async function (event) {
+  window.onComponentLoaded = function ({ toggleModal, api}) {
+    document.forms[0].addEventListener('submit', async function (event) {
     event.preventDefault();
     const formData = new FormData(this);
     toggleModal(true, "loading", "Logining in");
     
     try {
-      const response = await axios.post(
-        "https://nexusbank-backend.onrender.com/login/",
+      const response = await api.post(
+        "/login/",
         formData
       );
       localStorage.setItem("_auth", JSON.stringify({...response.data, token: response.data.token ?? response.data.access}));
@@ -179,6 +180,7 @@
       window.location.href = "account.html";
     }, 3000);
   })
+  };
 </script>
   </body>
 </html>
