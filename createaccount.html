@@ -149,22 +149,21 @@
         form.addEventListener("submit", async function (e) {
           e.preventDefault();
           const formData = new FormData(this);
-          toggleModal(true, "loading", "Sigining up");
+          toggleModal(true, "loading", "Signing up");
 
           // Register user
           try {
             const response = await api.post("/register/", formData);
-            localStorage.setItem("_auth", JSON.stringify(response.data));
             toggleModal(true, "success");
+            setTimeout(() => {
+              window.location.href = "signin.html";
+              toggleModal(false);
+            }, 2000);
           } catch (error) {
             console.log(error);
             toggleModal(true, "error");
-          }
-
-          setTimeout(() => {
             toggleModal(false);
-            window.location.href = "account.html";
-          }, 3000);
+          }
         });
       };
     </script>

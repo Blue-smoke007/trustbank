@@ -91,7 +91,7 @@
       // Check auth the bad way 🥲
       const auth = JSON.parse(localStorage.getItem("_auth"));
 
-      if (!auth?.token) {
+      if (!auth?.access) {
         window.location.href = "signin.html";
       }
     </script>
@@ -426,11 +426,19 @@
 
     <script>
       window.onComponentLoaded = ({ api, getAuth }) => {
-        const { user } = getAuth();
+        const { user, access } = getAuth();
 
         $("._username").text(`${user.first_name} ${user.last_name}`);
         $("._email").text(`${user.email}`);
-        $("._balance").text(`0.00`);
+
+        api
+          .get("/dashboard/user-wallet/", {
+            headers: { "Content-Type": `Bearer ${access}` },
+            withCredentials: true,
+          })
+          .then((res) => {
+            console.log(res);
+          });
 
         console.log(user);
       };

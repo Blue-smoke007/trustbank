@@ -25,28 +25,49 @@
   </head>
 
   <body class="bg-gray-100 font-sans">
-
-
     <header class="header bg-[#1F0034] p-4">
       <div class="container mx-auto flex justify-between items-center">
-          <div class="flex items-center space-x-3">
-              <img src="images/Logo.png" alt="Logo" class="h-10">
-          </div>
-  
-          <nav class="nav-links">
-              <ul class="flex gap-4">
-                  <li><a class="text-white border-b-2 px-4 py-1" href="homepage.html">Home</a></li>
-                  <li><a class="text-white hover:border-b-2 px-4 py-1" href="homepage.html">Products</a></li>
-                  <li><a class="text-white hover:border-b-2 px-4 py-1" href="homepage.html">Rewards</a></li>
-                  <li><a class="text-white hover:border-b-2 px-4 py-1" href="homepage.html">Contact us</a></li>
-                  <li><a class="text-white hover:border-b-2 px-4 py-1" href="">Dashboard</a></li>
-              </ul>
-          </nav>
+        <div class="flex items-center space-x-3">
+          <img src="images/logo.jpg" alt="Logo" class="h-10" />
+        </div>
+
+        <nav class="nav-links">
+          <ul class="flex gap-4">
+            <li>
+              <a
+                class="text-white hover:border-b-2 px-4 py-1"
+                href="homepage.html"
+                >Home</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-white hover:border-b-2 px-4 py-1"
+                href="homepage.html"
+                >Products</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-white hover:border-b-2 px-4 py-1"
+                href="homepage.html"
+                >Rewards</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-white hover:border-b-2 px-4 py-1"
+                href="homepage.html"
+                >Contact us</a
+              >
+            </li>
+            <li>
+              <a class="text-white border-b-2 px-4 py-1" href="">Dashboard</a>
+            </li>
+          </ul>
+        </nav>
       </div>
-  </header>
-
-
-
+    </header>
 
     <div class="container mx-auto mt-8 flex">
       <!-- Sidebar -->
@@ -133,13 +154,10 @@
       </main>
     </div>
 
-   
     <div id="signOutModal" class="modal">
       <div class="bg-white rounded-lg p-6 w-96 text-center shadow-lg">
         <h2 class="text-lg font-bold mb-4">Sign Out</h2>
-        <p class="text-gray-700 mb-6">
-          Are you sure you want to sign out?
-        </p>
+        <p class="text-gray-700 mb-6">Are you sure you want to sign out?</p>
         <div class="flex justify-around">
           <button
             onclick="confirmSignOut()"
@@ -158,7 +176,6 @@
     </div>
 
     <script>
-
       function handleButtonClick(button) {
         button.disabled = true;
         button.innerHTML = `
@@ -172,14 +189,12 @@
         }, 3000);
       }
 
-      
       function showModal(event) {
         event.preventDefault();
         const modal = document.getElementById("signOutModal");
         modal.classList.add("active");
       }
 
-  
       function closeModal() {
         const modal = document.getElementById("signOutModal");
         modal.classList.remove("active");

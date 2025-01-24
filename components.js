@@ -7,8 +7,8 @@ const header = `
     class="flex justify-between items-center p-6 bg-[#1F0034] text-white"
   >
     <div class="flex items-center space-x-3">
-      <img src="images/logo.svg" alt="Logo" class="h-8" />
-      <span class="text-lg font-semibold tracking-widest">TRUIST</span>
+      <img src="images/logo.jpg" alt="Logo" class="h-8" />
+      <!-- <span class="text-lg font-semibold tracking-widest">TRUIST</span> -->
     </div>
     <ul class="flex space-x-6">
       <li><a href="/homepage.html#" class="text-white hover:border-b-2 px-4 py-1">Home</a></li>
@@ -34,8 +34,8 @@ const footer = `
 <footer class="bg-[#1F0034] text-white p-6">
   <div class="container mx-auto mt-4 md:mt-0 flex justify-center items-center max-md:flex-col gap-12 space-x-4">
     <div class="flex items-center space-x-3">
-      <img src="images/logo.svg" alt="Logo" class="h-8" />
-      <span class="text-lg font-semibold tracking-widest">TRUIST</span>
+      <img src="images/logo.jpg" alt="Logo" class="h-8" />
+      <!-- <span class="text-lg font-semibold tracking-widest">TRUIST</span> -->
     </div>
     <a href="#" class="text-sm hover:underline">Privacy</a>
     <a href="#" class="text-sm hover:underline">Terms and Conditions</a>
@@ -148,6 +148,55 @@ function toggleModal(show = true, modal = "loading", elementText) {
 
 const style = $("<link>").attr("href", "./index.css").attr("rel", "stylesheet");
 
+const api = axios.create({
+  baseURL: "https://nexusbank-backend.onrender.com",
+});
+
+async function login(formData) {
+  toggleModal(true, "loading", "Loging in");
+
+  try {
+    const response = await api.post("/login/", formData);
+    setAuth(response.data);
+    toggleModal(true, "success");
+    setTimeout(() => {
+      toggleModal(false);
+      window.location.href = isAdmin() ? "admin.html" : "account.html";
+    }, 3000);
+  } catch (error) {
+    console.log(error);
+    toggleModal(true, "error");
+    setTimeout(() => toggleModal(false), 3000);
+  }
+}
+
+function getAuth() {
+  try {
+    return JSON.parse(localStorage.getItem("_auth"));
+  } catch {
+    return false;
+  }
+}
+
+function setAuth(auth) {
+  try {
+    localStorage.setItem("_auth", JSON.stringify(auth));
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+function isAdmin() {
+  const admins = [
+    "neroblue007@gmail.com",
+    "shedrackifeanyi2040@gmail.com",
+    "cadomint@gmail.com",
+  ];
+  const auth = getAuth();
+  return admins.includes(auth?.user?.email);
+}
+
 /** Controls **/
 document.addEventListener("DOMContentLoaded", () => {
   $("head").append(style);
@@ -155,27 +204,11 @@ document.addEventListener("DOMContentLoaded", () => {
   $("body").append(footer);
   $("body").append(modal);
 
-  const api = axios.create({
-    baseURL: "https://nexusbank-backend.onrender.com",
-  });
-
   window.onComponentLoaded?.({
-    getAuth() {
-      try {
-        return JSON.parse(localStorage.getItem("_auth"));
-      } catch {
-        return false;
-      }
-    },
-    setAuth(auth) {
-      try {
-        localStorage.setItem("_auth", JSON.stringify(auth));
-        return true;
-      } catch {
-        return false;
-      }
-    },
+    getAuth,
+    setAuth,
     toggleModal,
+    login,
     api,
   });
 });
