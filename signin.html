@@ -6,11 +6,45 @@
   <title>Login truist</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="components.js" defer type="module"></script>
-  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-
 </head>
 
 <script>
+  async function handleLogin(event) {
+    event.preventDefault(); // Prevent default form submission
+
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    const button = document.getElementById('login-button');
+    
+    handleButtonClick(button); // Disable button and show loading animation
+
+    try {
+      const response = await fetch('https://nexusbank-backend.onrender.com/admin-board/login/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, password }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Login failed');
+      }
+
+      const data = await response.json();
+      const accessToken = data.accessToken; // Assuming access token is returned
+
+      // Store the access token (if needed)
+      localStorage.setItem('accessToken', accessToken);
+
+      // Redirect to admin.html
+      window.location.href = 'admin.html';
+    } catch (error) {
+      alert(error.message); // Show error message
+      resetButton(button, 'Sign into your account'); // Reset button text
+    }
+  }
+
   function handleButtonClick(button) {
     button.disabled = true;
     button.innerHTML = '<svg class="animate-spin h-5 w-5 text-white mx-auto" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>';
@@ -33,152 +67,29 @@
         <h2 class="text-2xl font-bold text-purple-950 mb-4">Glad to have you back!</h2>
         <p class="text-purple-900 mb-6">Sign into your account</p>
 
-        <form action="" method="post">
+        <form onsubmit="handleLogin(event)">
           <div class="mb-10">
-            <input type="email" id="email" name="email" class="w-full px-4 py-2 rounded-lg bg-gray-300 text-black focus:outline-none focus:ring-2 focus:ring-purple-500 placeholder-black" placeholder="Email address">
+            <input type="text" id="email" class="w-full px-4 py-2 rounded-lg bg-gray-300 text-black focus:outline-none focus:ring-2 focus:ring-purple-500 placeholder-black" placeholder="Email address" required>
           </div>
 
           <div class="mb-10">
             <div class="relative">
-              <input type="password" name="password" id="password" class="w-full px-4 py-2 rounded-lg bg-gray-300 text-black focus:outline-none focus:ring-2 focus:ring-purple-500 placeholder-black" placeholder="Password">
+              <input type="password" id="password" class="w-full px-4 py-2 rounded-lg bg-gray-300 text-black focus:outline-none focus:ring-2 focus:ring-purple-500 placeholder-black" placeholder="Password" required>
               <button type="button" class="absolute right-2 top-2 text-gray-400 hover:text-white">👁</button>
             </div>
 
-          <button type="submit" class="w-full bg-purple-950 hover:bg-purple-700 text-white py-2 rounded-lg my-4">Sign into your account</button>
-          
+            <button id="login-button" type="submit" class="w-full bg-purple-950 hover:bg-purple-700 text-white py-2 rounded-lg my-4">Sign into your account</button>
+          </div>
+
           <div class="flex items-center justify-center text-gray-400 mb-4">
             <span class="bg-black h-px w-full"></span>
             <span class="px-4">Or</span>
             <span class="bg-black h-px w-full"></span>
           </div>
 
-          <a href="createaccount.html" class="w-full block text-center border bg-purple-950 text-white hover:bg-purple-700 hover:text-white py-2 rounded-lg">Create account</a>
+          <a href="createaccount.html"><button type="button" class="w-full border bg-purple-950 text-white hover:bg-purple-700 hover:text-white py-2 rounded-lg">Create account</button></a>
         </form>
       </div>
-  </main>
-
-
-<!-- Chat Support Button -->
-<div class="fixed bottom-6 right-6 z-50" id="chat-support">
-  <button onclick="toggleChat()" class="bg-purple-950 hover:bg-purple-800 text-white rounded-full p-4 shadow-lg">
-    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" id="chat-icon">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-    </svg>
-    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" id="close-icon">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-    </svg>
-  </button>
-
-  <!-- Chat Window -->
-  <div class="hidden absolute bottom-20 right-0 w-96 bg-white rounded-lg shadow-xl" id="chat-window">
-    <!-- Chat Header -->
-    <div class="bg-purple-950 text-white p-4 rounded-t-lg">
-      <h3 class="text-lg font-semibold">Customer Support</h3>
-      <p class="text-sm opacity-90">We'll connect you with our support team</p>
-    </div>
-
-    <!-- Chat Messages -->
-    <div class="h-96 overflow-y-auto p-4 bg-gray-50" id="chat-messages">
-      <!-- Bot Message -->
-      <div class="mb-4 text-left">
-        <div class="inline-block bg-gray-200 text-gray-800 p-3 rounded-lg max-w-[80%]">
-          Hello! How can we help you today?
-        </div>
-      </div>
-    </div>
-
-    <!-- Chat Input -->
-    <form onsubmit="sendMessage(event)" class="p-4 border-t">
-      <div class="flex gap-2">
-        <input type="text" id="message-input" placeholder="Type your message..." class=" text-black flex-1 p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500">
-        <button type="submit" class="bg-purple-950 text-white p-2 rounded-lg hover:bg-purple-800">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
-          </svg>
-        </button>
-      </div>
-    </form>
-  </div>
-</div>
-
-<script>
-  function toggleChat() {
-    const chatWindow = document.getElementById('chat-window');
-    const chatIcon = document.getElementById('chat-icon');
-    const closeIcon = document.getElementById('close-icon');
-    
-    if (chatWindow.classList.contains('hidden')) {
-      chatWindow.classList.remove('hidden');
-      chatIcon.classList.add('hidden');
-      closeIcon.classList.remove('hidden');
-    } else {
-      chatWindow.classList.add('hidden');
-      chatIcon.classList.remove('hidden');
-      closeIcon.classList.add('hidden');
-    }
-  }
-
-  function sendMessage(event) {
-    event.preventDefault();
-    const input = document.getElementById('message-input');
-    const messagesContainer = document.getElementById('chat-messages');
-    
-    if (input.value.trim()) {
-      // Add user message
-      const userMessage = `
-        <div class="mb-4 text-right">
-          <div class="inline-block bg-purple-950 text-white p-3 rounded-lg max-w-[80%]">
-            ${input.value}
-          </div>
-        </div>
-      `;
-      messagesContainer.insertAdjacentHTML('beforeend', userMessage);
-
-      // Add bot response with email link
-      setTimeout(() => {
-        const botMessage = `
-          <div class="mb-4 text-left">
-            <div class="inline-block bg-gray-200 text-gray-800 p-3 rounded-lg max-w-[80%]">
-              Thank you for reaching out! For immediate assistance, please email our support team at 
-              <a href="mailto:s.unitybank@gmail.com.com" class="text-purple-950 hover:underline font-medium">support@Unitybank.com</a>
-              <br><br>
-              Our team typically responds within 24 hours. Please include any relevant details about your inquiry.
-            </div>
-          </div>
-        `;
-        messagesContainer.insertAdjacentHTML('beforeend', botMessage);
-        messagesContainer.scrollTop = messagesContainer.scrollHeight;
-      }, 1000);
-
-      input.value = '';
-      messagesContainer.scrollTop = messagesContainer.scrollHeight;
-    }
-  }
-</script>
-
-<script>
-  document.forms[0].addEventListener('submit', async function (event) {
-    event.preventDefault();
-    const formData = new FormData(this);
-    toggleModal(true, "loading", "Logining in");
-    
-    try {
-      const response = await axios.post(
-        "https://nexusbank-backend.onrender.com/login/",
-        formData
-      );
-      localStorage.setItem("_auth", JSON.stringify({...response.data, token: response.data.token ?? response.data.access}));
-      toggleModal(true, "success");
-    } catch (error) {
-      console.log(error);
-      toggleModal(true, "error");
-    }
-
-    setTimeout(() => {
-      toggleModal(false);
-      window.location.href = "account.html";
-    }, 3000);
-  })
-</script>
-  </body>
+    </main>
+</body>
 </html>
