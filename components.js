@@ -27,11 +27,11 @@ const header = `
     </ul>
   </nav>
 </header>
-<div class="mb-12"></div>
+<div class="mb-24"></div>
 `;
 
 const footer = `
-<footer class="bg-[#1F0034] text-white p-6">
+<footer class="bg-[#1F0034] text-white p-6 mt-6">
   <div class="container mx-auto mt-4 md:mt-0 flex justify-center items-center max-md:flex-col gap-12 space-x-4">
     <div class="flex items-center space-x-3">
       <img src="images/logo.jpg" alt="Logo" class="h-8" />
@@ -106,6 +106,65 @@ const footer = `
 </footer>
 `;
 
+const sidebarLinks = [
+  {
+    name: "Dashboard",
+    href: "account.html",
+  },
+  {
+    name: "Transactions",
+    href: "transaction.html",
+  },
+  {
+    name: "Manage cards",
+    href: "card.html",
+  },
+  {
+    name: "Notifications",
+    href: "#",
+  },
+  {
+    name: "Help center",
+    href: "#",
+  },
+  {
+    name: "Settings",
+    href: "#",
+  },
+];
+const sidebar = `
+<aside class="w-1/4 bg-white rounded-lg shadow-xl p-6 space-y-4 ">
+  <div class="text-center font-[Montserrat] text-lg w-full">
+    <img src="images/logo.jpg" className="rounded-lg overflow-hidden"/>
+    <hr />
+    <nav class="space-y-16 h-full">
+      <ul class="flex flex-col justify-between h-full py-2 gap-2">
+      ${sidebarLinks
+        .map(
+          (link) => `
+          <li>
+            <a href="${
+              link.href
+            }" class="block p-2 hover:text-purple-600 border rounded-lg hover:border-current ${
+            window.location.pathname.slice(1) === link.href
+              ? "text-purple-600 border-current"
+              : "border-transparent"
+          }">${link.name}</a>
+          </li>
+        `
+        )
+        .join("")}
+        <hr />
+        <li>
+            <button class="logout block w-full p-2 hover:text-purple-600 border rounded-lg hover:border-current border-transparent"
+              >Sign out</a>
+          </li>
+      </ul>
+    </nav>
+  </div>
+</aside>
+`;
+
 const modal = `
 <div
   class="modal hidden fixed inset-0 bg-black/90 justify-center items-center"
@@ -170,6 +229,11 @@ async function login(formData) {
   }
 }
 
+function logout() {
+  setAuth(null);
+  window.location.href = "signin.html";
+}
+
 function getAuth() {
   try {
     return JSON.parse(localStorage.getItem("_auth"));
@@ -203,6 +267,8 @@ document.addEventListener("DOMContentLoaded", () => {
   $("body").prepend(header);
   $("body").append(footer);
   $("body").append(modal);
+  $(".sidebar").replaceWith($(sidebar));
+  $(".logout").on("click", logout);
 
   window.onComponentLoaded?.({
     getAuth,
