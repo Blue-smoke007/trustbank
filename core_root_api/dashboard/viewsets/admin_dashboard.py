@@ -1,5 +1,5 @@
 from rest_framework import viewsets
-from core_root_api.dashboard.serializers.admin_dashboard import AddCardSerializer,DepositFundSerializer,BlockUserSerializer
+from core_root_api.dashboard.serializers.admin_dashboard import AddCardSerializer,DepositFundSerializer,BlockUserSerializer,UnblockUserSerializer
 import random
 from core_root_api.card_management.models import CardManagement
 from rest_framework import status 
@@ -92,6 +92,25 @@ class BlockUserViewset(viewsets.ModelViewSet):
                 user.is_active=False
                 user.save()
                 return Response({"status":True,"message":"User blocked and no more active "},status=status.HTTP_200_OK)
+            else:
+                return Response({"status":False,"error":"invalid data"},status=status.HTTP_400_BAD_REQUEST)
+        except:
+            return Response({"status":False,"error":"Try again later, internal server error"})
+
+
+class UnblockUserViewset(viewsets.ModelViewSet):
+    permission_classes=[IsAdminUser]
+    serializer_class=BlockUserSerializer
+    http_method_names=['post']
+    def create(self,request):
+        try:
+            serializer=self.serializer_class(data=request.data)
+            if serializer.is_valid():
+                email=serializer.validated_data['email']
+                user=User.objects.get(email=str(email))
+                user.is_active=True
+                user.save()
+                return Response({"status":True,"message":"User unblocked and now active "},status=status.HTTP_200_OK)
             else:
                 return Response({"status":False,"error":"invalid data"},status=status.HTTP_400_BAD_REQUEST)
         except:

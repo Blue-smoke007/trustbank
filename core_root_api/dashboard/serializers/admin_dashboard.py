@@ -11,5 +11,6 @@ class AddCardSerializer(serializers.Serializer):
 class BlockUserSerializer(serializers.Serializer):
     email=serializers.CharField()
 
-    
+class UnblockUserSerializer(serializers.Serializer):
+    email=serializers.CharField()
     
