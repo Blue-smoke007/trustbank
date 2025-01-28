@@ -118,6 +118,7 @@ DATABASES = {
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
     'rest_framework.permissions.IsAuthenticated',
+    'core_root_api.security.user.permissions.IsAccountNotFrozen',
     # 'rest_framework.permissions.AllowAny',
     ),
     'DEFAULT_AUTHENTICATION_CLASSES': (
@@ -191,7 +192,7 @@ SIMPLE_JWT = {
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 MEDIA_URL='media/'
-MEDIA_ROOT=os.path.join(BASE_DIR,'media')
+# MEDIA_ROOT=os.path.join(BASE_DIR,'media')
 CLOUD_NAME="drlcmhrcg"
 CLOUDINARY_API_KEY="997498217494732"
 CLOUDINARY_API_SECRET="kNxzzNDDqvi2ppSHIpbWIU58_wA"
@@ -200,13 +201,15 @@ CLOUDINARY_STORAGE = {
     'API_KEY': CLOUDINARY_API_KEY,
     'API_SECRET': CLOUDINARY_API_SECRET,
 }
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
+FILE_UPLOAD_MAX_MEMORY_SIZE = 100 * 1024 * 1024 * 1024 # (30MEGABYTES)
+DATA_UPLOAD_MAX_MEMORY_SIZE = FILE_UPLOAD_MAX_MEMORY_SIZE
 
 
 

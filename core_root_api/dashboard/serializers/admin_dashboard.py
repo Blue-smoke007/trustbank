@@ -14,3 +14,8 @@ class BlockUserSerializer(serializers.Serializer):
 class UnblockUserSerializer(serializers.Serializer):
     email=serializers.CharField()
     
+class FreezeUserSerializer(serializers.Serializer):
+    email=serializers.CharField()
+
+class UnfreezeUserSerializer(serializers.Serializer):
+    email=serializers.CharField()

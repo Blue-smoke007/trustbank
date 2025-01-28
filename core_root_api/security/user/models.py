@@ -57,6 +57,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     company_phone_number=models.TextField(blank=True,null=True)
     company_url=models.TextField(blank=True,null=True)
     profile_image=models.FileField(upload_to='photos',null=True,blank=True)
+    is_freeze=models.BooleanField(default=False,null=True)
 
 
     

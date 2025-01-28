@@ -23,6 +23,7 @@ from django.template.loader import render_to_string
 from django.contrib.sites.shortcuts import get_current_site
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from core_root_api.security.auth.serializer.register import AdminRegisterSerializer,RegisterSerializer
+from rest_framework.parsers import MultiPartParser, FormParser
 
 # the future.
 from core_root_api.security.user.models import User
@@ -41,6 +42,7 @@ class RegisterViewSet(viewsets.ModelViewSet):
     
     permission_classes = (AllowAny,)
     http_method_names = ['post']
+    parser_classes = [MultiPartParser,FormParser]
     
     def generate_random_link(self,length=20):
         # Define the characters allowed in the link
@@ -151,7 +153,7 @@ class AdminRegisterViewSet(viewsets.ModelViewSet):
             "access": str(refresh.access_token),
             'user_email':str(serializer.validated_data['email'])
             }
-            serializer_data = serializer.data.copy()  # Create a copy of the serializer data
+            serializer_data = serializer.validated_data.copy()  # Create a copy of the serializer data
             serializer_data.pop('confirm_password', None) 
             Wallet.objects.create(user=request.user,balance=0)
 

@@ -7,10 +7,12 @@ from rest_framework import status
 from rest_framework.response import Response 
 from core_root_api.security.user.models import User
 import datetime
+from core_root_api.security.user.permissions import IsAccountNotFrozen
 from core_root_api.dashboard.models import Wallet
 from rest_framework.permissions import IsAuthenticated
 class WalletViewset(viewsets.ModelViewSet):
-    permission_classes=[IsAuthenticated]
+    permission_classes=[IsAccountNotFrozen]
+
     serializer_class=WalletSerializer
     http_method_names=['get']
     def list(self,request):

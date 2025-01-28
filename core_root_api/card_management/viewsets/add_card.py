@@ -3,13 +3,16 @@ from core_root_api.card_management.models import CardManagement
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 import datetime
+from core_root_api.security.user.permissions import IsAccountNotFrozen
 from rest_framework import status
 from core_root_api.card_management.serializers.add_card import CardManagementSerializer
 class CardManagementViewset(viewsets.ModelViewSet):
     http_method_names=['get','post']
     queryset=CardManagement.objects.all()
     serializer_class=CardManagementSerializer
-    permission_classes=[IsAuthenticated]
+    permission_classes=[IsAccountNotFrozen]
+
+    # permission_classes=[IsAuthenticated]
 
     def list(self, request):
         try:
