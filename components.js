@@ -7,7 +7,7 @@ const header = `
     class="flex justify-between items-center p-6 bg-[#1F0034] text-white"
   >
     <div class="flex items-center space-x-3">
-      <img src="images/logo.jpg" alt="Logo" class="h-8" />
+      <img src="images/log0.jpg" alt="Logo" class="h-8" />
       <!-- <span class="text-lg font-semibold tracking-widest">TRUIST</span> -->
     </div>
     <ul class="flex space-x-6">
@@ -101,7 +101,7 @@ const footer = `
         </div>
       </div>
   <p class="copyright text-center my-4">
-    &copy; 2024, Truist. All Rights Reserved.
+    &copy; 2024, Unity. All Rights Reserved.
   </p>
 </footer>
 `;
