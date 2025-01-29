@@ -4,7 +4,7 @@ import "https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js";
 const header = `
 <header class="fixed top-0 left-0 z-30 w-full">
   <nav
-    class="flex justify-between items-center p-6 bg-[#1F0034] text-white"
+    class="flex justify-between items-center p-6 py-8 bg-[#1F0034] text-white"
   >
     <div class="flex items-center space-x-3">
       <img src="images/logo.jpg" alt="Logo" class="h-8" />
