@@ -7,7 +7,7 @@ const header = `
     class="flex justify-between items-center p-6 bg-[#1F0034] text-white"
   >
     <div class="flex items-center space-x-3">
-      <img src="images/log0.jpg" alt="Logo" class="h-8" />
+      <img src="images/logo.jpg" alt="Logo" class="h-8" />
       <!-- <span class="text-lg font-semibold tracking-widest">TRUIST</span> -->
     </div>
     <ul class="flex space-x-6">
@@ -212,7 +212,7 @@ const api = axios.create({
 });
 
 async function login(formData) {
-  toggleModal(true, "loading", "Loging in");
+  toggleModal(true, "loading", "Logging in");
 
   try {
     const response = await api.post("/login/", formData);
@@ -231,13 +231,13 @@ async function login(formData) {
 
 function logout() {
   setAuth(null);
-  window.location.href = "index.html";
+  window.location.href = "homepage.html";
 }
 
 function getAuth() {
   try {
     return JSON.parse(localStorage.getItem("_auth"));
-  } catch(err) {
+  } catch (err) {
     return false;
   }
 }
@@ -246,7 +246,7 @@ function setAuth(auth) {
   try {
     localStorage.setItem("_auth", JSON.stringify(auth));
     return true;
-  } catch(err) {
+  } catch (err) {
     return false;
   }
 }

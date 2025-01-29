@@ -106,9 +106,12 @@
       }
 
       function toggleBlockUser(button, clientName, userEmail) {
-        let block = (userEmail)=>{
+        let block = (userEmail) => {
           axios
-            .post("https://nexusbank-backend.onrender.com/dashboard/admin-board/user/block-user/", userEmail)
+            .post(
+              "https://nexusbank-backend.onrender.com/dashboard/admin-board/user/block-user/",
+              userEmail
+            )
             .then((response) => {
               console.log("blocked successful:", response.data);
               //localStorage.setItem("_auth", JSON.stringify(response.data));
@@ -123,7 +126,7 @@
                 error.response?.data?.detail ||
                 "Registration failed. Please try again.";
             });
-        }
+        };
         const isBlocked = button.textContent === "Unblock User";
         if (isBlocked) {
           button.textContent = "Block User";
@@ -136,7 +139,7 @@
             "hover:bg-purple-950",
             "hover:text-white"
           );
-         
+
           alert(`${clientName} has been unblocked.`);
           console.log(`${clientName} is unblocked.`);
         } else {
@@ -151,7 +154,7 @@
           );
           button.classList.add("bg-red-600", "text-white");
           alert(`${clientName} has been blocked.`);
-          block({email:userEmail})
+          block({ email: userEmail });
           console.log(`${clientName} is blocked.`);
         }
       }
@@ -169,14 +172,14 @@
             <li>
               <a
                 class="text-white hover:border-b-2 px-4 py-1"
-                href="index.html"
+                href="hoempage.html"
                 >Home</a
               >
             </li>
             <li>
               <a
                 class="text-white hover:border-b-2 px-4 py-1"
-                href="index.html"
+                href="homepage.html"
                 >Products</a
               >
             </li>
@@ -218,11 +221,7 @@
               <th class="px-6 py-3"></th>
             </tr>
           </thead>
-          <tbody id="error-message">
-            
-           
-
-          </tbody>
+          <tbody id="error-message"></tbody>
         </table>
       </div>
     </main>
@@ -246,9 +245,9 @@
 
     <script>
       function loader(page) {
-        page.innerHTML = '<svg class="animate-spin h-5 w-5 text-white mx-auto" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>';
+        page.innerHTML =
+          '<svg class="animate-spin h-5 w-5 text-white mx-auto" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>';
       }
-     
     </script>
 
     <script src="./js/admin.min.js"></script>
