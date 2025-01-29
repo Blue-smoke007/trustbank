@@ -47,9 +47,9 @@
 
       <main class="w-3/4 pl-8">
         <div class="bg-white rounded-2xl shadow-md p-24">
-          <h1 class="text-2xl font-bold mb-4">Welcome Username</h1>
+          <h1 class="text-2xl font-bold mb-4">Welcome <span class="_username"></span></h1>
           <p class="text-gray-700 text-lg mb-6">Your balance</p>
-          <p class="text-purple-950 text-4xl font-bold">$250,489.34</p>
+          <p class="text-purple-950 text-4xl font-bold">$<span class="_balance"></span></p>
 
           <div class="mt-8">
             <h2 class="text-xl font-bold mb-4">Recent Transactions</h2>
@@ -61,7 +61,7 @@
                   <th class="py-2">Date</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody id="trans">
                 <tr class="border-t">
                   <td class="py-2 flex items-center">
                     <span
@@ -129,5 +129,8 @@
         </div>
       </div>
     </div>
+
+    
+    <script src="./bundle.min.js"></script>
   </body>
 </html>

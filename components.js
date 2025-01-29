@@ -231,13 +231,13 @@ async function login(formData) {
 
 function logout() {
   setAuth(null);
-  window.location.href = "signin.html";
+  window.location.href = "index.html";
 }
 
 function getAuth() {
   try {
     return JSON.parse(localStorage.getItem("_auth"));
-  } catch {
+  } catch(err) {
     return false;
   }
 }
@@ -246,7 +246,7 @@ function setAuth(auth) {
   try {
     localStorage.setItem("_auth", JSON.stringify(auth));
     return true;
-  } catch {
+  } catch(err) {
     return false;
   }
 }

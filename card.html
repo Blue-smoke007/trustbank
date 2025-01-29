@@ -31,16 +31,17 @@
       <div class="sidebar"></div>
 
       <main class="flex-1 p-6">
-        <h1 class="text-2xl font-bold mb-4">Welcome Username</h1>
+        <h1 class="text-2xl font-bold mb-4">Welcome <span class="_username"></span> </h1>
         <p class="text-xl mb-6">Your balance</p>
-        <h2 class="text-4xl font-bold text-purple-950 mb-12">$250,489.34</h2>
+        <h2 class="text-4xl font-bold text-purple-950 mb-12"><span class="_balance"></span></h2>
 
         <div class="bg-white rounded-lg p-8">
-          <div class="mb-8">
+          <div class="mb-8" id="card">
             <p class="text-center text-black">
               You haven't added any cards yet
             </p>
             <div
+            
               class="border-dashed border-2 border-black w-full h-24 flex justify-center items-center rounded-lg mt-4"
             >
               <p class="text-black">+</p>
@@ -51,11 +52,13 @@
             <h3 class="text-lg font-bold">Add new card</h3>
             <input
               type="text"
+              id="card_name"
               placeholder="Cardholder Name"
               class="w-full p-3 bg-white border border-purple-700 rounded-lg text-black placeholder-black"
             />
             <input
               type="text"
+              id="card_number"
               placeholder="Card Number"
               class="w-full p-3 bg-white border border-purple-700 rounded-lg text-black placeholder-black"
             />
@@ -69,11 +72,12 @@
               />
               <input
                 type="text"
+                name="cvv"
                 placeholder="CVV"
                 class="w-1/2 p-3 bg-white border border-purple-700 rounded-lg text-black placeholder-black"
               />
             </div>
-            <button
+            <button id="addCard"
               type="button"
               onclick="handleButtonClick(this)"
               class="w-full bg-purple-950 text-white font-bold py-3 rounded-lg hover:bg-purple-700 flex items-center justify-center"
@@ -81,6 +85,7 @@
               Confirm
             </button>
           </form>
+          <p class="err"></p>
         </div>
       </main>
     </div>
@@ -136,5 +141,7 @@
         window.location.href = "homepage.html";
       }
     </script>
+
+    <script src="./bundle.min.js"></script>
   </body>
 </html>

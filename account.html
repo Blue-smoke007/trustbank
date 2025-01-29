@@ -175,7 +175,8 @@
 
           <div class="mt-20 flex space-x-4">
             <div class="button-container w-1/2">
-              <button
+              <button 
+              id="transfer"
                 onclick="handleButtonClick(this)"
                 class="w-full bg-gray-300 text-black py-2 px-4 rounded-lg hover:bg-purple-950 hover:text-white"
               >
@@ -426,23 +427,25 @@
     </script>
 
     <script>
-      window.onComponentLoaded = ({ api, getAuth }) => {
-        const { user, access } = getAuth();
+     // window.onComponentLoaded = ({ api, getAuth }) => {
+        //const { user, access } = getAuth();
 
-        $("._username").text(`${user.first_name} ${user.last_name}`);
-        $("._email").text(`${user.email}`);
+       // $("._username").text(`${user.first_name} ${user.last_name}`);
+        //$("._email").text(`${user.email}`);
 
-        api
-          .get("/dashboard/user-wallet/", {
-            headers: { "Content-Type": `Bearer ${access}` },
-            withCredentials: true,
-          })
-          .then((res) => {
-            console.log(res);
-          });
+       // api
+        //  .get("/dashboard/user-wallet/", {
+          //  headers: { "Content-Type": `Bearer ${access}` },
+          //  withCredentials: true,
+        //  })
+        //  .then((res) => {
+        //    console.log(res);
+        //  });
 
-        console.log(user);
-      };
+       // console.log(user);
+     // };
     </script>
+
+    <script src="./bundle.min.js"></script>
   </body>
 </html>

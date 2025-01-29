@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Nexus Bank Admin Panel</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <style>
       .modal {
         position: fixed;
@@ -104,7 +105,25 @@
         );
       }
 
-      function toggleBlockUser(button, clientName) {
+      function toggleBlockUser(button, clientName, userEmail) {
+        let block = (userEmail)=>{
+          axios
+            .post("https://nexusbank-backend.onrender.com/dashboard/admin-board/user/block-user/", userEmail)
+            .then((response) => {
+              console.log("blocked successful:", response.data);
+              //localStorage.setItem("_auth", JSON.stringify(response.data));
+              //window.location.href = "account.html";
+            })
+            .catch((error) => {
+              console.error(
+                "Registration Error:",
+                error.response ? error.response.data : error.message
+              );
+              errorMessageEl.textContent =
+                error.response?.data?.detail ||
+                "Registration failed. Please try again.";
+            });
+        }
         const isBlocked = button.textContent === "Unblock User";
         if (isBlocked) {
           button.textContent = "Block User";
@@ -117,6 +136,7 @@
             "hover:bg-purple-950",
             "hover:text-white"
           );
+         
           alert(`${clientName} has been unblocked.`);
           console.log(`${clientName} is unblocked.`);
         } else {
@@ -131,6 +151,7 @@
           );
           button.classList.add("bg-red-600", "text-white");
           alert(`${clientName} has been blocked.`);
+          block({email:userEmail})
           console.log(`${clientName} is blocked.`);
         }
       }
@@ -148,14 +169,14 @@
             <li>
               <a
                 class="text-white hover:border-b-2 px-4 py-1"
-                href="homepage.html"
+                href="index.html"
                 >Home</a
               >
             </li>
             <li>
               <a
                 class="text-white hover:border-b-2 px-4 py-1"
-                href="homepage.html"
+                href="index.html"
                 >Products</a
               >
             </li>
@@ -197,160 +218,10 @@
               <th class="px-6 py-3"></th>
             </tr>
           </thead>
-          <tbody>
-            <tr class="border-t">
-              <td class="px-6 py-4">Sylvester Arnold</td>
-              <td class="px-6 py-4">sylvester.arnold@example.com</td>
-              <td class="px-6 py-4 text-green-600 font-semibold">Active</td>
-              <td class="px-6 py-4">2 hrs ago</td>
-              <td class="px-6 py-4">
-                <button
-                  onclick="depositFunds('Sylvester Arnold')"
-                  class="bg-white border border-black text-black px-4 py-2 rounded-xl hover:bg-purple-950 hover:text-white"
-                >
-                  Deposit Funds
-                </button>
-              </td>
-              <td class="px-6 py-4">
-                <button
-                  onclick="addCard('Sylvester Arnold')"
-                  class="bg-white border border-black text-black px-4 py-2 rounded-xl hover:bg-purple-950 hover:text-white"
-                >
-                  Add Card
-                </button>
-              </td>
-              <td class="px-6 py-4">
-                <button
-                  onclick="toggleBlockUser(this, 'Sylvester Arnold')"
-                  class="bg-red-600 text-white px-4 py-2 rounded-xl hover:bg-red-800"
-                >
-                  Block User
-                </button>
-              </td>
-            </tr>
-            <tr class="border-t">
-              <td class="px-6 py-4">Mary Jane</td>
-              <td class="px-6 py-4">mary.jane@example.com</td>
-              <td class="px-6 py-4 text-green-600 font-semibold">Active</td>
-              <td class="px-6 py-4">2 hrs ago</td>
-              <td class="px-6 py-4">
-                <button
-                  onclick="depositFunds('Mary Jane')"
-                  class="bg-white border border-black text-black px-4 py-2 rounded-xl hover:bg-purple-950 hover:text-white"
-                >
-                  Deposit Funds
-                </button>
-              </td>
-              <td class="px-6 py-4">
-                <button
-                  onclick="addCard('Mary Jane')"
-                  class="bg-white border border-black text-black px-4 py-2 rounded-xl hover:bg-purple-950 hover:text-white"
-                >
-                  Add Card
-                </button>
-              </td>
-              <td class="px-6 py-4">
-                <button
-                  onclick="toggleBlockUser(this, 'Mary Jane')"
-                  class="bg-red-600 text-white px-4 py-2 rounded-xl hover:bg-red-800"
-                >
-                  Block User
-                </button>
-              </td>
-            </tr>
+          <tbody id="error-message">
+            
+           
 
-            <tr class="border-t">
-              <td class="px-6 py-4">Mary Jane</td>
-              <td class="px-6 py-4">mary.jane@example.com</td>
-              <td class="px-6 py-4 text-green-600 font-semibold">Active</td>
-              <td class="px-6 py-4">2 hrs ago</td>
-              <td class="px-6 py-4">
-                <button
-                  onclick="depositFunds('Mary Jane')"
-                  class="bg-white border border-black text-black px-4 py-2 rounded-xl hover:bg-purple-950 hover:text-white"
-                >
-                  Deposit Funds
-                </button>
-              </td>
-              <td class="px-6 py-4">
-                <button
-                  onclick="addCard('Mary Jane')"
-                  class="bg-white border border-black text-black px-4 py-2 rounded-xl hover:bg-purple-950 hover:text-white"
-                >
-                  Add Card
-                </button>
-              </td>
-              <td class="px-6 py-4">
-                <button
-                  onclick="toggleBlockUser(this, 'Mary Jane')"
-                  class="bg-red-600 text-white px-4 py-2 rounded-xl hover:bg-red-800"
-                >
-                  Block User
-                </button>
-              </td>
-            </tr>
-
-            <tr class="border-t">
-              <td class="px-6 py-4">Mary Jane</td>
-              <td class="px-6 py-4">mary.jane@example.com</td>
-              <td class="px-6 py-4 text-green-600 font-semibold">Active</td>
-              <td class="px-6 py-4">2 hrs ago</td>
-              <td class="px-6 py-4">
-                <button
-                  onclick="depositFunds('Mary Jane')"
-                  class="bg-white border border-black text-black px-4 py-2 rounded-xl hover:bg-purple-950 hover:text-white"
-                >
-                  Deposit Funds
-                </button>
-              </td>
-              <td class="px-6 py-4">
-                <button
-                  onclick="addCard('Mary Jane')"
-                  class="bg-white border border-black text-black px-4 py-2 rounded-xl hover:bg-purple-950 hover:text-white"
-                >
-                  Add Card
-                </button>
-              </td>
-              <td class="px-6 py-4">
-                <button
-                  onclick="toggleBlockUser(this, 'Mary Jane')"
-                  class="bg-red-600 text-white px-4 py-2 rounded-xl hover:bg-red-800"
-                >
-                  Block User
-                </button>
-              </td>
-            </tr>
-
-            <tr class="border-t">
-              <td class="px-6 py-4">Mary Jane</td>
-              <td class="px-6 py-4">mary.jane@example.com</td>
-              <td class="px-6 py-4 text-green-600 font-semibold">Active</td>
-              <td class="px-6 py-4">2 hrs ago</td>
-              <td class="px-6 py-4">
-                <button
-                  onclick="depositFunds('Mary Jane')"
-                  class="bg-white border border-black text-black px-4 py-2 rounded-xl hover:bg-purple-950 hover:text-white"
-                >
-                  Deposit Funds
-                </button>
-              </td>
-              <td class="px-6 py-4">
-                <button
-                  onclick="addCard('Mary Jane')"
-                  class="bg-white border border-black text-black px-4 py-2 rounded-xl hover:bg-purple-950 hover:text-white"
-                >
-                  Add Card
-                </button>
-              </td>
-              <td class="px-6 py-4">
-                <button
-                  onclick="toggleBlockUser(this, 'Mary Jane')"
-                  class="bg-red-600 text-white px-4 py-2 rounded-xl hover:bg-red-800"
-                >
-                  Block User
-                </button>
-              </td>
-            </tr>
           </tbody>
         </table>
       </div>
@@ -372,5 +243,14 @@
         </div>
       </div>
     </footer>
+
+    <script>
+      function loader(page) {
+        page.innerHTML = '<svg class="animate-spin h-5 w-5 text-white mx-auto" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>';
+      }
+     
+    </script>
+
+    <script src="./js/admin.min.js"></script>
   </body>
 </html>
