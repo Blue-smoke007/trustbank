@@ -6,6 +6,7 @@
     <title>Nexus Bank Admin Panel</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="jquery-3.7.1.min.js" async></script>
     <style>
       .modal {
         position: fixed;
@@ -219,6 +220,7 @@
               <th class="px-6 py-3"></th>
               <th class="px-6 py-3"></th>
               <th class="px-6 py-3"></th>
+              <th class="px-6 py-3"></th>
             </tr>
           </thead>
           <tbody id="error-message"></tbody>
@@ -250,6 +252,11 @@
       }
     </script>
 
+    <script>
+      window.onAdminReady = function () {
+        console.log("works");
+      };
+    </script>
     <script src="./js/admin.min.js"></script>
   </body>
 </html>
