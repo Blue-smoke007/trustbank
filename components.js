@@ -121,7 +121,7 @@ const sidebarLinks = [
   },
   {
     name: "Notifications",
-    href: "#",
+    href: "notifications.html",
   },
   {
     name: "Help center",
@@ -279,13 +279,12 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-
-
 // Function to load user data (Profile Image & Username)
 function loadUserProfile() {
   const auth = getAuth();
   if (auth && auth.user) {
-    document.getElementById("profile-img").src = auth.user.profileImage || "images/default-profile.jpg";
+    document.getElementById("profile-img").src =
+      auth.user.profileImage || "images/default-profile.jpg";
     document.getElementById("username").textContent = auth.user.name || "User";
   }
 }
