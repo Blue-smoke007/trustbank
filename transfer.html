@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>Transfer Money</title>
+    <title>Transactions</title>
 
     <link
       rel="stylesheet"
@@ -94,7 +94,7 @@
     </header>
 
     <main class="flex items-center justify-center min-h-screen bg-gray-50">
-      <div class="bg-white shadow-lg rounded-lg w-full max-w-4xl">
+      <div class="bg-white shadow-lg rounded-lg w-full max-w-4xl p-4 md:p-8">
         <div class="p-8 border-b">
           <h2 class="text-2xl font-semibold text-gray-800">Transfer Funds</h2>
         </div>
@@ -105,45 +105,45 @@
           >
             <div>
               <label class="block text-black mb-2">Recipient details</label>
-              <div class="grid grid-cols-1 gap-9">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <input
                 id="receipent_bank"
                   type="text"
                   placeholder="Name of recipient's bank"
-                  class="p-3 bg-white border border-purple-950 rounded-lg text-black placeholder-black"
+                  class="w-full p-3 bg-white border border-purple-950 rounded-lg text-black placeholder-black"
                 />
                 <input
                 id="receipent_account"
                   type="text"
                   placeholder="Recipient's account number"
-                  class="p-3 bg-white border border-purple-950 rounded-lg text-black placeholder-black"
+                  class="w-full p-3 bg-white border border-purple-950 rounded-lg text-black placeholder-black"
                 />
                 <input
                 id="receipent_email"
                   type="text"
                   placeholder="Recipient's Email"
-                  class="p-3 bg-white border border-purple-950 rounded-lg text-black placeholder-black"
+                  class="w-full p-3 bg-white border border-purple-950 rounded-lg text-black placeholder-black"
                 />
                 <input
                 id="iban"
                 name="iban"
                   type="text"
                   placeholder="IBAN number"
-                  class="p-3 bg-white border border-purple-950 rounded-lg text-black placeholder-black"
+                  class="w-full p-3 bg-white border border-purple-950 rounded-lg text-black placeholder-black"
                 />
                 <input
                 id="routing"
                 name="routing"
                   type="text"
                   placeholder="Routing number"
-                  class="p-3 bg-white border border-purple-950 rounded-lg text-black placeholder-black"
+                  class="w-full p-3 bg-white border border-purple-950 rounded-lg text-black placeholder-black"
                 />
                 <textarea
                   id="message"
                   placeholder="Description"
                   rows="4"
                   cols="30"
-                  class="p-3 bg-white border border-purple-950 rounded-lg text-black placeholder-black"
+                  class="w-full p-3 bg-white border border-purple-950 rounded-lg text-black placeholder-black"
                 ></textarea>
               </div>
             </div>
@@ -154,11 +154,10 @@
                 <input
                 id="amount"
                   type="text"
-                  value="$133,767.00"
+                  value=""
                   class="p-3 bg-white border border-purple-700 rounded-lg text-black placeholder-black"
                 />
 
-                <!-- Custom Dropdown with Flags -->
                 <div class="relative">
                   <button
                     type="button"

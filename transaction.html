@@ -45,7 +45,7 @@
     <div class="container mx-auto mt-8 flex">
       <div class="sidebar"></div>
 
-      <main class="w-3/4 pl-8">
+      <main class="w-full md:w-3/4 md:pl-8 p-4">
         <div class="bg-white rounded-2xl shadow-md p-24">
           <h1 class="text-2xl font-bold mb-4">Welcome <span class="_username"></span></h1>
           <p class="text-gray-700 text-lg mb-6">Your balance</p>
@@ -63,44 +63,27 @@
               </thead>
               <tbody id="trans">
                 <tr class="border-t">
-                  <td class="py-2 flex items-center">
-                    <span
-                      class="inline-block w-4 h-4 bg-red-500 rounded-full mr-2"
-                    ></span
-                    >Electricity bill
-                  </td>
-                  <td class="py-2">$1200.00</td>
-                  <td class="py-2">12/10/2025</td>
+                  <td class="py-2 flex items-center"></td>
+                  <td class="py-2"></td>
+                  <td class="py-2"></td>
                 </tr>
                 <tr class="border-t">
                   <td class="py-2 flex items-center">
-                    <span
-                      class="inline-block w-4 h-4 bg-green-500 rounded-full mr-2"
-                    ></span
-                    >Renumeration
                   </td>
-                  <td class="py-2">$2,000.00</td>
-                  <td class="py-2">12/12/2024</td>
+                  <td class="py-2"></td>
+                  <td class="py-2"></td>
                 </tr>
                 <tr class="border-t">
                   <td class="py-2 flex items-center">
-                    <span
-                      class="inline-block w-4 h-4 bg-red-500 rounded-full mr-2"
-                    ></span
-                    >Rent
                   </td>
-                  <td class="py-2">$3500.00</td>
-                  <td class="py-2">13/06/2024</td>
+                  <td class="py-2"></td>
+                  <td class="py-2"></td>
                 </tr>
                 <tr class="border-t">
                   <td class="py-2 flex items-center">
-                    <span
-                      class="inline-block w-4 h-4 bg-green-500 rounded-full mr-2"
-                    ></span
-                    >House Provisions
                   </td>
-                  <td class="py-2">$1280.00</td>
-                  <td class="py-2">01/06/2024</td>
+                  <td class="py-2"></td>
+                  <td class="py-2"></td>
                 </tr>
               </tbody>
             </table>
@@ -129,6 +112,56 @@
         </div>
       </div>
     </div>
+
+
+    <!-- Sidebar (Visible Only on Mobile) -->
+<div
+id="sidebar"
+class="fixed top-0 left-0 bg-white w-64 h-full p-6 space-y-4 transition-transform duration-300 ease-in-out transform -translate-x-full md:hidden z-50 shadow-lg"
+>
+<div class="text-center font-[Montserrat] text-lg w-full">
+  <img src="images/logo2.jpg" class="rounded-lg overflow-hidden" />
+  <hr />
+  <nav class="space-y-16 h-full">
+    <ul class="flex flex-col justify-between h-full py-2 gap-2">
+      <li><a href="#" class="block p-2 hover:text-purple-600 border rounded-lg">Dashboard</a></li>
+      <li><a href="#" class="block p-2 hover:text-purple-600 border rounded-lg">Transactions</a></li>
+      <li><a href="#" class="block p-2 hover:text-purple-600 border rounded-lg">Manage cards</a></li>
+      <li><a href="#" class="block p-2 hover:text-purple-600 border rounded-lg">Notifications</a></li>
+      <li><a href="#" class="block p-2 hover:text-purple-600 border rounded-lg">Settings</a></li>
+      <li><a><button class="block w-full p-2 hover:text-purple-600 border rounded-lg">Sign out</button></a></li>
+    </ul>
+  </nav>
+</div>
+</div>
+
+<!-- Sidebar Toggle Button (Mobile Only) -->
+<div class="md:hidden fixed top-16 left-0 z-50">
+<button
+  id="menu-btn"
+  class="p-3 bg-none text-white rounded-lg"
+  onclick="toggleSidebar()"
+>
+  ☰
+</button>
+</div>
+
+<!-- Overlay for mobile -->
+<div id="sidebar-overlay" class="fixed inset-0 bg-black bg-opacity-50 hidden md:hidden" onclick="toggleSidebar()"></div>
+
+<!-- JavaScript for Sidebar Toggle -->
+<script>
+function toggleSidebar() {
+  const sidebar = document.getElementById("sidebar");
+  const overlay = document.getElementById("sidebar-overlay");
+
+  const isSidebarVisible = sidebar.classList.contains("-translate-x-full");
+
+  // Toggle sidebar visibility
+  sidebar.classList.toggle("-translate-x-full", !isSidebarVisible);
+  overlay.classList.toggle("hidden", !isSidebarVisible);
+}
+</script>
 
     
     <script src="./bundle.min.js"></script>

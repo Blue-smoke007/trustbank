@@ -133,7 +133,7 @@ const sidebarLinks = [
   },
 ];
 const sidebar = `
-<aside class="w-1/4 bg-white rounded-lg shadow-xl p-6 space-y-4 ">
+<aside class="hidden md:block w-1/4 bg-white rounded-lg shadow-xl p-6 space-y-4 ">
   <div class="text-center font-[Montserrat] text-lg w-full">
     <img src="images/logo2.jpg" className="rounded-lg overflow-hidden"/>
     <hr />
@@ -279,18 +279,4 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// Function to load user data (Profile Image & Username)
-function loadUserProfile() {
-  const auth = getAuth();
-  if (auth && auth.user) {
-    document.getElementById("profile-img").src =
-      auth.user.profileImage || "images/default-profile.jpg";
-    document.getElementById("username").textContent = auth.user.name || "User";
-  }
-}
 
-/** Controls **/
-document.addEventListener("DOMContentLoaded", () => {
-  $("body").prepend(header);
-  loadUserProfile(); // Load profile data after inserting header
-});
