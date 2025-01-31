@@ -280,3 +280,43 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
+
+document.addEventListener("DOMContentLoaded", () => {
+  $("head").append(style);
+  $("body").prepend(header);
+  $("body").append(footer);
+  $("body").append(modal);
+  $(".sidebar").replaceWith($(sidebar));
+  $(".logout").on("click", logout);
+
+  // Add event listener for Help Center button
+  document.getElementById("help-center").addEventListener("click", (event) => {
+    event.preventDefault(); // Prevent default anchor behavior
+    toggleChat(); // Call the function to toggle chat visibility
+  });
+
+  window.onComponentLoaded?.({
+    getAuth,
+    setAuth,
+    toggleModal,
+    login,
+    api,
+  });
+});
+
+
+function toggleChat() {
+  const chatWindow = document.getElementById("chat-window");
+  const chatIcon = document.getElementById("chat-icon");
+  const closeIcon = document.getElementById("close-icon");
+
+  if (chatWindow.classList.contains("hidden")) {
+    chatWindow.classList.remove("hidden");
+    chatIcon.classList.add("hidden");
+    closeIcon.classList.remove("hidden");
+  } else {
+    chatWindow.classList.add("hidden");
+    chatIcon.classList.remove("hidden");
+    closeIcon.classList.add("hidden");
+  }
+}
