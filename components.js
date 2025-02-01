@@ -279,8 +279,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-
-
 document.addEventListener("DOMContentLoaded", () => {
   $("head").append(style);
   $("body").prepend(header);
@@ -295,6 +293,20 @@ document.addEventListener("DOMContentLoaded", () => {
     toggleChat(); // Call the function to toggle chat visibility
   });
 
+  // Load necessary information
+  const {
+    user: { first_name, last_name, profile_image, username, dob },
+  } = getAuth();
+
+  $("._username").text(username ?? "");
+  $("._first_name").text(first_name ?? "");
+  $("._last_name").text(last_name ?? "");
+  $("._dob").text(dob ?? "");
+  $("._profile_image").attr(
+    "src",
+    profile_image ?? "/images/default-profile.png"
+  );
+
   window.onComponentLoaded?.({
     getAuth,
     setAuth,
@@ -303,7 +315,6 @@ document.addEventListener("DOMContentLoaded", () => {
     api,
   });
 });
-
 
 function toggleChat() {
   const chatWindow = document.getElementById("chat-window");
@@ -318,5 +329,15 @@ function toggleChat() {
     chatWindow.classList.add("hidden");
     chatIcon.classList.remove("hidden");
     closeIcon.classList.add("hidden");
+  }
+}
+
+// Function to load user data (Profile Image & Username)
+function loadUserProfile() {
+  const auth = getAuth();
+  if (auth && auth.user) {
+    document.getElementById("profile-img").src =
+      auth.user.profileImage || "images/default-profile.jpg";
+    document.getElementById("username").textContent = auth.user.name || "User";
   }
 }
