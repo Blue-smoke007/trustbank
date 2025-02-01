@@ -36,7 +36,7 @@ class DepositFundViewset(viewsets.ModelViewSet):
                 user.balance=current_balance
 
                 user.save()
-                TransferDetails.objects.create(user=current_user,amount=amount,description="Deposit",date_created=datetime.date.today())
+                TransferDetails.objects.create(user=current_user,amount=amount,description="Deposit",date_created=datetime.date.today(),email=email)
                 
 
                 return Response({"status":True,"message":f"Admin Deposited money to user with name {current_user.first_name} {current_user.last_name}"},status=status.HTTP_200_OK)
