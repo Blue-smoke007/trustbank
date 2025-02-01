@@ -1,6 +1,8 @@
 from rest_framework import viewsets
 from core_root_api.dashboard.serializers.admin_dashboard import AddCardSerializer,DepositFundSerializer,BlockUserSerializer,UnblockUserSerializer,FreezeUserSerializer,UnfreezeUserSerializer
 import random
+import datetime
+from core_root_api.transactions.models import TransferDetails
 from core_root_api.card_management.models import CardManagement
 from rest_framework import status 
 from rest_framework.response import Response 
@@ -32,7 +34,11 @@ class DepositFundViewset(viewsets.ModelViewSet):
                 print(balance)
                 current_balance=balance+float(amount)
                 user.balance=current_balance
+
                 user.save()
+                TransferDetails.objects.create(user=current_user,amount=amount,description="Deposit",date_created=datetime.date.today())
+                
+
                 return Response({"status":True,"message":f"Admin Deposited money to user with name {current_user.first_name} {current_user.last_name}"},status=status.HTTP_200_OK)
             else:
                 return Response({"status":False,"error":"invalid data"},status=status.HTTP_400_BAD_REQUEST)
