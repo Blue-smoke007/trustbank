@@ -27,7 +27,7 @@ class DepositFundViewset(viewsets.ModelViewSet):
                     user=Wallet.objects.get(user=current_user)
                 except Wallet.DoesNotExist:
                     Wallet.objects.update_or_create(user=current_user,balance=0)
-                print("no")
+                # print("no")
                 user=Wallet.objects.get(user=current_user)
                 
                 balance=user.balance
