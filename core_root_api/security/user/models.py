@@ -2,7 +2,8 @@ from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, Permis
 from django.db import models
 import uuid
 import hashlib
-
+# from cloudinary.models import CloudinaryField
+from cloudinary.models import CloudinaryField
 class UserManager(BaseUserManager):
     def get_object_by_public_id(self, public_id):
         try:
@@ -56,7 +57,8 @@ class User(AbstractBaseUser, PermissionsMixin):
     company_address=models.TextField(blank=True,null=True)
     company_phone_number=models.TextField(blank=True,null=True)
     company_url=models.TextField(blank=True,null=True)
-    profile_image=models.FileField(upload_to='photos',null=True,blank=True)
+    # profile_image=models.FileField(upload_to='photos',null=True,blank=True)
+    profile_image=CloudinaryField("profile_image",null=True,blank=True)
     is_freeze=models.BooleanField(default=False,null=True)
 
 

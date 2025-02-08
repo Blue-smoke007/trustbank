@@ -10,7 +10,14 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 from datetime import timedelta
+import cloudinary.uploader
+import cloudinary.api
 
+cloudinary.config(
+   cloud_name = "drlcmhrcg",
+   api_key = "997498217494732",
+   api_secret = "kNxzzNDDqvi2ppSHIpbWIU58_wA"
+   )
 from pathlib import Path
 import os
 from dotenv import load_dotenv
@@ -40,6 +47,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'cloudinary',
     'cloudinary_storage',
     'core_root_api',
     # 'core_root_api.job_api',
@@ -191,7 +199,8 @@ SIMPLE_JWT = {
 # STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
-MEDIA_URL='media/'
+MEDIA_URL = '/media/'
+
 # MEDIA_ROOT=os.path.join(BASE_DIR,'media')
 CLOUD_NAME="drlcmhrcg"
 CLOUDINARY_API_KEY="997498217494732"
