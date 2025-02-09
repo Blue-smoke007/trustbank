@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Financial Journey</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="components.js" defer type="module"></script>
+  <script src="https://cdn.jsdelivr.net/npm/motion@latest/dist/motion.js"></script>
+  
+  <script>
+    function handleButtonClick(button) {
+      button.disabled = true;
+      button.innerHTML = '<svg class="animate-spin h-5 w-5 text-white mx-auto" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>';
+    }
+  </script>
+
+</head>
+<body>
+  <section class="hero-section relative text-white">
+    <div class="hero-bg-wrapper absolute inset-0 before:absolute before:inset-0 before:bg-black/70 -z-10"></div>
+
+    <div class="relative h-screen bg-cover bg-center" style="background-image: url('images/truist1.jpeg');"> 
+      <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+      <div class="relative max-w-7xl mx-auto px-6 lg:px-16 flex flex-col lg:flex-row items-center justify-between h-full">
+        <div class="hero-text text-left max-w-2xl opacity-0">
+          <h1 class="text-4xl lg:text-5xl font-bold mb-6">Empowering Your Financial Journey</h1>
+          <p class="text-lg mb-8">Experience seamless banking with Truist – where innovation meets trust. Manage your finances effortlessly, anytime, anywhere.</p>
+        </div>
+
+        <div class="bg-purple-950 bg-opacity-25 p-8 rounded-lg shadow-lg max-w-md w-full">
+          <form class="login-form">
+            <div class="mb-6">
+              <label for="email" class="block text-sm font-medium mb-2 focus-within:bg-purple-950">Email address</label>
+              <input type="email" id="email" name="email" class="w-full p-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500">
+            </div>
+            <div class="mb-6">
+              <label for="password" class="block text-sm font-medium mb-2 focus:ring-purple-950">Password</label>
+              <div class="relative">
+                <input type="password" id="password" name="password" class="w-full p-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500">
+                <button type="button" class="absolute inset-y-0 right-3 flex items-center text-gray-400 ">👁️</button>
+              </div>
+            </div>
+            <div class="flex justify-between items-center mb-6">
+              <a href="#" class="text-sm text-purple-400 hover:underline">Forgot password?</a>
+            </div>
+            <button type="submit" class="w-full bg-purple-950 hover:bg-purple-600 text-white font-medium py-3 rounded-lg mb-4">Sign in</button>
+            <div class="transition duration-150 ease-out md:ease-in text-center text-sm text-gray-400 mb-4"><a><button class="w-full border border-gray-600 text-white font-medium py-3 rounded-lg hover:bg-purple-600" onclick="handleButtonClick(this)">Sign in to another account →</button></a></div>
+            <hr class="border-gray-700 mb-4">
+            <a href="createaccount.html"><button type="button" class="w-full border border-gray-600 text-white font-medium py-3 rounded-lg hover:bg-purple-600" onclick="handleButtonClick(this)">Create new account</button></a>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    
+    <section id="products" class="bg-gray-100 text-gray-900 py-16">
+      <div class="max-w-7xl mx-auto px-6 lg:px-16">
+        <h2 class="text-3xl font-bold text-center text-purple-900 mb-12">
+          Our Products
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- Card 1 -->
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+            <img
+              src="images/image1.jpeg"
+              alt="Investing"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-lg font-semibold mb-2">Investing</h3>
+              <p class="text-sm text-gray-700">
+                Unlock your financial potential with our diverse investment
+                options. From stocks to ETFs, we cater to all experience levels.
+                Start investing today and watch your wealth grow!
+              </p>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+            <img
+              src="images/im2.jpeg"
+              alt="Savings"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-lg font-semibold mb-2">Savings</h3>
+              <p class="text-sm text-gray-700">
+                Build your financial safety net with our high-interest savings
+                accounts. Enjoy no monthly fees and easy access to your funds.
+                Start saving today and watch your money grow!
+              </p>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+            <img
+              src="images/im3.jpeg"
+              alt="Mortgage"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-lg font-semibold mb-2">Mortgage</h3>
+              <p class="text-sm text-gray-700">
+                Make homeownership a reality with our mortgage solutions. Choose
+                from various products and enjoy expert guidance. Start your
+                journey today!
+              </p>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+            <img
+              src="images/im4.jpeg"
+              alt="Insurance"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-lg font-semibold mb-2">Insurance</h3>
+              <p class="text-sm text-gray-700">
+                Safeguard your assets with our tailored insurance plans. From
+                life to auto coverage, we’ve got you covered for peace of mind
+                and protection.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <section class="bg-white py-16">
+      <div class="max-w-7xl mx-auto px-6 lg:px-16">
+        <h2 class="text-3xl text-purple-900 mb-8">Enjoy cash rewards</h2>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+  
+          <div>
+            <h3 class="text-2xl font-bold mb-4 text-purple-950">Fill up. Stock up. Charge up. All with cash back.</h3>
+            <p class="text-gray-700 mb-6">Turn grocery runs and fuel stops into extra rewards with the Truist Enjoy Cash credit card. <a href="#" class="text-purple-500 underline">See rates, fees and rewards</a></p>
+            <a href="#" class="inline-block text-purple-950 px-6 py-2 rounded-lg shadow-lg hover:underline">Learn more</a>
+            <div class="mt-6 flex space-x-4">
+              <button class="px-4 py-2 border border-purple-950 text-purple-950 rounded-lg hover:bg-purple-950 hover:text-white">3-2-1% Cash back</button>
+              <button class="px-4 py-2 border border-purple-950 text-purple-950 rounded-lg hover:bg-purple-950 hover:text-white">1.5% Cash back</button>
+            </div>
+          </div>
+  
+          <div>
+            <img src="images/6.jpeg" alt="Family Shopping" class="rounded-lg shadow-lg">
+          </div>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-14 mt-12">
+  
+          <div class="bg-gray-300 p-6 rounded-3xl shadow-2xl">
+            <h4 class="text-lg font-semibold mb-10 text-black">Loans</h4>
+            <h5 class="font-bold text-black text-4xl mb-10">We have loans to help make your sprirt bright</h5>
+            <p class="text-black">Our fast decision-making process for Truist personal loans can make holiday wishes come true in minutes.</p>
+            <a href="#" class="text-purple-500 mt-4 inline-block">
+              <button class="px-4 py-2 border border-purple-950 text-purple-950 rounded-lg hover:bg-purple-950 hover:text-white">Learn more</button>
+              </a>
+          </div>
+  
+          <div class="bg-gray-300 p-4 rounded-3xl shadow-2xl">
+            <h4 class="text-lg font-semibold mb-10 text-black ">Truist One Checking</h4>
+            <h5 class="font-bold text-black mb-10 text-4xl">Stuff your stocking with a Truist One Checking account</h5>
+            <p class="text-black">Enjoy a checking account with automatic upgrades and no overdraft fees this holiday season.</p>
+            <a href="#" class="text-purple-950 mt-4 inline-block">
+              <button type="submit" class="px-4 py-2 border border-purple-950 text-purple-950 rounded-lg hover:bg-purple-950 hover:text-white" onclick="handleButtonClick(this)">Learn more</button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+  
+    <section class="grid grid-cols-1 md:grid-cols-4 gap-10 p-20  bg-cover bg-center" style="background-image: url('images/ui.jpeg')">
+  
+      <div class="bg-purple-950 p-6 rounded-md">
+        <h3 class="font-bold text-lg">Credit card offers</h3>
+        <p class="mt-2 text-sm">A great credit card may be waiting for you. Enjoy a checking account with automatic upgrades and no overdraft fees this holiday season.</p>
+        <button class="mt-4 border border-white bg-purple-950 text-white py-0 px-10 rounded-2xl">Check offers</button>
+      </div>
+      <div class="bg-purple-950 p-6 rounded-md">
+        <h3 class="font-bold text-lg">PayPal</h3>
+        <p class="mt-2 text-sm">Give and go with PayPal®. Use PayPal® to send money to the people you celebrate right from your phone.</p>
+        <a href="https://www.paypal.com/ng/home">
+          <button class="mt-8 border border-white bg-purple-950 text-white py-0 px-10 rounded-2xl">Check offers</button>
+        </a>
+      </div>
+      <div class="  bg-purple-950 p-6 rounded-md">
+        <h3 class="font-bold text-lg">Money market account</h3>
+        <p class="mt-2 text-sm">Sleigh your end-of-year savings goals. Cozy up to the Truist One Money Account today.</p>
+        <button class=" mt-10 border border-white bg-purple-950 text-white py-0 px-10 rounded-2xl">Check offers</button>
+      </div>
+      <div class="bg-purple-950 p-6 rounded-md">
+        <h3 class="font-bold text-lg">Home mortgage</h3>
+        <p class="mt-2 text-sm">Refinancing now might save you money. Falling rates have opened the door to potentially lowering your mortgage.</p>
+        <button class="mt-4 border border-white bg-purple-950 text-white py-0 px-10 rounded-2xl">Check offers</button>
+      </div>
+    </section>
+  
+    <section class="p-10 flex flex-col md:flex-row items-center bg-gray-100 text-black">
+  
+      <div class="md:w-72 ml-24">
+        <img src="images/3.jpeg" alt="Person smiling at phone" class="rounded-lg">
+      </div>
+  
+      <div class="md:w-1/2 md:ml-24 mt-6 md:mt-0">
+        <h1 class="text-3xl font-bold">Crystal clear—created with care.</h1>
+        <h2 class="text-3xl font-bold">Stock up. Charge up. All with cash back.</h2>
+        <p class="mt-4 text-lg">Meet the Truist app. Get super-fast access to your accounts and bright insights into your spending with our mobile app.</p>
+        <div class="mt-6 w-32 h-auto shadow-lg rounded-lg">
+          <img src="images/barcode.png" alt="QR code" class="inline-block ">
+        </div>
+          <p class="mt-2 text-wrap font-semibold">Scan this code with your phone’s camera to download Truist Mobile.</p>
+        </div>
+      </div>
+    </section>
+
+    <script>
+ 
+      const { animate, stagger } = Motion;
+
+      animate([
+        [".hero-text", { opacity: 1 }, { duration: 1 }],
+        [
+          ".login-form > *",
+          {
+            opacity: [0, 1],
+            x: [100, 0],
+          },
+          {
+            delay: stagger(0.1),
+          },
+        ],
+      ]);
+    </script>
+
+
+
+<div class="fixed bottom-6 right-6 z-50" id="chat-support">
+  <button onclick="toggleChat()" class="bg-purple-950 hover:bg-purple-800 text-white rounded-full p-4 shadow-lg">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" id="chat-icon">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+    </svg>
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" id="close-icon">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+    </svg>
+  </button>
+
+  
+  <div class="hidden absolute bottom-20 right-0 w-96 bg-white rounded-lg shadow-xl" id="chat-window">
+    <!-- Chat Header -->
+    <div class="bg-purple-950 text-black p-4 rounded-t-lg">
+      <h3 class="text-lg font-semibold">Customer Support</h3>
+      <p class="text-sm opacity-90">We'll connect you with our support team</p>
+    </div>
+
+    
+    <div class="h-96 overflow-y-auto p-4 bg-gray-50" id="chat-messages">
+      
+
+      <div class="mb-4 text-left">
+        <div class="inline-block bg-gray-200 text-black p-3 rounded-lg max-w-[80%]">
+          Hello! How can we help you today?
+        </div>
+      </div>
+    </div>
+
+   
+    <form onsubmit="sendMessage(event)" class="p-4 border-t">
+      <div class="flex gap-2">
+        <input type="text" id="message-input" placeholder="Type your message..." class=" text-black flex-1 p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500">
+        <button type="submit" class="bg-purple-950 text-black p-2 rounded-lg hover:bg-purple-800">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+          </svg>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+  function toggleChat() {
+    const chatWindow = document.getElementById('chat-window');
+    const chatIcon = document.getElementById('chat-icon');
+    const closeIcon = document.getElementById('close-icon');
+    
+    if (chatWindow.classList.contains('hidden')) {
+      chatWindow.classList.remove('hidden');
+      chatIcon.classList.add('hidden');
+      closeIcon.classList.remove('hidden');
+    } else {
+      chatWindow.classList.add('hidden');
+      chatIcon.classList.remove('hidden');
+      closeIcon.classList.add('hidden');
+    }
+  }
+
+  function sendMessage(event) {
+    event.preventDefault();
+    const input = document.getElementById('message-input');
+    const messagesContainer = document.getElementById('chat-messages');
+    
+    if (input.value.trim()) {
+      // Add user message
+      const userMessage = `
+        <div class="mb-4 text-right">
+          <div class="inline-block bg-purple-950 text-white p-3 rounded-lg max-w-[80%]">
+            ${input.value}
+          </div>
+        </div>
+      `;
+      messagesContainer.insertAdjacentHTML('beforeend', userMessage);
+
+      // Add bot response with email link
+      setTimeout(() => {
+        const botMessage = `
+          <div class="mb-4 text-left">
+            <div class="inline-block bg-gray-200 text-gray-800 p-3 rounded-lg max-w-[80%]">
+              Thank you for reaching out! For immediate assistance, please email our support team at 
+             <a href="mailto:s.unitybank@gmail.com" class="text-purple-950 hover:underline font-medium">support@unitybank.com</a>
+
+              <br><br>
+              Our team typically responds within 24 hours. Please include any relevant details about your inquiry.
+            </div>
+          </div>
+        `;
+        messagesContainer.insertAdjacentHTML('beforeend', botMessage);
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+      }, 1000);
+
+      input.value = '';
+      messagesContainer.scrollTop = messagesContainer.scrollHeight;
+    }
+  }
+</script>
+<script>
+  function onComponentLoaded({login}) {
+    $('form.login-form').on('submit', function(event) {
+      event.preventDefault()
+      login(new FormData(this))
+    })
+  }
+</script>
+<!-- <script src="./bundle.min.js"></script> -->
+  </body>
+  </html>
+  
