@@ -11,14 +11,14 @@ const header = `
       <!-- <span class="text-lg font-semibold tracking-widest">TRUIST</span> -->
     </div>
     <ul class="flex space-x-6">
-      <li><a href="/homepage.html#" class="text-white hover:border-b-2 px-4 py-1">Home</a></li>
+      <li><a href="/index.html#" class="text-white hover:border-b-2 px-4 py-1">Home</a></li>
       <li>
-        <a href="/homepage.html#products" class="text-white hover:border-b-2 px-4 py-1"
+        <a href="/index.html#products" class="text-white hover:border-b-2 px-4 py-1"
           >Products</a
         >
       </li>
       <li>
-        <a href="/homepage.html#rewards" class="text-white hover:border-b-2 px-4 py-1"
+        <a href="/index.html#rewards" class="text-white hover:border-b-2 px-4 py-1"
           >Rewards</a
         >
       </li>
@@ -231,7 +231,7 @@ async function login(formData) {
 
 function logout() {
   setAuth(null);
-  window.location.href = "homepage.html";
+  window.location.href = "index.html";
 }
 
 function getAuth() {
@@ -260,24 +260,6 @@ function isAdmin() {
   const auth = getAuth();
   return admins.includes(auth?.user?.email);
 }
-
-/** Controls **/
-document.addEventListener("DOMContentLoaded", () => {
-  $("head").append(style);
-  $("body").prepend(header);
-  $("body").append(footer);
-  $("body").append(modal);
-  $(".sidebar").replaceWith($(sidebar));
-  $(".logout").on("click", logout);
-
-  window.onComponentLoaded?.({
-    getAuth,
-    setAuth,
-    toggleModal,
-    login,
-    api,
-  });
-});
 
 document.addEventListener("DOMContentLoaded", () => {
   $("head").append(style);
