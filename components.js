@@ -220,7 +220,7 @@ async function login(formData) {
     toggleModal(true, "success");
     setTimeout(() => {
       toggleModal(false);
-      window.location.href = isAdmin() ? "admin.html" : "account.html";
+      window.location.href = "account.html";
     }, 3000);
   } catch (error) {
     console.log(error);
@@ -261,6 +261,17 @@ function isAdmin() {
   return admins.includes(auth?.user?.email);
 }
 
+function handleButtonClick(button) {
+  button.disabled = true;
+  button.innerHTML =
+    '<svg class="animate-spin h-5 w-5 text-white mx-auto" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>';
+}
+
+function resetButton(button, originalText) {
+  button.disabled = false;
+  button.innerHTML = originalText;
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   $("head").append(style);
   $("body").prepend(header);
@@ -270,10 +281,14 @@ document.addEventListener("DOMContentLoaded", () => {
   $(".logout").on("click", logout);
 
   // Add event listener for Help Center button
-  document.getElementById("help-center").addEventListener("click", (event) => {
-    event.preventDefault(); // Prevent default anchor behavior
-    toggleChat(); // Call the function to toggle chat visibility
-  });
+  try {
+    document
+      .getElementById("help-center")
+      .addEventListener("click", (event) => {
+        event.preventDefault(); // Prevent default anchor behavior
+        toggleChat(); // Call the function to toggle chat visibility
+      });
+  } catch {}
 
   // Load necessary information
   const {
@@ -295,6 +310,8 @@ document.addEventListener("DOMContentLoaded", () => {
     toggleModal,
     login,
     api,
+    handleButtonClick,
+    resetButton,
   });
 });
 

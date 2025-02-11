@@ -31,7 +31,7 @@
             </div>
     
             <div class="bg-purple-950 bg-opacity-25 p-8 rounded-lg shadow-lg max-w-md w-full">
-              <form class="login-form">
+              <form class="login-form" name="login-form">
                 <div class="mb-6">
                   <label for="email" class="block text-sm font-medium mb-2 focus-within:bg-purple-950">Email address</label>
                   <input type="email" id="email" name="email" class="w-full p-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500">
@@ -340,8 +340,9 @@
     </script>
     <script>
       function onComponentLoaded({login}) {
-        $('form.login-form').on('submit', function(event) {
-          event.preventDefault()
+
+        $('form.login-form').on('submit', function(e) {
+          e.preventDefault()
           login(new FormData(this))
         })
       }
