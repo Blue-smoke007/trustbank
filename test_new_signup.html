@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Registration Form</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 2em; }
+    label { display: block; margin-top: 1em; }
+    input, button { padding: 0.5em; width: 300px; max-width: 100%; }
+    #response { white-space: pre-wrap; background: #f4f4f4; padding: 1em; margin-top: 2em; }
+  </style>
+</head>
+<body>
+  <h1>Register</h1>
+  <form id="registerForm">
+    <label for="first_name">First Name:
+      <input type="text" id="first_name" name="first_name" required>
+    </label>
+
+    <label for="last_name">Last Name:
+      <input type="text" id="last_name" name="last_name" required>
+    </label>
+
+    <label for="dob">Date of Birth:
+      <input type="date" id="dob" name="dob" required>
+    </label>
+
+    <label for="email">Email:
+      <input type="email" id="email" name="email" required>
+    </label>
+
+    <label for="phone_number">Phone Number:
+      <input type="tel" id="phone_number" name="phone_number" required>
+    </label>
+
+    <label for="password">Password:
+      <input type="password" id="password" name="password" required>
+    </label>
+
+    <label for="confirm_password">Confirm Password:
+      <input type="password" id="confirm_password" name="confirm_password" required>
+    </label>
+
+    <label for="profile_image">Profile Image:
+      <input type="file" id="profile_image" name="profile_image" accept="image/png, image/jpeg">
+    </label>
+
+    <button type="submit">Register</button>
+  </form>
+
+  <div id="response"></div>
+
+  <script>
+    document.getElementById('registerForm').addEventListener('submit', async function(event) {
+      event.preventDefault(); // Prevent the default form submission
+
+      const form = event.target;
+      const formData = new FormData(form);
+
+      // Set the CSRF token if needed (this should match the server expectation)
+      const csrfToken = "uAZAojcYOLenLoIWOhc8n0Y82B34TLHY9NQej3hFGynnUmzNf64Fw1ZCRiId8a0k"; // Replace if needed
+
+      try {
+        const response = await fetch('https://nexusbank-backend.onrender.com/register/', {
+          method: 'POST',
+          headers: {
+            'accept': 'application/json',
+            'X-CSRFTOKEN': csrfToken
+            // Do NOT set the Content-Type header when sending FormData.
+          },
+          body: formData
+        });
+
+        const data = await response.json();
+        document.getElementById('response').textContent = JSON.stringify(data, null, 2);
+      } catch (error) {
+        document.getElementById('response').textContent = 'Error: ' + error;
+      }
+    });
+  </script>
+</body>
+</html>
