@@ -37,7 +37,6 @@ DEBUG = True
 # DEBUG=False
 ALLOWED_HOSTS = ['https://nexusbank-backend.onrender.com/','*']
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -219,6 +218,3 @@ DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 FILE_UPLOAD_MAX_MEMORY_SIZE = 100 * 1024 * 1024 * 1024 # (30MEGABYTES)
 DATA_UPLOAD_MAX_MEMORY_SIZE = FILE_UPLOAD_MAX_MEMORY_SIZE
-
-
-

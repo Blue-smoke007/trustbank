@@ -9,6 +9,10 @@ class Wallet(models.Model):
     user=models.ForeignKey(User,on_delete=models.CASCADE,null=True,blank=True)
     balance=models.FloatField(null=True,blank=True)
 
+
+    def __str__(self):
+        return f"{self.user} wallet current state "
+
 class Transactions(models.Model):
     title=models.TextField(null=True,blank=True)
     amount=models.FloatField(null=True,blank=True)

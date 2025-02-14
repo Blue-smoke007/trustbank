@@ -8,6 +8,7 @@ class UserViewset(viewsets.ModelViewSet):
     http_method_names=['patch','get']
     permission_classes=[AllowAny,]
     serializer_class=UserSerializer
+    
 
     def get_queryset(self):
         if self.request.user.is_superuser:

@@ -28,11 +28,14 @@ class TransferViewSet(viewsets.ModelViewSet):
                 
                 balance=user.balance
                 print(balance)
-                current_balance=balance-total_amount
-                user.balance=current_balance
-                user.save()
-                serializer.save(user=request.user,transfer_fee=transfer_fee,total_amount=total_amount)
-                return Response({"status":True,"message":"Transfered money successfully","data":serializer.validated_data})
+                if float(balance)>=float(total_amount):
+                    current_balance=balance-total_amount
+                    user.balance=current_balance
+                    user.save()
+                    serializer.save(user=request.user,transfer_fee=transfer_fee,total_amount=total_amount)
+                    return Response({"status":True,"message":"Transfered money successfully","data":serializer.validated_data})
+                else:
+                    return Response({"status":False,"error":"Insufficient balance"},status=status.HTTP_406_NOT_ACCEPTABLE)
             else:
                 return Response({"status":False,"error":"Invalid data"},status=status.HTTP_400_BAD_REQUEST)
         except Exception as e:
