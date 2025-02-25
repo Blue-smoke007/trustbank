@@ -238,7 +238,7 @@ function getAuth() {
   try {
     return JSON.parse(localStorage.getItem("_auth"));
   } catch (err) {
-    return false;
+    return null;
   }
 }
 
@@ -291,9 +291,8 @@ document.addEventListener("DOMContentLoaded", () => {
   } catch {}
 
   // Load necessary information
-  const {
-    user: { first_name, last_name, profile_image, username, dob },
-  } = getAuth();
+  const { user: { first_name, last_name, profile_image, username, dob } = {} } =
+    getAuth() ?? {};
 
   $("._username").text(username ?? "");
   $("._first_name").text(first_name ?? "");
@@ -334,9 +333,9 @@ function toggleChat() {
 // Function to load user data (Profile Image & Username)
 function loadUserProfile() {
   const auth = getAuth();
-  if (auth && auth.user) {
+  if (auth && auth?.user) {
     document.getElementById("profile-img").src =
-      auth.user.profileImage || "images/default-profile.jpg";
-    document.getElementById("username").textContent = auth.user.name || "User";
+      auth.user?.profileImage || "images/default-profile.jpg";
+    document.getElementById("username").textContent = auth.user?.name || "User";
   }
 }
