@@ -101,7 +101,7 @@ const footer = `
         </div>
       </div>
   <p class="copyright text-center my-4">
-    &copy; 2024, Unity. All Rights Reserved.
+    &copy; 2025, Unity. All Rights Reserved.
   </p>
 </footer>
 `;
